@@ -29,7 +29,7 @@ npm run dev
 
 Voit vapaasti tarkastella, käyttää ja muokata koodia omiin ei-kaupallisiin ja kaupallisiin projekteihisi, edellyttäen että alkuperäinen tekijänoikeusilmoitus ja lisenssin ehdot säilyvät.
 
-Katso lisätietoja **[LICENSE](LICENSE)** tiedostosta.
+Katso lisätietoja **[LICENSE](LICENSE)**-tiedostosta.
 
 ### Sisältö
 
@@ -44,7 +44,7 @@ Lisätietoja tästä lisenssistä löydät osoitteesta:
 [https://creativecommons.org/licenses/by-nc-nd/4.0/](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## 👤 Tekijä
-Christa Eloranta
-eloranta.christa@gmail.com
-💼 [www.linkedin.com/in/christa-eloranta](LinkedIn)
-📸 [https://www.instagram.com/christaeloranta/?hl=en](christaeloranta)
+Christa Eloranta  
+eloranta.christa@gmail.com  
+💼 [LinkedIn](www.linkedin.com/in/christa-eloranta)  
+📸 [christaeloranta](https://www.instagram.com/christaeloranta/?hl=en)  
