@@ -8,6 +8,11 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write # Antaa kirjoitusoikeuden repositorion sisältöön
+      pages: write    # Antaa kirjoitusoikeuden GitHub Pagesiin
+      id-token: write # Tarvitaan OIDC-todennukseen (ei aina välttämätön, mutta hyvä lisätä)
+
 
     steps:
       - name: Checkout repository
@@ -16,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '>=18' # Käytä samaa Node.js-versiota kuin kehityksessäsi
+          node-version: '20' # Käytä samaa Node.js-versiota kuin kehityksessäsi
 
       - name: Install dependencies
         run: npm install
