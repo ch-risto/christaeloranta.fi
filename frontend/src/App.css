@@ -13,3 +13,12 @@
 .read-the-docs {
   color: #888;
 }
+
+a {
+  color: rgb(228, 228, 228);
+  line-height: 130%;
+}
+
+a:hover {
+  color: rgba(228, 228, 228, 0.76);
+}

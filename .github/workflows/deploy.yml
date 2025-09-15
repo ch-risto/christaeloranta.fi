@@ -3,19 +3,19 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main # Vaihda tähän haaran nimi, josta haluat julkaista
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions: 
-      contents: write # Antaa kirjoitusoikeuden repositorion sisältöön
-      pages: write    # Antaa kirjoitusoikeuden GitHub Pagesiin
-      id-token: write # Tarvitaan OIDC-todennukseen (ei aina välttämätön, mutta hyvä lisätä)
+      contents: write
+      pages: write
+      id-token: write
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }} # Tämä kertoo GitHubille, mihin sivusto julkaistaan
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -24,20 +24,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Käytä samaa Node.js-versiota kuin kehityksessäsi
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./frontend # Huom: Asennus frontend-kansiossa!
+        working-directory: ./frontend
 
       - name: Build React app
         run: npm run build
-        working-directory: ./frontend # Huom: Rakennus frontend-kansiossa!
+        working-directory: ./frontend
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4 # Käytä tätä actionia julkaisuun
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/dist # TÄRKEÄÄ: Olettaa, että Vite buildaa 'dist'-kansioon frontendin sisällä
-          # CNAME-tiedoston käsittely (varmistaa, että custom domain pysyy)
-          cname: christaeloranta.fi # Vaihda tähän oma domainisi
+          publish_dir: ./frontend/dist
+          cname: christaeloranta.fi
