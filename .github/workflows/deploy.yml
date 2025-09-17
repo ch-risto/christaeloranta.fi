@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 jobs:
   build-and-deploy:
@@ -30,11 +31,24 @@ jobs:
         run: npm install
         working-directory: ./frontend
 
+      - name: Lint
+        run: npm run lint
+        working-directory: ./frontend
+
+      - name: Type check
+        run: npx tsc --noEmit
+        working-directory: ./frontend
+
+      - name: Run tests
+        run: npm test --if-present
+        working-directory: ./frontend
+
       - name: Build React app
         run: npm run build
         working-directory: ./frontend
 
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

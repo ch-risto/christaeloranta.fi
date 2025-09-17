@@ -1,25 +1,20 @@
-import chLogo from './assets/ch_logoNimellä_valkoin.png'
-import './App.css'
-import FaviconManager from './components/FaviconManager'
+import Layout from './components/Layout/Layout'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Maintenance from './pages/Maintenance/Maintenance'
 
 function App() {
 
   return (
     <>
-      <FaviconManager />
-      <div>
-        <a target='blank' href='https://www.instagram.com/christaeloranta/'>
-          <img src={chLogo} className="logo ch" alt="ch-logo christa eloranta" />
-        </a>
-      </div>
-      <h1>Sivustoa päivitetään</h1>
-      <p className="read-the-docs">
-        Tervetuloa pian takaisin!
-      </p>
-      <p className='read-the-docs'>
-        eloranta.christa@gmail.com<br />
-        <a target='blank' href='https://www.instagram.com/christaeloranta/'>@christaeloranta</a>
-      </p>
+      <BrowserRouter>
+        <Layout>
+          {/* <Header /> */}
+          <Routes>
+            <Route path='/' element={<Maintenance />} />
+          </Routes>
+          {/* <Footer /> */}
+        </Layout>
+      </BrowserRouter>
     </>
   )
 }
