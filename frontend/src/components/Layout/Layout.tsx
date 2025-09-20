@@ -3,8 +3,8 @@ import FaviconManager from '../FaviconManager';
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { darkTheme, lightTheme } from '../../styles/themes';
 import { ThemeProvider } from 'styled-components';
-import MainContainer from '../MainContainer';
-import ContentWrapper from '../ContentWrapper';
+// import MainContainer from '../MainContainer';
+// import ContentWrapper from '../ContentWrapper';
 
 interface LayoutProps {
   children: React.ReactNode;

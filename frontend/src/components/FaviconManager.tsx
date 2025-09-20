@@ -5,7 +5,7 @@ const DARK_FAVICON_PATH = '/ch_white.png';
 
 const FaviconManager: React.FC = () => {
   useEffect(() => {
-    let faviconLink: HTMLLinkElement | null = document.querySelector("link[rel~='icon']");
+    let faviconLink: HTMLLinkElement | null = document.querySelector('link[rel~="icon"]');
 
     if (!faviconLink) {
       faviconLink = document.createElement('link');
