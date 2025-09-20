@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components";
-
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -12,10 +11,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-        font-size: ${props => props.theme.fontSizes.base};
-        font-weight: ${props => props.theme.fontWeights.regular};
-        line-height: ${props => props.theme.lineHeights.normal};
-        font-family: ${props => props.theme.fonts.primary};
+        font-size: ${(props) => props.theme.fontSizes.base};
+        font-weight: ${(props) => props.theme.fontWeights.regular};
+        line-height: ${(props) => props.theme.lineHeights.normal};
+        font-family: ${(props) => props.theme.fonts.primary};
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
@@ -25,29 +24,29 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         margin: 0;
-        color: ${props => props.theme.colors.primary};
-        background-color: ${props => props.theme.colors.background};
+        color: ${(props) => props.theme.colors.primary};
+        background-color: ${(props) => props.theme.colors.background};
         min-width: 320px;
         min-height: 100vh;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     h1 {
-        font-size: ${props => props.theme.fontSizes.heading};
-        line-height: ${props => props.theme.lineHeights.tight};
+        font-size: ${(props) => props.theme.fontSizes.heading};
+        line-height: ${(props) => props.theme.lineHeights.tight};
     }
 
     a {
-        color: ${props => props.theme.colors.link};
+        color: ${(props) => props.theme.colors.link};
         line-height: 1.3;
         transition: color 0.2s ease;
 
         &:hover {
-            color: ${props => props.theme.colors.linkHover};
+            color: ${(props) => props.theme.colors.linkHover};
         }
 
         &:visited {
-            color: ${props => props.theme.colors.linkVisited};
+            color: ${(props) => props.theme.colors.linkVisited};
         }
     }
 
