@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       </StyledHeaderLink>
       <ButtonContainer>
         <p>Minusta</p>
-        <p>cv</p>
+        <p>CV</p>
         <p>Töitäni</p>
       </ButtonContainer>
     </HeaderContainer>
