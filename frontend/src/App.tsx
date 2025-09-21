@@ -1,17 +1,17 @@
 import Layout from './components/Layout/Layout';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Maintenance from './pages/Maintenance/Maintenance';
+import Landing from './pages/Landing/Landing';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Layout>
-          {/* <Header /> */}
           <Routes>
-            <Route path="/" element={<Maintenance />} />
+            <Route path="/" element={<Landing />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Layout>
       </BrowserRouter>
     </>
