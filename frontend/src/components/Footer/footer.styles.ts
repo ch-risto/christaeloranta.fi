@@ -4,6 +4,6 @@ export const FooterContainer = styled.footer`
   padding: 20px;
 `;
 
-export const FooterText = styled.p`
+export const BottomBar = styled.p`
   text-align: center;
 `;

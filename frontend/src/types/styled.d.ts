@@ -1,4 +1,4 @@
-import type { Theme } from './themes';
+import type { Theme } from '../styles/themes';
 
 declare module 'styled-components' {
   export interface DefaultTheme extends Theme {} // eslint-disable-line @typescript-eslint/no-empty-object-type
