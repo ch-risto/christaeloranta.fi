@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Vitkuttelu pyyhkeet",
+    "summary": "Käsin kudotut ja ommellut pikkupyyhkeet. Syntyneet muita töitä vältellessä.",
+    "description": "Kirjoita markdownilla pidempi kuvaus, minkä voit avata kun tuotetta klikataan",
+    "material": "",
+    "size": "",
+    "price": "",
+    "image": "",
+    "type": "artesaani",
+    "skills": []
+  },
+  {
+    "id": 2,
+    "title": "Pehmosydämet",
+    "summary": "Ommeltu käsin kudotusta ja konehuovutetusta 100% villakankaasta.",
+    "description": "",
+    "material": "",
+    "size": "",
+    "price": "",
+    "image": "",
+    "type": "kehitys",
+    "skills": []
+  }
+]

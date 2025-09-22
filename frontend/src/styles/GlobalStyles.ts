@@ -31,23 +31,8 @@ export const GlobalStyles = createGlobalStyle`
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    h1 {
-        font-size: ${(props) => props.theme.fontSizes.heading};
-        line-height: ${(props) => props.theme.lineHeights.tight};
-    }
-
-    a {
-        color: ${(props) => props.theme.colors.link};
-        line-height: 1.3;
+    a, Link {
         transition: color 0.2s ease;
-
-        &:hover {
-            color: ${(props) => props.theme.colors.linkHover};
-        }
-
-        &:visited {
-            color: ${(props) => props.theme.colors.linkVisited};
-        }
     }
 
     .visually-hidden {
