@@ -14,9 +14,9 @@ const NavBar: React.FC = () => {
         <HeaderTitle>Christa Eloranta</HeaderTitle>
       </StyledHeaderLink>
       <ButtonContainer>
-        <StyledNavigationLink to={''}>Minusta</StyledNavigationLink>
-        <StyledNavigationLink to={''}>CV</StyledNavigationLink>
-        <StyledNavigationLink to={''}>Töitäni</StyledNavigationLink>
+        <StyledNavigationLink to="/about">Minusta</StyledNavigationLink>
+        <StyledNavigationLink to="/cv">CV</StyledNavigationLink>
+        <StyledNavigationLink to="/portfolio">Töitäni</StyledNavigationLink>
       </ButtonContainer>
     </HeaderContainer>
   );
