@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Christa",
+    "surname": "Eloranta",
+    "title": "Jonkinsortin tuuliviiri",
+    "role": "Full Stack Developer",
+    "email": "eloranta.christa@gmail.com",
+    "phone": "+358 40 123 4567",
+    "linkedin": "https://www.linkedin.com/in/christaeloranta",
+    "github": "https://github.com/christaeloranta",
+    "photo": "/images/christa_eloranta.jpg",
+    "address": {
+      "street": "Soukanlahdenkatu 17 B 31",
+      "city": "Tampere",
+      "postalCode": "33100",
+      "country": "Finland"
+    }
+  }
+]

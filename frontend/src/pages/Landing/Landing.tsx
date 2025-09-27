@@ -1,10 +1,17 @@
 import React from 'react';
-import PortfolioList from '../../components/Portfolio/PortfolioList';
+
+import Header from '../../components/Header/Header';
+import { ContentWrapper } from '../../components/Layout/layout.styles';
 
 const Landing: React.FC = () => {
   return (
     <>
-      <PortfolioList></PortfolioList>
+      <Header />
+      <ContentWrapper>
+        {/* <About />
+      <PortfolioOverview />
+      <Contact /> */}
+      </ContentWrapper>
     </>
   );
 };

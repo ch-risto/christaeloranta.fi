@@ -8,9 +8,20 @@ export const StyledP = styled.p`
   line-height: ${(props) => props.theme.lineHeights.normal};
 `;
 
+// Todo: Jos on div, missä on pelkästään tekstiä, tee siitä kapeampi. Mieti, päteekö sama kans Titleen ja Ingressiin.
+// Pitää kans miettiä asettelu, haluutko, et yksinäiset (pelkkä teksti ilmamn kuvaa) on yksinäisiä, vai keskitettyjä?
+// const JustTextDiv = styled.div`
+//   max-width: 600px;
+//   margin: 0 auto;
+//   padding: 16px 0;
+//   text-align: center;
+// `;
+
 export const StyledDiv = styled.div``;
 
-export const CenteredDiv = styled(StyledDiv)`
+export const StyledIngressDiv = styled(StyledDiv)``;
+
+export const StyledCenteredDiv = styled(StyledDiv)`
   text-align: center;
 `;
 

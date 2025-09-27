@@ -55,11 +55,9 @@ export const baseTheme = {
     lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
   },
   breakpoints: {
-    sm: '640px',
-    md: '768px',
-    lg: '1024px',
-    xl: '1280px',
-    '2xl': '1536px',
+    mobile: '640px',
+    tablet: '768px',
+    desktop: '1024px',
   },
   zIndex: {
     dropdown: 1000,
