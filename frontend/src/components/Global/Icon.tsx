@@ -15,7 +15,7 @@ const SIZES = {
   medium: css`
     height: 38px;
     width: 38px;
-    margin: 0 16px;
+    margin-right: 12px;
   `,
 };
 

@@ -9,6 +9,7 @@ export const Title = styled.h1`
 
 export const StyledH2 = styled(Title).attrs({ as: 'h2' })`
   font-size: ${(props) => props.theme.fontSizes['2xl']};
+  padding: 1rem 0;
 `;
 
 export const StyledH3 = styled(Title).attrs({ as: 'h3' })`

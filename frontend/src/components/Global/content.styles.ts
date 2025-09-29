@@ -17,17 +17,38 @@ export const StyledP = styled.p`
 //   text-align: center;
 // `;
 
-export const StyledDiv = styled.div``;
+export const StyledDiv = styled.div`
+  color: ${(props) => props.theme.colors.text};
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.base};
+  line-height: ${(props) => props.theme.lineHeights.normal};
 
-export const StyledIngressDiv = styled(StyledDiv)``;
+  &:not(:last-child) {
+    padding-bottom: 1rem;
+  }
+`;
+
+export const StyledIngressDiv = styled(StyledDiv)`
+  font-size: ${(props) => props.theme.fontSizes.lg};
+  font-weight: ${(props) => props.theme.fontWeights.medium};
+  line-height: ${(props) => props.theme.lineHeights.relaxed};
+  color: ${(props) => props.theme.colors.secondary};
+  padding: 0.5rem 0 1.5rem 0;
+`;
 
 export const StyledCenteredDiv = styled(StyledDiv)`
   text-align: center;
 `;
 
-export const ColumnContainer = styled.div`
+export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 16px;
+`;
+
+export const ColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 `;
 

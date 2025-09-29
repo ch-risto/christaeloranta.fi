@@ -6,8 +6,16 @@ export const ContentWrapper = styled.div`
   margin: 0 auto;
   padding: 0 16px;
 
+  > * {
+    text-align: center;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: 0 24px;
+
+    > * {
+      text-align: left;
+    }
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
@@ -34,7 +42,11 @@ export const FlexColumnWrapper = styled(ContentWrapper)`
   width: 100%;
   gap: 16px;
 
+  > * {
+    text-align: center;
+  }
+
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    align-items: flex-start;
+    text-align: left;
   }
 `;

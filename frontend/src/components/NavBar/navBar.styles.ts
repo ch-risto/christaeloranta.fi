@@ -14,6 +14,8 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 16px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const StyledHeaderLink = styled(Link)`
