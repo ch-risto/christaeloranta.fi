@@ -4,9 +4,13 @@ export const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
 
-    * {
+    html, body, #root {
+        height: 100%;
         margin: 0;
         padding: 0;
+    }
+
+    *, *::before, *::after {
         box-sizing: border-box;
     }
 
@@ -14,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: ${(props) => props.theme.fontSizes.base};
         font-weight: ${(props) => props.theme.fontWeights.regular};
         line-height: ${(props) => props.theme.lineHeights.normal};
-        font-family: ${(props) => props.theme.fonts.primary};
+        font-family: ${(props) => props.theme.fonts.primary}, Arial, Helvetica, sans-serif;
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
@@ -29,6 +33,7 @@ export const GlobalStyles = createGlobalStyle`
         min-width: 320px;
         min-height: 100vh;
         transition: background-color 0.3s ease, color 0.3s ease;
+        /* background-image:  */
     }
 
     a, Link {

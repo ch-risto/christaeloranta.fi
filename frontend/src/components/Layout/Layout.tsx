@@ -3,6 +3,9 @@ import FaviconManager from '../FaviconManager';
 import { GlobalStyles } from '../../styles/GlobalStyles';
 import { darkTheme, lightTheme } from '../../styles/themes';
 import { ThemeProvider } from 'styled-components';
+import { ContentWrapper, MainContainer } from './layout.styles';
+import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
 // import MainContainer from '../MainContainer';
 // import ContentWrapper from '../ContentWrapper';
 
@@ -36,11 +39,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <ThemeProvider theme={currentTheme}>
       <GlobalStyles />
       <FaviconManager />
-      {/* <MainContainer>
-                <ContentWrapper> */}
-      {children}
-      {/* </ContentWrapper>
-            </MainContainer> */}
+      <MainContainer>
+        <NavBar />
+        <ContentWrapper>
+          {children}
+        </ContentWrapper>
+        <Footer />
+      </MainContainer>
     </ThemeProvider>
   );
 };
