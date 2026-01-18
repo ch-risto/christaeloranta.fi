@@ -8,7 +8,10 @@ export const StyledP = styled.p`
   line-height: ${(props) => props.theme.lineHeights.normal};
 `;
 
-export const StyledDiv = styled.div``;
+export const StyledDiv = styled.div`
+  background-color: ${(props) => props.theme.colors.surface};
+  color: ${(props) => props.theme.colors.text};
+`;
 
 export const CenteredDiv = styled(StyledDiv)`
   text-align: center;

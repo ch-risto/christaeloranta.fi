@@ -11,8 +11,8 @@ const IconWrapper = styled.span`
   justify-content: center;
 
   svg {
-    height: 38px;
-    width: 38px;
+    height: 100%;
+    width: auto;
     margin-right: 16px;
     fill: ${(props) => props.theme.colors.primary};
   }

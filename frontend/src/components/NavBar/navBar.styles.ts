@@ -7,7 +7,7 @@ export const HeaderContainer = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 24px;
+  padding: 10px 0;
 `;
 
 export const ButtonContainer = styled.div`
@@ -20,10 +20,11 @@ export const StyledHeaderLink = styled(Link)`
   text-decoration: none;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: flex-start;
   color: ${(props) => props.theme.colors.primary};
 `;
 
 export const HeaderTitle = styled(Title)`
   font-size: 1.3rem;
+  align-items: flex-end;
 `;

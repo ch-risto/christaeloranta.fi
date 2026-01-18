@@ -4,12 +4,15 @@ export const MainContainer = styled.main`
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
+
 `;
 
 export const ContentWrapper = styled.div`
+  max-width: 1100px;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
