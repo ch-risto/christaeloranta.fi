@@ -4,23 +4,20 @@ export const lightTheme = {
   name: 'light',
   ...baseTheme,
   colors: {
-    primary: '#E4572E', // #CA6902
-    primaryHover: '#F6CBB7', // #F6CBB7
-    secondary: '#9A3412', // #9A3412
-    secondaryHover: '#F59E0B', // #F59E0B
-    text: '#3B423A', // #203345
-    textLight: '#2B4560', // #2B4560
-    // textMuted: '#9CA3AF', // #9CA3AF
-    background: '#FAF8F5', // #E4D7D0
-    surface: '#D9D4CF', // #FFFFFF
-    // border: '#E5E7EB', // #E5E7EB
-    // borderLight: '#F3F4F6', // #F3F4F6
-    // success: '#10B981', // #10B981
-    // warning: '#F59E0B', // #F59E0B
-    // error: '#EF4444', // #EF4444
-    link: '#F59E0B', // #F59E0B
-    linkHover: '#3594A1', // #3594A1
-    linkVisited: '#2B4560', // #2B4560
+    primary: '#3B423A',
+    primaryHover: '#F6CBB7',
+    secondary: '#9A3412',
+    secondaryHover: '#F59E0B',
+    text: '#3B423A',
+    textLight: '#2B4560',
+    background: '#FAF8F5',
+    surface: '#D9D4CF',
+    accent: '#E4572E',
+    cardBackground: '#FFFFFF',
+    border: '#E5E7EB',
+    link: '#F59E0B',
+    linkHover: '#3594A1',
+    linkVisited: '#2B4560',
   },
 };
 

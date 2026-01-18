@@ -1,26 +1,62 @@
 [
   {
     "id": 1,
-    "title": "Vitkuttelu pyyhkeet",
-    "summary": "Käsin kudotut ja ommellut pikkupyyhkeet. Syntyneet muita töitä vältellessä.",
-    "description": "Kirjoita markdownilla pidempi kuvaus, minkä voit avata kun tuotetta klikataan",
-    "material": "",
-    "size": "",
-    "price": "",
-    "image": "",
-    "type": "artesaani",
-    "skills": []
+    "title": "Docca SSO -järjestelmän modernisoiminen",
+    "summary": "Shibboleth SSO -ratkaisun uudistaminen ja Docker-pohjainen arkkitehtuuri skaalautuvuuden ja hallittavuuden parantamiseksi.",
+    "description": "Opinnäytetyönä toteuttava kokonaisuus, jossa modernisoidaan legacy SSO -järjestelmää. Sisälsi arkkitehtuurin uudelleensuunnittelun, Docker-kontainerisaation ja järjestelmän skalautuvuuden parantamisen.",
+    "image": "/placeholder-docca.jpg",
+    "type": "kehitys",
+    "skills": ["Shibboleth", "Docker", "Infrastruktuuri", "Backend"],
+    "startDate": "2024",
+    "endDate": "2025",
+    "company": "Net Group Oy & Opinnäytetyö"
   },
   {
     "id": 2,
-    "title": "Pehmosydämet",
-    "summary": "Ommeltu käsin kudotusta ja konehuovutetusta 100% villakankaasta.",
-    "description": "",
-    "material": "",
-    "size": "",
-    "price": "",
-    "image": "",
+    "title": "Django-pohjainen integraatiopalvelu",
+    "summary": "Verkkokauppa ja integraatiopalvelu, joka on integroitu Flex-järjestelmään osana laajempaa järjestelmäarkkitehtuuria.",
+    "description": "Full-stack kehitys ja ylläpito Django-pohjaiselle integraatiopalvelulle. Palvelu sisältää verkkokauppafunktionaalisuuden ja integraatiot laajempaan järjestelmäarkkitehtuuria. Teknologiat: Django, PostgreSQL, API-integraatiot.",
+    "image": "/placeholder-integration.jpg",
     "type": "kehitys",
-    "skills": []
+    "skills": ["Python", "Django", "PostgreSQL", "API", "Full-Stack"],
+    "startDate": "2024",
+    "endDate": "Jatkuu",
+    "company": "Net Group Oy"
+  },
+  {
+    "id": 3,
+    "title": "Verkkosivustojen UI/UX -suunnittelu ja toteutus",
+    "summary": "WordPress-ympäristöön rakennettuja visuaalisia kokonaisuuksia ja käyttöliittymiä asiakkaille.",
+    "description": "Verkkosivustojen suunnittelua ja toteutusta WordPress-ympäristössä. Sisälsi visuaalisen identiteetin kehittämisen, käyttöliittymän suunnittelun Figmassa sekä HTML/CSS-toteutuksen. Teknologiat: Figma, HTML, CSS, WordPress.",
+    "image": "/placeholder-websites.jpg",
+    "type": "design",
+    "skills": ["Figma", "UI/UX", "HTML/CSS", "WordPress", "Design"],
+    "startDate": "2019",
+    "endDate": "2025",
+    "company": "Toiminimi Christa Eloranta"
+  },
+  {
+    "id": 4,
+    "title": "Tuotteistusprosessin johtaminen",
+    "summary": "Palveluidemme tuotteistusprosessin johtaminen ja tuotteiden vienti Odoo-järjestelmään.",
+    "description": "Toimin sillanrakentajana teknologian, myynnin ja projektijohdon välillä. Vastuullani on palveluidemme tuotteistusprosessi ja tuotteiden integraatio Odoo-järjestelmään. Sisälsi vaatimusten keräämisen, prosessin dokumentoinnin ja stakeholder-hallinnon.",
+    "image": "/placeholder-product.jpg",
+    "type": "tuotteistaminen",
+    "skills": ["Tuotteistaminen", "Odoo", "Projektinhallinta", "Stakeholder-kommunikaatio"],
+    "startDate": "2024",
+    "endDate": "Jatkuu",
+    "company": "Net Group Oy"
+  },
+  {
+    "id": 5,
+    "title": "Käsityötuotteiden suunnittelu ja myynti",
+    "summary": "Käsin kudottujen pyyhkeiden ja villakankaasta valmistettujen käsityötuotteiden suunnittelu, toteutus ja myynti.",
+    "description": "Sivutoiminta, jossa suunnitellaan ja valmistetaan käsityötuotteita. Tuotteet valmistetaan käsin kudotusta ja konehuovutetusta 100% villakankaasta. Sisälsi tuotesuunnittelun, valmistuksen ja verkkokaupan hallinnon.",
+    "image": "/placeholder-crafts.jpg",
+    "type": "artesaani",
+    "skills": ["Tuotesuunnittelu", "Käsityöt", "E-commerce"],
+    "startDate": "2019",
+    "endDate": "Jatkuu",
+    "company": "Sivutoiminta"
   }
 ]

@@ -1,0 +1,21 @@
+{
+  "intro": "Olen kokonaisuuksia hahmottava insinööri ja full-stack osaaja, jolle teknologia on yksi työkaluista aitojen ongelmien ratkaisemiseen. Lähestyn kehittämistä monesta kulmasta, mikä auttaa rakentamaan käyttäjälähtöisiä toteutuksia.",
+  "background": "Laaja-alaisen taustani ansiosta olen muuntautumiskykyinen ja ymmärrän sekä teknisiä että ei-teknisiä haasteita. Kymmenen vuoden monipuolinen kokemus ravintola-alalta kehitti vahvat vuorovaikutus- ja ongelmanratkaisutaidot sekä paineensietokyvyn.",
+  "education": [
+    {
+      "degree": "Insinööri AMK",
+      "field": "Tieto- ja viestintätekniikka",
+      "school": "Lapin AMK",
+      "years": "2022-2025",
+      "thesis": "Docca SSO -järjestelmän uudistaminen",
+      "minor": "Teollinen muotoilu"
+    }
+  ],
+  "motivation": "Sytyn uuden luomisesta ja itseni haastamisesta. Etsin tiimiä, jossa arvostetaan luottamusta ja avointa kommunikaatiota, ja jossa pääsen hyödyntämään monipuolista osaamistani merkityksellisen kehitystyön parissa.",
+  "passions": [
+    "Tuotteistaminen ja visuaalinen suunnittelu",
+    "Käyttäjäkeskeinen kehitys",
+    "Tekoälyavusteinen kehitys",
+    "Täyden ratkaisun arkkitehtuuri"
+  ]
+}

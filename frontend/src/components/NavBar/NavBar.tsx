@@ -1,22 +1,29 @@
-import React from 'react';
-import { ButtonContainer, HeaderContainer, HeaderTitle, StyledHeaderLink } from './navBar.styles';
-import { Icon } from '../Global/Icon';
-import ChLogo from '../../assets/ch_logo.svg?react';
+import React, { useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import { ButtonContainer, HeaderContainer, HeaderTitle, MenuToggle } from './navBar.styles';
 import { StyledNavigationLink } from '../Global/content.styles';
 
 const NavBar: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <HeaderContainer>
-      <StyledHeaderLink to="/" aria-label="Takaisin etusivulle">
-        <Icon>
-          <ChLogo focusable="false" />
-        </Icon>
+      <Link to="/" style={{ textDecoration: 'none' }}>
         <HeaderTitle>Christa Eloranta</HeaderTitle>
-      </StyledHeaderLink>
-      <ButtonContainer>
+      </Link>
+      <MenuToggle onClick={() => setMenuOpen((prev) => !prev)} aria-expanded={menuOpen} aria-label="Avaa valikko">
+        ☰ Menu
+      </MenuToggle>
+      <ButtonContainer $open={menuOpen}>
+        {!isHomePage && (
+          <StyledNavigationLink to="/">Etusivu</StyledNavigationLink>
+        )}
         <StyledNavigationLink to="/about">Minusta</StyledNavigationLink>
-        <StyledNavigationLink to="/cv">CV</StyledNavigationLink>
         <StyledNavigationLink to="/portfolio">Töitäni</StyledNavigationLink>
+        <StyledNavigationLink to="/cv">CV</StyledNavigationLink>
+        <StyledNavigationLink to="/contact">Ota yhteyttä</StyledNavigationLink>
       </ButtonContainer>
     </HeaderContainer>
   );

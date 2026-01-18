@@ -1,7 +1,7 @@
 export const baseTheme = {
   fonts: {
     primary: '"Montserrat", sans-serif',
-    heading: '"Rubik Glitch"',
+    heading: '"Poppins", sans-serif',
     body: '"Montserrat", sans-serif',
   },
   fontWeights: {

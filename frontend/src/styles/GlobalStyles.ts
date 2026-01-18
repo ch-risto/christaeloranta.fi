@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
     html, body, #root {
         height: 100%;
@@ -34,6 +34,20 @@ export const GlobalStyles = createGlobalStyle`
         min-height: 100vh;
         transition: background-color 0.3s ease, color 0.3s ease;
         /* background-image:  */
+    }
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        /* padding-left: 240px; */
+        padding-top: 12px;
+    }
+
+    @media (max-width: ${(props) => props.theme.breakpoints.md}) {
+        h1 {
+            /* padding-left: 190px; */
+            padding-top: 8px;
+        }
     }
 
     a, Link {

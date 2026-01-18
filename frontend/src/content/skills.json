@@ -1,0 +1,45 @@
+[
+  {
+    "category": "Ohjelmointi & Kehykset",
+    "skills": [
+      "Python",
+      "Django",
+      "FastAPI",
+      "JavaScript/TypeScript",
+      "React",
+      "Node.js",
+      "SQL"
+    ]
+  },
+  {
+    "category": "Design & UI/UX",
+    "skills": [
+      "Figma",
+      "Adobe Creative Cloud",
+      "Responsive Design",
+      "Styled Components",
+      "UX Research",
+      "Wireframing"
+    ]
+  },
+  {
+    "category": "Kehitysprosessi & Infrastruktuuri",
+    "skills": [
+      "Git (GitHub, GitLab)",
+      "CI/CD",
+      "Docker",
+      "Ketterät menetelmät",
+      "Tekoälyavusteinen kehitys (GitHub Copilot, LLM-promptaus)"
+    ]
+  },
+  {
+    "category": "Data & Järjestelmät",
+    "skills": [
+      "MySQL",
+      "PostgreSQL",
+      "Shibboleth SSO",
+      "API-integraatiot",
+      "Verkkokauppa-järjestelmät"
+    ]
+  }
+]
