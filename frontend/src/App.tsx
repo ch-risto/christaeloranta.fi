@@ -2,7 +2,7 @@ import './App.css'
 import chLogoSvg from './assets/ch_.svg'
 import christaPhoto from './assets/ChristaEloranta.jpg'
 import christaHeadline from './assets/christaeloranta.png'
-import ElorantaCV from './assets/Eloranta_CV .pdf'
+import ElorantaCV from './assets/Eloranta_CV.pdf'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
               Olen ohjelmistokehittäjä, jolla on käsityöläisen sielu. Taustani puuseppänä ja palvelualalla on opettanut, että laatu syntyy yksityiskohdista ja lopputuloksen täytyy paitsi toimia, myös tuntua oikealta. Nyt rakennan kestäviä ratkaisuja koodilla – samalla ammattiylpeydellä.
             </p> */}
             <p className="hero-tagline">
-              Solekko tehä. Ite kun tekee, tietää mitä saa.
+              Solekko tehä. Ite kun tekee, saa just mitä tekee.
             </p>
           </div>
           <div className="hero-photo">
