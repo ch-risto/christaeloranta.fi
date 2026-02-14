@@ -4,13 +4,21 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
-    branches:
-      - main
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  check:
+  quality-check:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend
 
     steps:
       - name: Checkout repository
@@ -24,13 +32,10 @@ jobs:
           cache-dependency-path: ./frontend/package-lock.json
 
       - name: Install dependencies
-        run: npm install
-        working-directory: ./frontend
+        run: npm ci
 
-      - name: Type check
+      - name: Type check and build verification
         run: npm run build
-        working-directory: ./frontend
 
       - name: Lint code
         run: npm run lint
-        working-directory: ./frontend
