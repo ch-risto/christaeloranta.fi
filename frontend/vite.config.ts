@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react({
@@ -10,12 +10,12 @@ export default defineConfig({
           [
             'babel-plugin-styled-components',
             {
-              displayName: true, // Tämä tuo näkyviin: "Button-sc-xyz"
-              fileName: false,
-            },
-          ],
-        ],
-      },
+              displayName: true,
+              fileName: false
+            }
+          ]
+        ]
+      }
     }),
   ],
 });
