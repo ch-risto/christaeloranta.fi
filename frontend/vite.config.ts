@@ -11,11 +11,15 @@ export default defineConfig({
             'babel-plugin-styled-components',
             {
               displayName: true,
-              fileName: false
-            }
-          ]
-        ]
-      }
+              fileName: false,
+              ssr: false,
+              pure: true,
+              minify: true,
+              transpileTemplateLiterals: true,
+            },
+          ],
+        ],
+      },
     }),
   ],
 });
