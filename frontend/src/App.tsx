@@ -9,24 +9,26 @@ import Layout from './layouts/Layout';
 function App() {
   return (
     console.log('ENV DEBUG:', {
-  url: import.meta.env.VITE_SUPABASE_URL,
-  hasKey: !!import.meta.env.VITE_SUPABASE_KEY // Älä tulosta avainta, vain onko se olemassa
-}),
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+      url: import.meta.env.VITE_SUPABASE_URL,
+      hasKey: !!import.meta.env.VITE_SUPABASE_KEY, // Älä tulosta avainta, vain onko se olemassa
+    }),
+    (
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route element={<AdminLayout />}>
-              <Route path="/admin" element={<AdminDashboard />} />
+            <Route element={<ProtectedRoute />}>
+              <Route element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminDashboard />} />
+              </Route>
             </Route>
-          </Route>
-          {/* Add more routes here as needed */}
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+            {/* Add more routes here as needed */}
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    )
   );
 }
 
