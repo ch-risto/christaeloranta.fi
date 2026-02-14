@@ -2,7 +2,7 @@
 import { createClient } from '@supabase/supabase-js';
 
 // 1. Lue muuttujat turvallisesti
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseUrl = import.meta.env.VITE_APP_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_KEY;
 
 // 2. DEBUG: Tulosta nämä HETI. Tämä näkyy konsolissa ennen kuin sovellus kaatuu.
