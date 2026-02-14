@@ -1,17 +1,19 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Login from "./pages/Login";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import AdminLayout from "./components/layout/AdminLayout";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home/Home';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/Login/Login';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminLayout from './layouts/AdminLayout';
+import Layout from './layouts/Layout';
 
 function App() {
   return (
     <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          
+
           <Route element={<ProtectedRoute />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin" element={<AdminDashboard />} />
@@ -19,8 +21,9 @@ function App() {
           </Route>
           {/* Add more routes here as needed */}
         </Routes>
+      </Layout>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
