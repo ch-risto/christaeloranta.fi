@@ -8,6 +8,10 @@ import Layout from './layouts/Layout';
 
 function App() {
   return (
+    console.log('ENV DEBUG:', {
+  url: import.meta.env.VITE_SUPABASE_URL,
+  hasKey: !!import.meta.env.VITE_SUPABASE_KEY // Älä tulosta avainta, vain onko se olemassa
+}),
     <BrowserRouter>
       <Layout>
         <Routes>
