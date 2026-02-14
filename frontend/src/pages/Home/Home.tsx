@@ -3,7 +3,6 @@ import chLogoSvg from '../../assets/ch_.svg';
 import christaPhoto from '../../assets/ChristaEloranta.jpg';
 import christaHeadline from '../../assets/christaeloranta.png';
 import ElorantaCV from '../../assets/Eloranta_CV.pdf';
-import '../../App.css';
 import * as S from './Home.styles.ts';
 
 const Home: React.FC = () => {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { darkTheme, lightTheme } from '../styles/themes';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/GlobalStyles';
-import Page from '../components/layout/Page';
-import Footer from '../components/layout/Footer';
+import Page from '../components/layout/Page/Page';
+import Footer from '../components/layout/Footer/Footer';
 
 interface LayoutProps {
   children: React.ReactNode;

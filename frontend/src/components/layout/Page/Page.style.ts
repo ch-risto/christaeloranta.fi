@@ -12,14 +12,11 @@ export const PageContainer = styled.main`
   gap: 3rem;
   animation: fadeIn 0.6s ease-in;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     padding: 1.5rem 1.25rem;
     gap: 2rem;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    max-width: 100%;
 `;
-
-const Page: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return <PageContainer>{children}</PageContainer>;
-};
-
-export default Page;

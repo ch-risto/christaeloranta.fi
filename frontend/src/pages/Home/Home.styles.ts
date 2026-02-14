@@ -1,16 +1,8 @@
 import styled from 'styled-components';
+import { fadeIn } from '../../styles/animations';
+import { StyledSection } from '../../components/common/BaseComponents.styles';
 
-export const HeroContainer = styled.section`
-  margin-top: 2rem;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    margin-top: 1;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin-top: 1rem;
-  }
-`;
+export const HeroContainer = styled(StyledSection)``;
 
 export const HeroContent = styled.div`
   display: grid;
@@ -23,9 +15,6 @@ export const HeroContent = styled.div`
     gap: 2rem;
     text-align: center;
   }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-  }
 `;
 
 export const HeroText = styled.div`
@@ -34,27 +23,24 @@ export const HeroText = styled.div`
 
   h1 {
     margin: 0 0 1.5rem 0;
+    animation: ${fadeIn} 0.4s ease-out;
+    animation-fill-mode: both;
   }
 
   h2 {
     padding-left: 2.5rem;
     margin: 0 0 1.5rem 0;
-    color: ${(props) => props.theme.colors.accent};
-    opacity: 0.85;
+    color: ${({ theme }) => theme.colors.accent};
+    opacity: ${({ theme }) => theme.opacity.mediumHigh};
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     align-items: center;
 
     h2 {
-      font-size: 1.1rem;
+      font-size: ${({ theme }) => theme.fontSizes['2xl']};
+      font-weight: ${({ theme }) => theme.fontWeights.light};
       padding-left: unset;
-    }
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    h2 {
-      font-size: 1rem;
     }
   }
 `;
@@ -75,25 +61,25 @@ export const HeadlineImage = styled.img`
 `;
 
 export const Intro = styled.p`
-  font-weight: ${(props) => props.theme.fontWeights.light};
-  line-height: ${(props) => props.theme.lineHeights.relaxed};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
+  line-height: ${({ theme }) => theme.lineHeights.relaxed};
   margin: 0 0 1rem 0;
-  color: ${(props) => props.theme.colors.text};
-  opacity: 0.75;
+  color: ${({ theme }) => theme.colors.text};
   max-width: 600px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: 1rem;
+    font-size: ${({ theme }) => theme.fontSizes.base};
     text-align: center;
   }
 `;
 
 export const Tagline = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.lg};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   font-style: italic;
   margin: 1.5rem 0 0 0;
-  color: ${(props) => props.theme.colors.accent};
-  opacity: 0.9;
+  color: ${({ theme }) => theme.colors.accent};
+  opacity: ${({ theme }) => theme.opacity.mediumHigh};
 `;
 
 export const HeroPhotoContainer = styled.div`
@@ -114,35 +100,20 @@ export const HeroPhoto = styled.img`
   max-width: 280px;
   height: 280px;
   max-height: 280px;
-  border-radius: 100%;
+  border-radius: ${({ theme }) => theme.borderRadius.full};
   object-fit: cover;
   object-position: center 17%;
-  box-shadow: 0 20px 30px rgba(212, 140, 132, 0.25);
+  box-shadow: ${({ theme }) => theme.colors.heroPhoto};
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  animation: ${fadeIn} 0.4s ease-out;
+  animation-fill-mode: both;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     max-width: 220px;
     height: 220px;
     object-position: center 17%;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    max-width: 180px;
-    height: 180px;
-    object-position: center 17%;
-  }
-`;
-
-export const LinksContainer = styled.section`
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    justify-content: center;
-    align-items: center;
   }
 `;
 
@@ -150,18 +121,20 @@ export const LinkItem = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: #2e211d;
+  color: ${({ theme }) => theme.colors.text};
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   padding: 0.5rem 0;
   transition:
     color 0.2s ease,
     transform 0.2s ease;
   width: fit-content;
+  /* opacity: 0;
+  animation: ${fadeIn} 0.5s ease-out forwards; */
 
   &:hover {
-    color: #a0522d;
-    transform: translateY(-3px);
+    color: ${({ theme }) => theme.colors.accent};
+    transform: ${({ theme }) => theme.transforms.hopNorthEast};
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
@@ -169,37 +142,52 @@ export const LinkItem = styled.a`
   }
 `;
 
+export const LinksContainer = styled(StyledSection)`
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+
+  /* & > ${LinkItem}:nth-child(1) { animation-delay: 0.1s; }
+  & > ${LinkItem}:nth-child(2) { animation-delay: 0.2s; }
+  & > ${LinkItem}:nth-child(3) { animation-delay: 0.3s; }
+  & > ${LinkItem}:nth-child(4) { animation-delay: 0.4s; } */
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    gap: 1rem;
+  }
+`;
+
 export const LinkIcon = styled.span`
-  font-size: 1rem;
-  opacity: 0.6;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  opacity: ${({ theme }) => theme.opacity.low};
   transition: opacity 0.2s ease;
-  color: #a0522d;
+  color: ${({ theme }) => theme.colors.accent};
 
   LinkItem:hover & {
-    opacity: 1;
+    opacity: ${({ theme }) => theme.opacity.high};
   }
 `;
 
 export const LinkText = styled.span`
-  font-weight: 400;
+  /* font-weight: 400; */
 `;
 
 export const LogoImage = styled.img`
   height: 60px;
   width: auto;
-  opacity: 0.95;
+  opacity: ${({ theme }) => theme.opacity.mediumHigh};
   transition:
     opacity 0.2s ease,
     filter 0.2s ease;
-  filter: brightness(0) saturate(100%) invert(38%) sepia(14%) saturate(4280%) hue-rotate(343deg)
-    brightness(84%) contrast(77%);
+  filter: ${({ theme }) => theme.colors.logoFilter};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     height: 50px;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    height: 40px;
   }
 `;
 
@@ -222,21 +210,20 @@ export const ArchiveLogo = styled.div`
   }
 `;
 
-export const ArchiveContainer = styled.section`
+export const ArchiveContainer = styled(StyledSection)`
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
-  background-color: #f9ecec;
-  border: 1px solid #d48c84;
-  border-radius: 12px;
+  margin: 1.5rem 0;
+  background-color: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.xl};
   padding: 2.5rem;
-  margin-top: 2rem;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    padding: 1.5rem;
+    padding: ${({ theme }) => theme.spacing.xl};
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    padding: 1.25rem;
+    padding: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
@@ -251,15 +238,19 @@ export const ArchiveContent = styled.div`
     gap: 2rem;
     text-align: center;
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    gap: 1rem;
+  }
 `;
 
 export const ArchiveText = styled.div`
-  font-size: 1rem;
-  line-height: 1.7;
-  font-weight: 300;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  line-height: ${({ theme }) => theme.lineHeights.relaxed};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
   margin: 0 0 1.5rem 0;
-  color: #2e211d;
-  opacity: 0.8;
+  color: ${({ theme }) => theme.colors.text};
+  opacity: ${({ theme }) => theme.opacity.mediumHigh};
 `;
 
 export const ArchiveTextContent = styled.div`
@@ -267,10 +258,10 @@ export const ArchiveTextContent = styled.div`
   flex-direction: column;
 
   h2 {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: ${({ theme }) => theme.fontSizes['2xl']};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
     margin: 0 0 1rem 0;
-    color: #2e211d;
+    color: ${({ theme }) => theme.colors.text};
     letter-spacing: -0.01em;
   }
 
@@ -283,22 +274,21 @@ export const ArchiveLink = styled.a`
   display: inline-flex;
   align-items: center;
   padding: 0 0.4rem;
-  color: #a0522d;
+  color: ${({ theme }) => theme.colors.accent};
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSizes.base};
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
   transition:
     color 0.2s ease,
     transform 0.2s ease;
   width: fit-content;
 
   &:hover {
-    color: #d48c84;
-    transform: translateX(4px);
+    transform: ${(props) => props.theme.transforms.hopEast};
   }
 
   &:focus {
-    outline: 2px solid #a0522d;
+    outline: 2px solid ${(props) => props.theme.colors.accent};
     outline-offset: 4px;
     border-radius: 2px;
   }

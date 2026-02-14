@@ -2,35 +2,62 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
-    * {
-        margin: 0;
-        padding: 0;
+    html {
+        font-size: ${({ theme }) => theme.fontSizes.base};
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    *, *::before, *::after {
         box-sizing: border-box;
     }
 
-    html {
-        font-size: ${(props) => props.theme.fontSizes.base};
-        font-weight: ${(props) => props.theme.fontWeights.regular};
-        line-height: ${(props) => props.theme.lineHeights.normal};
-        font-family: ${(props) => props.theme.fonts.primary};
+    body {
+        min-width: 320px;
+        min-height: 100vh;
+
+        font-family: ${({ theme }) => theme.fonts.primary};
+        font-weight: ${({ theme }) => theme.fontWeights.regular};
+        line-height: ${({ theme }) => theme.lineHeights.normal};
+        color: ${({ theme }) => theme.colors.text};
+        background-color: ${({ theme }) => theme.colors.background};
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-    }
 
-    body {
-        margin: 0;
-        color: ${(props) => props.theme.colors.primary};
-        background-color: ${(props) => props.theme.colors.background};
-        min-width: 320px;
-        min-height: 100vh;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    a, Link {
+    #root {
+        min-height: 100vh;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        color: ${({ theme }) => theme.colors.link};
+        text-decoration: none;
         transition: color 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            color: ${({ theme }) => theme.colors.border};
+        }
+    }
+
+    h1 {
+        font-size: ${({ theme }) => theme.fontSizes.heading};
+        font-weight: ${({ theme }) => theme.fontWeights.bold};
+        line-height: ${({ theme }) => theme.lineHeights.none};
+    }
+
+    h2 {
+        font-size: ${({ theme }) => theme.fontSizes['2xl']};
+        font-weight: ${({ theme }) => theme.fontWeights.regular};
+        line-height: ${({ theme }) => theme.lineHeights.normal};
     }
 
     .visually-hidden {
@@ -45,15 +72,12 @@ export const GlobalStyles = createGlobalStyle`
         border: 0;
     }
 
-    h1 {
-        font-size: ${(props) => props.theme.fontSizes.heading};
-        font-weight: ${(props) => props.theme.fontWeights.bold};
-        line-height: ${(props) => props.theme.lineHeights.none};
-    }
-
-    h2 {
-        font-size: ${(props) => props.theme.fontSizes['2xl']};
-        font-weight: ${(props) => props.theme.fontWeights.regular};
-        line-height: ${(props) => props.theme.lineHeights.normal};
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
     }
 `;

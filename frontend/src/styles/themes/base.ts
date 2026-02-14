@@ -48,12 +48,26 @@ export const baseTheme = {
     xl: '0.75rem', // 12px
     full: '9999px',
   },
-  //   shadows: {
-  //     sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-  //     base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-  //     md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-  //     lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-  //   },
+  shadows: {
+    sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+    base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+    md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+  },
+  transforms: {
+    none: 'none',
+    scaleUp: 'scale(1.05)',
+    scaleDown: 'scale(0.95)',
+    rotate: 'rotate(5deg)',
+    hopNorth: 'translateY(-4px)',
+    hopSouth: 'translateY(4px)',
+    hopEast: 'translateX(4px)',
+    hopWest: 'translateX(-4px)',
+    hopNorthEast: 'translate(3px, -3px)',
+    hopNorthWest: 'translate(-3px, -3px)',
+    hopSouthEast: 'translate(3px, 3px)',
+    hopSouthWest: 'translate(-3px, 3px)',
+  },
   breakpoints: {
     mobile: '640px',
     tablet: '768px',
@@ -68,4 +82,12 @@ export const baseTheme = {
   //     popover: 1060,
   //     tooltip: 1070,
   //   },
+  borderTop: '1px solid rgba(46, 33, 29, 0.1)',
+  opacity: {
+    low: 0.6,
+    mediumLow: 0.75,
+    medium: 0.8,
+    mediumHigh: 0.9,
+    high: 1,
+  },
 };
