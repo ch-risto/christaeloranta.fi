@@ -19,4 +19,5 @@ export const PageContainer = styled.main`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     max-width: 100%;
+  }
 `;

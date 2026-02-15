@@ -1,33 +1,33 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  padding-top: ${(props) => props.theme.spacing.xl};
-  border-top: ${(props) => props.theme.borderTop};
+  padding-top: ${({ theme }) => theme.spacing.xl};
+  border-top: ${({ theme }) => theme.borderTop};
   text-align: center;
   width: 100%;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    padding-top: ${(props) => props.theme.spacing.lg};
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-top: ${({ theme }) => theme.spacing.lg};
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin-top: ${(props) => props.theme.spacing.xl};
-    padding-top: ${(props) => props.theme.spacing.lg};
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-top: ${({ theme }) => theme.spacing.xl};
+    padding-top: ${({ theme }) => theme.spacing.lg};
   }
 `;
 
 export const BottomBar = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.sm};
-  color: ${(props) => props.theme.colors.text};
-  opacity: ${(props) => props.theme.opacity.low};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  color: ${({ theme }) => theme.colors.text};
+  opacity: ${({ theme }) => theme.opacity.low};
   margin: 0;
-  font-weight: ${(props) => props.theme.fontWeights.light};
+  font-weight: ${({ theme }) => theme.fontWeights.light};
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    padding-top: ${(props) => props.theme.spacing.lg};
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-top: ${({ theme }) => theme.spacing.lg};
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    font-size: ${(props) => props.theme.fontSizes.sm};
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
   }
 `;

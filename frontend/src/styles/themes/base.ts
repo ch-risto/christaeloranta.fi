@@ -82,7 +82,6 @@ export const baseTheme = {
   //     popover: 1060,
   //     tooltip: 1070,
   //   },
-  borderTop: '1px solid rgba(46, 33, 29, 0.1)',
   opacity: {
     low: 0.6,
     mediumLow: 0.75,

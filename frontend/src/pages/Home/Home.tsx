@@ -1,11 +1,13 @@
 import type React from 'react';
-import chLogoSvg from '../../assets/ch_.svg';
-import christaPhoto from '../../assets/ChristaEloranta.jpg';
-import christaHeadline from '../../assets/christaeloranta.png';
+import chLogoSvg from '../../assets/logos/ch_.svg';
+import christaPhoto from '../../assets/photos/ChristaEloranta.jpg';
 import ElorantaCV from '../../assets/Eloranta_CV.pdf';
 import * as S from './Home.styles.ts';
+import { useTheme } from 'styled-components';
 
 const Home: React.FC = () => {
+  const theme = useTheme();
+
   return (
     <main className="app">
       {/* Hero Section */}
@@ -13,7 +15,7 @@ const Home: React.FC = () => {
         <S.HeroContent>
           <S.HeroText>
             <h1>
-              <S.HeadlineImage src={christaHeadline} alt="Hei, olen Christa Eloranta" />
+              <S.HeadlineImage src={theme.images.headline} alt="Hei, olen Christa Eloranta" />
             </h1>
             <h2>Tuotelähtöinen kehittäjä</h2>
             <S.Intro>
