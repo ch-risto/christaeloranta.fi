@@ -49,6 +49,8 @@ export const HeadlineImage = styled.img`
   max-width: 100%;
   max-height: 200px;
   display: block;
+  width: auto;
+  height: auto;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     max-width: 90%;

@@ -1,5 +1,5 @@
 import { baseTheme } from './base';
-import darkHeadlineImage from '../../assets/logos/christaeloranta_dark.svg';
+import darkHeadlineImage from '../../assets/logos/christaeloranta-dark.png';
 
 export const darkTheme = {
   name: 'dark',
