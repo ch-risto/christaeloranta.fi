@@ -5,7 +5,9 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_DB_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('CRITICAL: Supabase keys missing. Check Vercel Environment Variables.');
+  throw new Error(
+    'Missing Supabase configuration. Please ensure VITE_SUPABASE_DB_URL and VITE_SUPABASE_KEY environment variables are set.'
+  );
 }
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+export const supabase = createClient(supabaseUrl!, supabaseAnonKey!);
