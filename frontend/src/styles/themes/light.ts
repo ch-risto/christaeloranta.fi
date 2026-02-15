@@ -13,7 +13,7 @@ export const lightTheme = {
     border: '#d48c84',
     link: '#F59E0B',
     logoFilter:
-      'brightness(0) saturate(100%) invert(38%) sepia(14%) saturate(4280%) hue-rotate(343deg)brightness(84%) contrast(77%)',
+      'brightness(0) saturate(100%) invert(38%) sepia(14%) saturate(4280%) hue-rotate(343deg) brightness(84%) contrast(77%)',
     heroPhoto: '0 20px 30px rgba(212, 140, 132, 0.25)',
   },
   images: {

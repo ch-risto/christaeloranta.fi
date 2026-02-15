@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <main className="app">
+    <main>
       {/* Hero Section */}
       <S.HeroContainer>
         <S.HeroContent>
@@ -32,35 +32,24 @@ const Home: React.FC = () => {
 
       {/* Links / Contact Section */}
       <S.LinksContainer>
-        <S.LinkItem
-          href="https://github.com/ch-risto"
-          className="link-item"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <S.LinkItem href="https://github.com/ch-risto" target="_blank" rel="noopener noreferrer">
           <S.LinkIcon>↗</S.LinkIcon>
           <S.LinkText>GitHub</S.LinkText>
         </S.LinkItem>
         <S.LinkItem
           href="https://linkedin.com/in/christa-eloranta"
-          className="link-item"
           target="_blank"
           rel="noopener noreferrer"
         >
           <S.LinkIcon>↗</S.LinkIcon>
           <S.LinkText>LinkedIn</S.LinkText>
         </S.LinkItem>
-        <S.LinkItem href="mailto:eloranta.christa@gmail.com" className="link-item">
+        <S.LinkItem href="mailto:eloranta.christa@gmail.com">
           <S.LinkIcon>↗</S.LinkIcon>
           <S.LinkText>Email</S.LinkText>
         </S.LinkItem>
 
-        <S.LinkItem
-          href={ElorantaCV}
-          className="link-item"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <S.LinkItem href={ElorantaCV} target="_blank" rel="noopener noreferrer">
           <S.LinkIcon>↗</S.LinkIcon>
           <S.LinkText>CV</S.LinkText>
         </S.LinkItem>
@@ -73,14 +62,13 @@ const Home: React.FC = () => {
             <S.LogoImage src={chLogoSvg} alt="Christa Eloranta logo" />
           </S.ArchiveLogo>
           <S.ArchiveTextContent>
-            <h2 className="archive-headline">Portfolio uudistuu</h2>
+            <h2>Portfolio uudistuu</h2>
             <S.ArchiveText>
               Uudistan parhaillaan portfoliotani. Sillä välin voit tutustua aiempiin töihini
               arkistosivullani.
             </S.ArchiveText>
             <S.ArchiveLink
               href="https://archive.christaeloranta.fi"
-              className="archive-link"
               target="_blank"
               rel="noopener noreferrer"
             >
