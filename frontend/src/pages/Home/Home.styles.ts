@@ -131,8 +131,6 @@ export const LinkItem = styled.a`
     color 0.2s ease,
     transform 0.2s ease;
   width: fit-content;
-  /* opacity: 0;
-  animation: ${fadeIn} 0.5s ease-out forwards; */
 
   &:hover {
     color: ${({ theme }) => theme.colors.accent};
@@ -148,11 +146,6 @@ export const LinksContainer = styled(StyledSection)`
   display: flex;
   flex-direction: row;
   gap: 2rem;
-
-  /* & > ${LinkItem}:nth-child(1) { animation-delay: 0.1s; }
-  & > ${LinkItem}:nth-child(2) { animation-delay: 0.2s; }
-  & > ${LinkItem}:nth-child(3) { animation-delay: 0.3s; }
-  & > ${LinkItem}:nth-child(4) { animation-delay: 0.4s; } */
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     justify-content: center;
@@ -170,7 +163,7 @@ export const LinkIcon = styled.span`
   transition: opacity 0.2s ease;
   color: ${({ theme }) => theme.colors.accent};
 
-  LinkItem:hover & {
+  ${LinkItem}:hover & {
     opacity: ${({ theme }) => theme.opacity.high};
   }
 `;
@@ -198,7 +191,7 @@ export const ArchiveLogo = styled.div`
   align-items: flex-start;
   justify-content: center;
 
-  LogoImage {
+  ${LogoImage} {
     height: 100px;
     width: auto;
 

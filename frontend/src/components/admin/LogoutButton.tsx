@@ -6,6 +6,7 @@ export default function LogoutButton() {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
 
   const handleLogout = async () => {
     try {
@@ -14,7 +15,7 @@ export default function LogoutButton() {
       navigate('/login', { replace: true });
     } catch (error) {
       console.error('Logout failed:', error);
-    } finally {
+      setMessage('Logout failed. Please try again.');
       setLoading(false);
     }
   };
@@ -22,6 +23,7 @@ export default function LogoutButton() {
   return (
     <button onClick={handleLogout} disabled={loading}>
       {loading ? 'Logging out...' : 'Logout'}
+      {message && <span>{message}</span>}
     </button>
   );
 }
