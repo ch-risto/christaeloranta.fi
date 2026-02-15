@@ -22,9 +22,6 @@ const Home: React.FC = () => {
               Utelias ja ratkaisukeskeinen tekijä, joka yhdistää teknisen osaamisen ja luovan
               ongelmanratkaisun merkityksellisiksi kokonaisuuksiksi.
             </S.Intro>
-            {/* <p>
-                            Olen ohjelmistokehittäjä, jolla on käsityöläisen sielu. Taustani puuseppänä ja palvelualalla on opettanut, että laatu syntyy yksityiskohdista ja lopputuloksen täytyy paitsi toimia, myös tuntua oikealta. Nyt rakennan kestäviä ratkaisuja koodilla – samalla ammattiylpeydellä.
-                        </p> */}
             <S.Tagline>Solekko tehä. Ite kun tekee, saa just mitä tekee.</S.Tagline>
           </S.HeroText>
           <S.HeroPhotoContainer>
