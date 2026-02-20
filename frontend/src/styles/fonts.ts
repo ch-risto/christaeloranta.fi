@@ -1,0 +1,281 @@
+import { css } from 'styled-components';
+
+export const fontFaces = css`
+    /* noto-sans-300 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 300;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-300italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 300;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-300italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-regular - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-regular.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 400;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-500 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 500;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-500italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 500;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-500italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-600 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 600;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-600italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 600;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-600italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-700 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-700italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 700;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-700italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-800 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 800;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* noto-sans-800italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Noto Sans';
+        font-style: italic;
+        font-weight: 800;
+        src: url('../../fonts/noto-sans-v42-latin/noto-sans-v42-latin-800italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* inconsolata-300 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 300;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-300.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* inconsolata-regular - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-regular.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* inconsolata-500 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 500;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-500.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* inconsolata-600 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 600;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-600.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* inconsolata-700 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-700.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* inconsolata-800 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Inconsolata';
+        font-style: normal;
+        font-weight: 800;
+        src: url('../../fonts/inconsolata-v37-latin/inconsolata-v37-latin-800.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* montserrat-300 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 300;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-300italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 300;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-300italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-regular - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-regular.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 400;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-500 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-500italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 500;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-500italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-600 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-600italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 600;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-600italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-700 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* montserrat-700italic - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Montserrat';
+        font-style: italic;
+        font-weight: 700;
+        src: url('../../fonts/montserrat-v31-latin/montserrat-v31-latin-700italic.woff2')
+            format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* blinker-300 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Blinker';
+        font-style: normal;
+        font-weight: 300;
+        src: url('../../fonts/blinker-v14-latin/blinker-v14-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* blinker-regular - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Blinker';
+        font-style: normal;
+        font-weight: 400;
+        src: url('../../fonts/blinker-v14-latin/blinker-v14-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* blinker-600 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Blinker';
+        font-style: normal;
+        font-weight: 600;
+        src: url('../../fonts/blinker-v14-latin/blinker-v14-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+    /* blinker-700 - latin */
+    @font-face {
+        font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+        font-family: 'Blinker';
+        font-style: normal;
+        font-weight: 700;
+        src: url('../../fonts/blinker-v14-latin/blinker-v14-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+`;

@@ -6,40 +6,40 @@ import Page from '../components/layout/Page/Page';
 import Footer from '../components/layout/Footer/Footer';
 
 interface LayoutProps {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        return false;
+    });
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
+        const handleChange = (e: MediaQueryListEvent) => {
+            setIsDarkMode(e.matches);
+        };
 
-    mediaQuery.addEventListener('change', handleChange);
+        mediaQuery.addEventListener('change', handleChange);
 
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
-  const currentTheme = isDarkMode ? darkTheme : lightTheme;
+    const currentTheme = isDarkMode ? darkTheme : lightTheme;
 
-  return (
-    <ThemeProvider theme={currentTheme}>
-      <GlobalStyles />
-      <Page>
-        {children}
-        <Footer />
-      </Page>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={currentTheme}>
+            <GlobalStyles />
+            <Page>
+                {children}
+                <Footer />
+            </Page>
+        </ThemeProvider>
+    );
 };
 
 export default Layout;

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { fontFaces } from './fonts';
 
 export const GlobalStyles = createGlobalStyle`
+    ${fontFaces}
 
     html {
         font-size: ${({ theme }) => theme.fontSizes.base};
