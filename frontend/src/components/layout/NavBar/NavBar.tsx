@@ -34,22 +34,22 @@ const NavBar: React.FC = () => {
         setMenuOpen(false);
     };
 
-    useEffect(() => {
-        const compute = () => {
-            const headerEl = headerInnerRef.current;
-            const aboutEl = aboutLinkRef.current;
-            if (!headerEl || !aboutEl) return;
+    // useEffect(() => {
+    //     const compute = () => {
+    //         const headerEl = headerInnerRef.current;
+    //         const aboutEl = aboutLinkRef.current;
+    //         if (!headerEl || !aboutEl) return;
 
-            const headerRect = headerEl.getBoundingClientRect();
-            const aboutRect = aboutEl.getBoundingClientRect();
-            const offset = Math.max(0, aboutRect.left - headerRect.left);
-            setSubmenuOffset(Math.round(offset));
-        };
+    //         const headerRect = headerEl.getBoundingClientRect();
+    //         const aboutRect = aboutEl.getBoundingClientRect();
+    //         const offset = Math.max(0, aboutRect.left - headerRect.left);
+    //         setSubmenuOffset(Math.round(offset));
+    //     };
 
-        compute();
-        window.addEventListener('resize', compute);
-        return () => window.removeEventListener('resize', compute);
-    }, []);
+    //     compute();
+    //     window.addEventListener('resize', compute);
+    //     return () => window.removeEventListener('resize', compute);
+    // }, []);
 
     return (
         <HeaderContainer>
