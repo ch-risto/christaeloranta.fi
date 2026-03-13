@@ -142,6 +142,7 @@ export const LinkItem = styled.a`
 export const LinksContainer = styled(StyledSection)`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 2rem;
 
     @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
@@ -150,7 +151,8 @@ export const LinksContainer = styled(StyledSection)`
     }
 
     @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-        gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 0.3rem;
     }
 `;
 

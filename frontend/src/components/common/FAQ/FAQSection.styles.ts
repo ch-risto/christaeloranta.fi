@@ -17,6 +17,10 @@ export const AccordionSection = styled(Accordion.Root)`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        margin: 2rem auto;
+    }
 `;
 
 export const AccordionItem = styled(Accordion.Item)`

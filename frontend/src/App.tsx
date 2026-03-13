@@ -7,6 +7,7 @@ import AdminLayout from './layouts/AdminLayout';
 import Layout from './layouts/Layout';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
+// import MockPage from './pages/About/MockPage';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    {/* <Route path="/about/mock-page" element={<MockPage />} /> */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/contact" element={<Contact />} />
 

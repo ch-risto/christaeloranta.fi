@@ -15,7 +15,7 @@ export const PageContainer = styled.div`
     animation: fadeIn 0.6s ease-in;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-        padding: 1.5rem 1.25rem;
+        padding: 0;
         gap: 2rem;
     }
 

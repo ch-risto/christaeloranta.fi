@@ -20,14 +20,22 @@ export const StyledSection = styled.section`
 
 export const StyledLink = styled(Link)`
     cursor: pointer;
-    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    transition:
+        transform 0.18s ease,
+        color 0.18s ease,
+        background-color 0.18s ease;
 `;
 
 export const NavLink = styled(StyledLink)`
-    color: ${({ theme }) => theme.colors.link};
+    color: ${({ theme }) => theme.colors.accent};
     font-size: ${({ theme }) => theme.fontSizes.lg};
     letter-spacing: ${({ theme }) => theme.letterSpacing.wider};
-    padding: 0.5rem 1rem;
+    padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.sm}
+        ${({ theme }) => theme.spacing.xs};
+    border-radius: ${({ theme }) => theme.borderRadius.full};
+    line-height: 1;
 
     &:hover {
         transform: ${({ theme }) => theme.transforms.hopNorthEast};
