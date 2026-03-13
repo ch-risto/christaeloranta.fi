@@ -6,6 +6,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminLayout from './layouts/AdminLayout';
 import Layout from './layouts/Layout';
 import About from './pages/About/About';
+import Contact from './pages/Contact/Contact';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/contact" element={<Contact />} />
 
                     <Route element={<ProtectedRoute />}>
                         <Route element={<AdminLayout />}>

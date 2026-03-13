@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
-export const PageContainer = styled.main`
+export const PageContainer = styled.div`
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,24 +1,22 @@
 import type React from 'react';
 import chLogoSvg from '../../assets/logos/ch_.svg';
 import christaPhoto from '../../assets/photos/ChristaEloranta.jpg';
-import ElorantaCV from '../../assets/Eloranta_CV.pdf';
+import ElorantaCV from '../../assets/Eloranta-CV.pdf';
 import * as S from './Home.styles.ts';
 import { useTheme } from 'styled-components';
-import FAQSection from '../../components/common/FAQ/FAQSection.tsx';
-import { faqData } from '../../data/faqs.tsx';
-import { StyledLinkImage } from '../../components/common/BaseComponents.styles.ts';
-import AccordionElement from '../../components/common/FAQ/FAQSection.tsx';
+import { BaseMain, StyledLinkImage } from '../../components/common/BaseComponents.styles.ts';
 import { Tooltip } from '../../components/common/Tooltip/Tooltip.tsx';
 
 const Home: React.FC = () => {
     const theme = useTheme();
 
     return (
-        <main>
+        <BaseMain>
             {/* Hero Section */}
             <S.HeroContainer>
                 <S.HeroContent>
                     <S.HeroText>
+                        {/* TODO: tarviiks täs h1:siä? */}
                         <h1>
                             <S.HeadlineImage
                                 src={theme.images.headline}
@@ -72,10 +70,6 @@ const Home: React.FC = () => {
                 </S.LinkItem>
             </S.LinksContainer>
 
-            {/* FAQ Section */}
-            <FAQSection title="Usein kysytyt kysymykset" items={faqData.general} />
-            <AccordionElement title="Tekniset FAQ:t" items={faqData.pricing} />
-
             {/* Archive / Legacy Section */}
             <S.ArchiveContainer>
                 <S.ArchiveContent>
@@ -98,7 +92,7 @@ const Home: React.FC = () => {
                     </S.ArchiveTextContent>
                 </S.ArchiveContent>
             </S.ArchiveContainer>
-        </main>
+        </BaseMain>
     );
 };
 

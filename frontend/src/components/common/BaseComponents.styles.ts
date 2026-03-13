@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const BaseMain = styled.main`
+    width: 100%;
+    min-height: 60vh;
+`;
+
 export const StyledSection = styled.section`
     margin-top: ${({ theme }) => theme.spacing.xl};
 
@@ -15,6 +20,24 @@ export const StyledSection = styled.section`
 
 export const StyledLink = styled(Link)`
     cursor: pointer;
+    transition: all 0.2s ease;
+`;
+
+export const NavLink = styled(StyledLink)`
+    color: ${({ theme }) => theme.colors.link};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    letter-spacing: ${({ theme }) => theme.letterSpacing.wider};
+    padding: 0.5rem 1rem;
+
+    &:hover {
+        transform: ${({ theme }) => theme.transforms.hopNorthEast};
+    }
+`;
+
+export const LogoLink = styled(StyledLink)`
+    &:hover {
+        scale: 1.05;
+    }
 `;
 
 export const StyledLinkImage = styled(StyledLink)`
@@ -29,5 +52,25 @@ export const StyledLinkImage = styled(StyledLink)`
     &:focus-visible {
         outline: 2px solid ${({ theme }) => theme.colors.accent};
         outline-offset: 4px;
+    }
+`;
+
+export const BaseHero = styled(StyledSection)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+    padding: 4rem 1.5rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+        gap: 1.5rem;
+        padding: 3rem 1.25rem;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        gap: 1rem;
+        padding: 2rem 1rem;
     }
 `;

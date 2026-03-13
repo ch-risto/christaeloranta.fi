@@ -25,9 +25,9 @@ const AccordionElement: React.FC<FAQSectionProps> = ({ title, items }) => {
             <Title>{title}</Title>
             {items.map((item, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger>
-                        <AccordionHeader>{item.question}</AccordionHeader>
-                    </AccordionTrigger>
+                    <AccordionHeader>
+                        <AccordionTrigger>{item.question}</AccordionTrigger>
+                    </AccordionHeader>
                     <AccordionContent>
                         <ContentPaddingWrapper>{item.answer}</ContentPaddingWrapper>
                     </AccordionContent>

@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from '../styles/GlobalStyles';
 import Page from '../components/layout/Page/Page';
 import Footer from '../components/layout/Footer/Footer';
+import NavBar from '../components/layout/NavBar/NavBar';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -35,6 +36,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <ThemeProvider theme={currentTheme}>
             <GlobalStyles />
             <Page>
+                <NavBar />
                 {children}
                 <Footer />
             </Page>

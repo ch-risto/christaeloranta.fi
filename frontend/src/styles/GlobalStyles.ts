@@ -8,10 +8,16 @@ export const GlobalStyles = createGlobalStyle`
         font-size: ${({ theme }) => theme.fontSizes.base};
         box-sizing: border-box;
         scroll-behavior: smooth;
+        scrollbar-gutter: stable;
     }
 
     *, *::before, *::after {
         box-sizing: border-box;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
     }
 
     body {

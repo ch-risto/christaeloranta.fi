@@ -9,9 +9,11 @@ export const Title = styled.h2`
 `;
 
 export const AccordionSection = styled(Accordion.Root)`
+    width: 100%;
     max-width: 800px;
     margin: 4rem auto;
     padding: 0 1rem;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -21,14 +23,15 @@ export const AccordionItem = styled(Accordion.Item)`
     background: ${({ theme }) => theme.colors.surface};
     border-radius: ${({ theme }) => theme.borderRadius.md};
     border: 1px solid ${({ theme }) => theme.colors.border};
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 `;
 
 export const AccordionHeader = styled(Accordion.Header)`
     margin: 0;
-    font-size: 1.25rem;
-    cursor: pointer;
-    font-weight: ${({ theme }) => theme.fontWeights.regular};
-    font-family: ${({ theme }) => theme.fonts.ide};
+    width: 100%;
 `;
 
 export const AccordionTrigger = styled(Accordion.Trigger)`
@@ -43,6 +46,13 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
     font-size: 1.25rem;
     cursor: pointer;
     display: flex;
+    align-items: center;
+    text-align: left;
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    font-family: ${({ theme }) => theme.fonts.ide};
+    color: ${({ theme }) => theme.colors.text};
+    min-width: 0;
+    box-sizing: border-box;
 
     &:hover:not([data-state='open']) {
         opacity: 0.8;
@@ -53,7 +63,10 @@ export const AccordionContent = styled(Accordion.Content)`
     overflow: hidden;
     background: ${({ theme }) => theme.colors.surface};
     color: ${({ theme }) => theme.colors.text};
-    border-radius: 0 0 ${({ theme }) => theme.borderRadius.md},
+    width: 100%;
+    max-width: 100%;
+    border-radius:
+        0 0 ${({ theme }) => theme.borderRadius.md},
         ${({ theme }) => theme.borderRadius.md};
     font-family: ${({ theme }) => theme.fonts.ide};
     // TODO: Framer motion. Pitäskö kuitenkin vaihtaa siihen (Homen kuva)
@@ -68,4 +81,7 @@ export const AccordionContent = styled(Accordion.Content)`
 
 export const ContentPaddingWrapper = styled.div`
     padding: 1rem;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+    box-sizing: border-box;
 `;

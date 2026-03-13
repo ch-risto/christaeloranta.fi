@@ -166,7 +166,7 @@ export const LinkIcon = styled.span`
 `;
 
 export const LinkText = styled.span`
-    /* font-weight: 400; */
+    letter-spacing: ${({ theme }) => theme.letterSpacing.wider};
 `;
 
 export const LogoImage = styled.img`
@@ -204,7 +204,7 @@ export const ArchiveLogo = styled.div`
 
 export const ArchiveContainer = styled(StyledSection)`
     justify-content: flex-start;
-    margin: 1.5rem 0;
+    margin: 2rem 0;
     background-color: ${({ theme }) => theme.colors.surface};
     border: 1px solid ${({ theme }) => theme.colors.border};
     border-radius: ${({ theme }) => theme.borderRadius.xl};

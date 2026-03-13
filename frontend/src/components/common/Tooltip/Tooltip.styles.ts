@@ -10,9 +10,10 @@ export const TooltipContent = styled(TooltipPrimitives.Content)`
     color: ${({ theme }) => theme.colors.text};
     font-size: ${({ theme }) => theme.fontSizes.sm};
     line-height: ${({ theme }) => theme.lineHeights.loose};
+    letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
     user-select: none;
-    z-index: 1000;
+    z-index: ${({ theme }) => theme.zIndex.tooltip};
 
     &[data-state='delayed-open'] {
         animation: ${fadeInUp} 300ms cubic-bezier(0.87, 0, 0.13, 1);

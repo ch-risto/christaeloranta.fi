@@ -34,6 +34,14 @@ export const baseTheme = {
         '2xl': '3rem', // 48px
         '3xl': '4rem', // 64px
     },
+    letterSpacing: {
+        tighter: '-0.05em',
+        tight: '-0.025em',
+        normal: '0',
+        wide: '0.025em',
+        wider: '0.05em',
+        widest: '0.1em',
+    },
     lineHeights: {
         none: '1',
         tight: '1.25', // for headings
@@ -76,15 +84,15 @@ export const baseTheme = {
         tablet: '768px',
         desktop: '1024px',
     },
-    //   zIndex: {
-    //     dropdown: 1000,
-    //     sticky: 1020,
-    //     fixed: 1030,
-    //     backdrop: 1040,
-    //     modal: 1050,
-    //     popover: 1060,
-    //     tooltip: 1070,
-    //   },
+    zIndex: {
+        dropdown: 1000,
+        sticky: 1020,
+        fixed: 1030,
+        backdrop: 1040,
+        modal: 1050,
+        popover: 1060,
+        tooltip: 1070,
+    },
     opacity: {
         low: 0.6,
         mediumLow: 0.75,
