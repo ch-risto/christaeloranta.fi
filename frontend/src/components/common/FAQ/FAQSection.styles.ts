@@ -6,17 +6,22 @@ export const Title = styled.h2`
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
+    color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const AccordionSection = styled(Accordion.Root)`
     width: 100%;
     max-width: 800px;
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 0 1rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    &:not(:last-child) {
+        margin-bottom: 4rem;
+    }
 
     @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         margin: 2rem auto;
@@ -73,7 +78,7 @@ export const AccordionContent = styled(Accordion.Content)`
         0 0 ${({ theme }) => theme.borderRadius.md},
         ${({ theme }) => theme.borderRadius.md};
     font-family: ${({ theme }) => theme.fonts.ide};
-    // TODO: Framer motion. Pitäskö kuitenkin vaihtaa siihen (Homen kuva)
+
     &[data-state='open'] {
         animation: ${slideDown} 300ms cubic-bezier(0.87, 0, 0.13, 1);
     }

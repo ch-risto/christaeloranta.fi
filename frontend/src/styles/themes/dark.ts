@@ -6,10 +6,12 @@ export const darkTheme = {
     ...baseTheme,
     colors: {
         accent: '#F59E0B',
+        accentRGB: '245, 158, 11',
         background: '#1b1b1b',
         text: '#F9FAFB',
         surface: '#252525',
-        primary: '#121212',
+        primary: '#966209',
+        primaryRGB: '150, 98, 9',
         border: '#F59E0B',
         link: '#F59E0B',
         logoFilter:

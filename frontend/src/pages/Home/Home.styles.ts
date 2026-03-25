@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { fadeIn } from '../../styles/animations';
-import { StyledSection } from '../../components/common/BaseComponents.styles';
+import { BaseHero, StyledSection } from '../../components/common/BaseComponents.styles';
 import { MagneticImage } from '../../components/ui/MagneticImage.tsx';
 
-export const HeroContainer = styled(StyledSection)``;
+export const HeroContainer = styled(BaseHero)``;
 
 export const HeroContent = styled.div`
     display: grid;

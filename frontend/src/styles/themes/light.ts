@@ -6,10 +6,12 @@ export const lightTheme = {
     ...baseTheme,
     colors: {
         accent: '#a0522d',
+        accentRGB: '160, 82, 45',
         background: '#fefefe',
         text: '#2e211d',
         surface: '#f9ecec',
         primary: '#CA6902',
+        primaryRGB: '202, 105, 2',
         border: '#d48c84',
         link: '#F59E0B',
         logoFilter:
