@@ -10,7 +10,7 @@ Tämä projekti esittelee valikoiman töitäni ja projektejani.
 
 ## 🚀 Demo
 
-[🔗 christaeloranta.fi](https://käyttäjätunnus.github.io/repon-nimi)  
+[🔗 christaeloranta.fi](https://christaeloranta.fi)  
 _Huom: Sivusto on parhaillaan kehityksen alla_
 
 ## 📦 Asennus (kehityskäyttöön)
