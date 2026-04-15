@@ -1,58 +1,56 @@
 ---
+import Button from "./Button.astro";
+
 interface HeroProps {
   title: string;
   description: string;
   imageUrl?: string;
-  size?: "small" | "medium" | "large" | "xl";
-  offsetForTransparentHeader?: boolean;
+  type?: "main" | "secondary";
 }
-const {
-  imageUrl,
-  size = "large",
-  offsetForTransparentHeader = false,
-} = Astro.props as HeroProps;
+const { imageUrl, type = "main" } = Astro.props as HeroProps;
 
-const sizeClasses = {
-  small: {
-    height: "md:h-60 h-48",
-    titleSize: "text-3xl",
-    descriptionSize: "text-base",
-  },
-  medium: {
-    height: "md:h-80 h-64",
-    titleSize: "text-4xl",
-    descriptionSize: "text-lg",
-  },
-  large: {
-    height: "md:h-100 h-80",
-    titleSize: "text-5xl",
-    descriptionSize: "text-xl",
-  },
-  xl: {
+const headerType = {
+  main: {
     height: "md:h-170 h-96",
-    titleSize: "md:text-6xl text-4xl",
-    descriptionSize: "md:text-2xl text-lg",
+    title: "md:text-9xl text-6xl",
+    description:
+      "text-content-tertiary leading-7 tracking-tight md:text-md text-s md:max-w-md px-2 mb-4",
+    tags: "flex flex-row flex-wrap tracking-wider gap-2 mb-2",
+  },
+  secondary: {
+    height: "md:h-80 h-64",
+    title: "md:text-5xl  text-4xl",
+    description: "md:text-xl text-lg",
+    tags: "bg-brand-highlight-secondary/50",
   },
 };
 
-const currentVariant = sizeClasses[size];
+const header = headerType[type];
 ---
 
 <section
-  class={`w-full grow bg-surface-primary bg-center flex items-center justify-center ${currentVariant.height} bg-cover p-4 md:p-0`}
+  class={`w-full grow bg-surface-secondary bg-center flex items-center justify-center ${header.height} bg-cover p-4 md:p-0`}
   style={imageUrl ? `background-image: url(${imageUrl});` : ""}
 >
   <div
-    class={`w-full max-w-6xl justify-start bg-linear-to-r from-surface-primary from-20% to-transparent md:to-80% to-100% rounded-lg p-4 ${offsetForTransparentHeader ? "md:mt-24" : ""}`}
+    class="w-full max-w-6xl justify-start bg-linear-to-r from-surface-primary from-20% to-transparent md:to-80% to-100% rounded-lg p-4 md:mt-24"
   >
+    <div class={`${header.tags}`}>
+      <slot name="tags" />
+    </div>
     <h1
-      class={`md:text-5xl font-serif italic text-heading-primary mb-4 max-w-2xl ${currentVariant.titleSize}`}
+      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title}`}
     >
       <slot name="title" />
     </h1>
-    <p class={`md:text-xl max-w-2xl ${currentVariant.descriptionSize}`}>
+    <p class={`font-sans-secondary uppercase ${header.description}`}>
       <slot name="description" />
     </p>
-    <!-- TODO: Tarvitaan vielä CTA -->
+    <div class="flex flex-row gap-2">
+      <Button variant="primary" href="#contact-form">Ota yhteyttä</Button>
+      <Button variant="secondary" href="https://archive.christaeloranta.fi">
+        Kurkkaa arkistoitu verkkosivu
+      </Button>
+    </div>
   </div>
 </section>

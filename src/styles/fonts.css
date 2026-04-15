@@ -4,7 +4,6 @@
   font-family: "Libertinus Serif";
   font-style: italic;
   font-weight: 400;
-
   src: url("../assets/fonts/libertinus-serif-v1-latin-italic.woff2")
     format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
@@ -50,37 +49,29 @@
   src: url("../assets/fonts/inter-v20-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* noto-serif-300 - latin */
+/* space-grotesk-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Noto Serif";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../assets/fonts/noto-serif-v33-latin-300.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* noto-serif-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Noto Serif";
+  font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/noto-serif-v33-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* noto-serif-italic - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Noto Serif";
-  font-style: italic;
-  font-weight: 400;
-  src: url("../assets/fonts/noto-serif-v33-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../assets/fonts/space-grotesk-v22-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-/* libertinus-serif-regular - latin */
+/* newsreader-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Libertinus Serif";
+  font-family: "Newsreader";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/libertinus-serif-v1-latin-regular.woff2")
-    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url("../assets/fonts/newsreader-v26-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* newsreader-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 400;
+  src: url("../assets/fonts/newsreader-v26-latin-italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }

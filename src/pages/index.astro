@@ -3,21 +3,25 @@ import Hero from "../components/ui/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import ContactForm from "../components/form/ContactForm.astro";
 import Content from "../components/layout/Content.astro";
+import Tag from "../components/ui/Tag.astro";
 ---
 
 <!-- Etusivu - / -->
 <MainLayout title="Etusivu" headerColor="transparent">
-  <Hero
-    imageUrl="Winner-2024-KDC-1-scaled.jpg"
-    offsetForTransparentHeader
-    size="xl"
-  >
+  <Hero imageUrl="Winner-2024-KDC-1-scaled.jpg" type="main">
+    <Fragment slot="tags">
+      <Tag>ohjelmistokehitys</Tag>
+      <Tag>design</Tag>
+      <Tag>käsityöt</Tag>
+    </Fragment>
     <Fragment slot="title"
-      >Tila- ja keittiösuunnittelua <em>Uudellamaalla</em></Fragment
+      >Jonkin sortin <span class="text-brand-highlight italic">Tuuliviiri</span
+      ></Fragment
     >
     <Fragment slot="description"
-      >Ammattitaitoista ja ihmislähtöistä suunnittelua, joka tekee arjesta
-      sujuvampaa ja kauniimpaa.</Fragment
+      >Ite kun tekee, tulee mitä huvittaa tehdä. Jos sinulla on mitään tarppeita
+      liittyen ohjelmistokehitykseen, designiin tai artesaaniasioihin, olen
+      valmis auttamaan sinua niiden toteuttamisessa.</Fragment
     >
   </Hero>
   <Content>
@@ -26,26 +30,50 @@ import Content from "../components/layout/Content.astro";
         <h2
           class="text-2xl font-serif-secondary bold text-heading-primary mb-4"
         >
-          Keittiösuunnittelu
+          Ohjelmistokehitys
         </h2>
         <p class="max-w-lg">
-          Suunnittelemme keittiöitä, jotka ovat sekä kauniita että toimivia.
-          Yhdistämme asiakkaan toiveet ja tarpeet luodaksemme tilan, jossa on
-          ilo kokata ja viettää aikaa perheen ja ystävien kanssa.
+          Tarjoamme räätälöityjä ohjelmistoratkaisuja, jotka on suunniteltu
+          vastaamaan asiakkaidemme ainutlaatuisia tarpeita. Olipa kyseessä
+          verkkosovellus, mobiilisovellus tai räätälöity ohjelmisto, meillä on
+          osaaminen ja kokemus toteuttaa ratkaisu, joka tehostaa
+          liiketoimintaasi ja parantaa käyttäjäkokemusta.
         </p>
       </div>
       <div class="p-4">
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
-          Tila- ja kalustesuunnittelu
+          Design
         </h2>
         <p class="text-content-primary max-w-lg">
-          Tarjoamme kokonaisvaltaista tilasuunnittelua, joka kattaa kaiken
-          keittiöstä olohuoneeseen. Suunnittelemme tilat, jotka ovat sekä
-          esteettisiä että käytännöllisiä, ja autamme asiakkaitamme löytämään
-          täydelliset kalusteet ja sisustuselementit.
+          Taiteen kandidaatti, joka on erikoistunut luomaan visuaalisesti
+          houkuttelevia ja toimivia suunnitteluratkaisuja. Minulla on vahva
+          tausta graafisessa suunnittelussa, käyttöliittymäsuunnittelussa ja
+          brändäyksessä, ja olen sitoutunut tuottamaan korkealaatuista työtä,
+          joka ylittää asiakkaiden odotukset. Olen taitava käyttämään erilaisia
+          suunnittelutyökaluja ja ohjelmistoja, ja minulla on kyky ymmärtää
+          asiakkaiden tarpeita ja muuttaa ne tehokkaiksi
+          suunnitteluratkaisuiksi, jotka parantavat heidän liiketoimintaansa ja
+          vahvistavat heidän brändiään.
+        </p>
+      </div>
+      <div class="bg-brand-highlight p-8 rounded-2xl text-surface-primary">
+        <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
+          Käsityöt
+        </h2>
+        <p class="max-w-lg">
+          Käsityöt ovat minulle intohimo, ja nautin luovasta prosessista, joka
+          liittyy erilaisten esineiden ja taideteosten luomiseen. Minulla on
+          laaja kokemus erilaisista käsityötekniikoista, kuten puuntyöstö,
+          keramiikka ja tekstiilityöt, ja olen aina innokas oppimaan uusia
+          taitoja ja kokeilemaan uusia materiaaleja. Uskon, että käsityöt eivät
+          ole vain tapa ilmaista luovuutta, vaan myös keino luoda yhteys
+          perinteisiin ja kulttuuriperintöön, ja olen sitoutunut tuottamaan
+          korkealaatuista työtä, joka heijastaa tätä filosofiaa.
         </p>
       </div>
     </div>
+  </Content>
+  <Content color="secondary">
     <ContactForm />
   </Content>
 </MainLayout>

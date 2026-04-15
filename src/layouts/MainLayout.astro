@@ -12,9 +12,7 @@ const { title, headerColor = "light" } = Astro.props as Props;
 
 <BaseLayout title={title}>
   <Header headerColor={headerColor} />
-  <main
-    class="grow w-full mx-auto flex flex-col items-center justify-center gap-8 mb-8"
-  >
+  <main class="grow w-full mx-auto flex flex-col items-center justify-center">
     <slot />
   </main>
   <Footer />

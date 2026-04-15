@@ -6,19 +6,39 @@ interface Props {
   variant?: "primary" | "secondary";
 }
 
-const { href, type = "button", class: className = "" } = Astro.props;
+const {
+  href,
+  type = "button",
+  class: className = "",
+  variant: variantValue = "primary",
+} = Astro.props;
+
+const isExternalLink = typeof href === "string" && /^https?:\/\//.test(href);
 
 const classes =
-  `inline-flex justify-center rounded-md bg-brand px-4 py-2 font-semibold text-surface-tertiary hover:bg-brand-hover ${className}`.trim();
+  `inline-flex justify-center uppercase font-sans-secondary px-4 py-2 text-surface-primary hover:cursor-pointer ${className}`.trim();
+
+const variantClasses = {
+  primary: "bg-brand text-surface-primary hover:bg-brand/85",
+  secondary:
+    "bg-brand-highlight text-content-primary hover:bg-brand-highlight/85",
+};
+
+// const variant = variantClasses[variantValue];
 ---
 
 {
   href ? (
-    <a href={href} class={classes}>
+    <a
+      href={href}
+      target={isExternalLink ? "_blank" : undefined}
+      rel={isExternalLink ? "noopener noreferrer" : undefined}
+      class={classes + " " + variantClasses[variantValue]}
+    >
       <slot />
     </a>
   ) : (
-    <button type={type} class={classes}>
+    <button type={type} class={classes + " " + variantClasses[variantValue]}>
       <slot />
     </button>
   )
