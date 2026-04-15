@@ -1,0 +1,45 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Peruuttaa käynnissä olevat aiemmat ajot samassa PR:ssä, jos uusia committeja pushataan
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.22.2" # Käytä samaa LTS-versiota kuin lokaalisti
+          cache: "npm" # Erittäin tärkeä: nopeuttaa npm ci -ajoa huomattavasti
+
+      - name: Install dependencies
+        # Käytä npm ci (Clean Install) npm installin sijaan.
+        # Se asentaa tarkalleen package-lock.jsonin mukaiset versiot eikä muokkaa sitä,
+        # taaten deterministisen buildin.
+        run: npm ci
+
+      - name: Check Formatting (Prettier)
+        run: npm run format:check
+
+      - name: Lint Code (ESLint)
+        run: npm run lint
+
+      - name: Type Check (Astro Check & TS)
+        run: npm run typecheck
+
+      - name: Build Application
+        # Varmistaa, että sovellus oikeasti kääntyy staattisiksi sivuiksi / serverikoodiksi
+        run: npm run build

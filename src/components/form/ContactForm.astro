@@ -1,0 +1,80 @@
+---
+import Button from "../ui/Button.astro";
+import Input from "./Input.astro";
+---
+
+<div class="w-full max-w-5xl flex flex-col gap-8 items-center mb-8">
+  <h3 class="text-4xl font-serif italic text-heading-primary text-center">
+    Ota yhteyttä
+  </h3>
+  <form
+    id="contact-form"
+    class="w-full max-w-3xl mx-auto flex flex-col gap-2.5"
+  >
+    <input
+      type="hidden"
+      name="access_key"
+      value="505630d0-3a70-46d3-8ca9-9a4cbd17f398"
+    />
+    <Input
+      type="text"
+      label="Nimi"
+      name="name"
+      placeholder="Essi Esimerkki"
+      required
+    />
+    <Input
+      type="email"
+      label="Sähköposti"
+      name="email"
+      placeholder="essi.esimerkki@example.com"
+      required
+    />
+    <Input
+      type="textarea"
+      label="Viesti"
+      name="message"
+      placeholder="Kirjoita viestisi tähän..."
+      required
+    />
+    <Button type="submit"> Submit </Button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData.entries());
+      const json = JSON.stringify(object);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          form.reset();
+          window.location.href = "/thank-you";
+        } else {
+          console.error("Web3Forms API virhe:", data);
+          alert("Lähetys epäonnistui: " + (data.message || "Tuntematon virhe"));
+        }
+      } catch (error) {
+        console.error("Verkkovirhe:", error);
+        alert("Verkkovirhe. Tarkista internetyhteys ja yritä uudelleen.");
+      }
+    });
+  }
+</script>

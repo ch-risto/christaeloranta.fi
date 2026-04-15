@@ -1,0 +1,21 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+interface Props {
+  title: string;
+  headerColor?: "transparent" | "light" | "brand";
+}
+const { title, headerColor = "light" } = Astro.props as Props;
+---
+
+<BaseLayout title={title}>
+  <Header headerColor={headerColor} />
+  <main
+    class="grow w-full mx-auto flex flex-col items-center justify-center gap-8 mb-8"
+  >
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

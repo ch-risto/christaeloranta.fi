@@ -1,0 +1,18 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  headerColor?: "transparent" | "light" | "brand";
+}
+
+const { title } = Astro.props as Props;
+---
+
+<BaseLayout title={title}>
+  <main
+    class="grow w-full mx-auto flex flex-col items-center justify-center gap-8 mb-8"
+  >
+    <slot />
+  </main>
+</BaseLayout>

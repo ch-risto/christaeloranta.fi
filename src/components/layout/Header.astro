@@ -1,0 +1,31 @@
+---
+interface HeaderProps {
+  headerColor?: "transparent" | "light" | "brand";
+}
+const { headerColor = "light" } = Astro.props as HeaderProps;
+
+const headerColorClasses = {
+  transparent: {
+    header:
+      "md:absolute sticky top-0 left-0 w-full z-50 md:bg-transparent bg-surface-primary md:text-surface-tertiary text-content-primary shadow-3xl",
+    text: "md:text-shadow-lg md:text-shadow-content-primary text-shadow-none",
+  },
+  light: {
+    header:
+      "sticky top-0 z-50 bg-surface-secondary text-content-primary shadow-sm",
+    text: "",
+  },
+  brand: {
+    header: "sticky top-0 z-50 bg-brand text-surface-primary shadow-md",
+    text: "",
+  },
+};
+
+const headerColorClass = headerColorClasses[headerColor];
+---
+
+<header class={` ${headerColorClass.header} transition-colors duration-300`}>
+  <nav class="max-w-6xl mx-auto p-4 font-serif italic text-xl tracking-tight">
+    <a class="p-2" href="/">Suunnittelu Eloranta</a>
+  </nav>
+</header>

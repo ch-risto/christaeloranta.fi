@@ -1,0 +1,51 @@
+---
+import Hero from "../components/ui/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import ContactForm from "../components/form/ContactForm.astro";
+import Content from "../components/layout/Content.astro";
+---
+
+<!-- Etusivu - / -->
+<MainLayout title="Etusivu" headerColor="transparent">
+  <Hero
+    imageUrl="Winner-2024-KDC-1-scaled.jpg"
+    offsetForTransparentHeader
+    size="xl"
+  >
+    <Fragment slot="title"
+      >Tila- ja keittiösuunnittelua <em>Uudellamaalla</em></Fragment
+    >
+    <Fragment slot="description"
+      >Ammattitaitoista ja ihmislähtöistä suunnittelua, joka tekee arjesta
+      sujuvampaa ja kauniimpaa.</Fragment
+    >
+  </Hero>
+  <Content>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+      <div class="bg-brand p-8 rounded-2xl text-surface-primary">
+        <h2
+          class="text-2xl font-serif-secondary bold text-heading-primary mb-4"
+        >
+          Keittiösuunnittelu
+        </h2>
+        <p class="max-w-lg">
+          Suunnittelemme keittiöitä, jotka ovat sekä kauniita että toimivia.
+          Yhdistämme asiakkaan toiveet ja tarpeet luodaksemme tilan, jossa on
+          ilo kokata ja viettää aikaa perheen ja ystävien kanssa.
+        </p>
+      </div>
+      <div class="p-4">
+        <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
+          Tila- ja kalustesuunnittelu
+        </h2>
+        <p class="text-content-primary max-w-lg">
+          Tarjoamme kokonaisvaltaista tilasuunnittelua, joka kattaa kaiken
+          keittiöstä olohuoneeseen. Suunnittelemme tilat, jotka ovat sekä
+          esteettisiä että käytännöllisiä, ja autamme asiakkaitamme löytämään
+          täydelliset kalusteet ja sisustuselementit.
+        </p>
+      </div>
+    </div>
+    <ContactForm />
+  </Content>
+</MainLayout>

@@ -1,0 +1,13 @@
+// korjaa ja formatoi koodin joka kerta kun painat tallenna
+
+{
+  "editor.colorDecorators": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
+}

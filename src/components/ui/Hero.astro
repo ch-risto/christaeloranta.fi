@@ -1,0 +1,58 @@
+---
+interface HeroProps {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  size?: "small" | "medium" | "large" | "xl";
+  offsetForTransparentHeader?: boolean;
+}
+const {
+  imageUrl,
+  size = "large",
+  offsetForTransparentHeader = false,
+} = Astro.props as HeroProps;
+
+const sizeClasses = {
+  small: {
+    height: "md:h-60 h-48",
+    titleSize: "text-3xl",
+    descriptionSize: "text-base",
+  },
+  medium: {
+    height: "md:h-80 h-64",
+    titleSize: "text-4xl",
+    descriptionSize: "text-lg",
+  },
+  large: {
+    height: "md:h-100 h-80",
+    titleSize: "text-5xl",
+    descriptionSize: "text-xl",
+  },
+  xl: {
+    height: "md:h-170 h-96",
+    titleSize: "md:text-6xl text-4xl",
+    descriptionSize: "md:text-2xl text-lg",
+  },
+};
+
+const currentVariant = sizeClasses[size];
+---
+
+<section
+  class={`w-full grow bg-surface-primary bg-center flex items-center justify-center ${currentVariant.height} bg-cover p-4 md:p-0`}
+  style={imageUrl ? `background-image: url(${imageUrl});` : ""}
+>
+  <div
+    class={`w-full max-w-6xl justify-start bg-linear-to-r from-surface-primary from-20% to-transparent md:to-80% to-100% rounded-lg p-4 ${offsetForTransparentHeader ? "md:mt-24" : ""}`}
+  >
+    <h1
+      class={`md:text-5xl font-serif italic text-heading-primary mb-4 max-w-2xl ${currentVariant.titleSize}`}
+    >
+      <slot name="title" />
+    </h1>
+    <p class={`md:text-xl max-w-2xl ${currentVariant.descriptionSize}`}>
+      <slot name="description" />
+    </p>
+    <!-- TODO: Tarvitaan vielä CTA -->
+  </div>
+</section>
