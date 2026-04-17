@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import ContactForm from "../components/form/ContactForm.astro";
 import Content from "../components/layout/Content.astro";
 import Tag from "../components/ui/Tag.astro";
+import Button from "../components/ui/Button.astro";
 ---
 
 <!-- Etusivu - / -->
@@ -18,11 +19,19 @@ import Tag from "../components/ui/Tag.astro";
       >Jonkin sortin <span class="text-brand-highlight italic">Tuuliviiri</span
       ></Fragment
     >
-    <Fragment slot="description"
-      >Ite kun tekee, tulee mitä huvittaa tehdä. Jos sinulla on mitään tarppeita
-      liittyen ohjelmistokehitykseen, designiin tai artesaaniasioihin, olen
-      valmis auttamaan sinua niiden toteuttamisessa.</Fragment
+    <Fragment slot="description">
+      Monipuolisuus ja laatikoiden ulkopuolella pysyminen - ja toisaalta vähän
+      jokaisessa laatikossa viihtyminen - luovat pohjan toimiville, ihmisille
+      tehdyille, ratkaisuille. Ite kun tekee, tulee mitä huvittaa tehdä.</Fragment
     >
+    <Fragment slot="additional-content">
+      <div class="flex flex-row gap-2">
+        <Button variant="primary" href="#contact-form">Ota yhteyttä</Button>
+        <Button variant="secondary" href="https://archive.christaeloranta.fi">
+          Kurkkaa arkistoitu verkkosivu
+        </Button>
+      </div>
+    </Fragment>
   </Hero>
   <Content>
     <div class="flex flex-col md:flex-row items-center justify-center gap-8">
@@ -69,6 +78,35 @@ import Tag from "../components/ui/Tag.astro";
           ole vain tapa ilmaista luovuutta, vaan myös keino luoda yhteys
           perinteisiin ja kulttuuriperintöön, ja olen sitoutunut tuottamaan
           korkealaatuista työtä, joka heijastaa tätä filosofiaa.
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <span>Iconi</span>
+        <!-- Tää on kyl ehkä enemmän minusta osio -->
+        <h2>Tarviiko olla erityisosaaja ollakseen uskottava?</h2>
+        <p>
+          Ei tarvitse. Uskon, että jokaisella on oikeus ilmaista itseään ja
+          luoda asioita, jotka heijastavat heidän intohimojaan ja kiinnostuksen
+          kohteitaan, riippumatta siitä, onko heillä muodollista koulutusta tai
+          erityisosaamista tietyllä alueella. Olen itse esimerkki siitä, että
+          voit olla monipuolinen ja luova ilman, että sinun tarvitsee olla
+          asiantuntija kaikilla aloilla. Tärkeintä on olla avoin oppimaan ja
+          kokeilemaan uusia asioita, ja olla valmis jakamaan luomuksesi muiden
+          kanssa.
+        </p>
+      </div>
+      <div>
+        <span>Iconi</span>
+        <h2>Jotain generalismin hyödyistä</h2>
+        <p>
+          Generalismi voi tarjota laajemman näkökulman ja kyvyn yhdistää eri
+          alojen tietoa ja taitoja. Tämä voi johtaa innovatiivisiin ratkaisuihin
+          ja luoviin ideoihin, joita erikoistunut asiantuntija ei välttämättä
+          huomaisi. Generalisti voi myös sopeutua nopeasti muuttuviin
+          tilanteisiin ja oppia uusia taitoja tarpeen mukaan, mikä tekee heistä
+          joustavia ja monipuolisia tiimin jäseniä.
         </p>
       </div>
     </div>

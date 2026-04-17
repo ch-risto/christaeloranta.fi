@@ -1,6 +1,4 @@
 ---
-import Button from "./Button.astro";
-
 interface HeroProps {
   title: string;
   description: string;
@@ -46,11 +44,6 @@ const header = headerType[type];
     <p class={`font-sans-secondary uppercase ${header.description}`}>
       <slot name="description" />
     </p>
-    <div class="flex flex-row gap-2">
-      <Button variant="primary" href="#contact-form">Ota yhteyttä</Button>
-      <Button variant="secondary" href="https://archive.christaeloranta.fi">
-        Kurkkaa arkistoitu verkkosivu
-      </Button>
-    </div>
+    <slot name="additional-content" />
   </div>
 </section>

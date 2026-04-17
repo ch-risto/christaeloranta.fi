@@ -1,0 +1,40 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/ui/Hero.astro";
+import Content from "../components/layout/Content.astro";
+import ContactForm from "../components/form/ContactForm.astro";
+---
+
+<MainLayout title="Ota yhteyttä" headerColor="light">
+  <Hero type="secondary">
+    <Fragment slot="title">Ota yhteyttä</Fragment>
+    <Fragment slot="description">
+      Tieto- ja viestintätekniikan insinööri, taiteen kakdidaatti, puuseppä,
+      sisustaja, baarimestari. Koodari, käsityöläinen, suunnittelija,
+      juonittelija, tuuliviiri.
+    </Fragment>
+  </Hero>
+
+  <Content>
+    <div class="flex flex-col md:flex-row">
+      <div>
+        <h2>Juonitaan jotain</h2>
+        <p>
+          Jos sinulla on mitään ongelmia, joihin haluat näkökulmaa, tai
+          yhteistyökuvioita, jotka kaipaavat tekijää, ota matalalla kynnyksellä
+          yhteyttä.
+        </p>
+        <p>
+          Olen avoin yhteistyölle isojen ja pienien projektien kanssa.
+          Mielelläni teen artesaanitöitä, ohjelmistokehitystä tai
+          käyttäjätutkimusta. Tai yhdistän sinut eteenpäin ihmiselle, jolta
+          voisit saada paremmin sinua palvelevaa apua.
+        </p>
+        <div>Somelinkit tähän</div>
+      </div>
+      <div>
+        <ContactForm />
+      </div>
+    </div>
+  </Content>
+</MainLayout>

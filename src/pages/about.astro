@@ -1,0 +1,40 @@
+---
+import Content from "../components/layout/Content.astro";
+import Hero from "../components/ui/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Minusta">
+  <Hero>
+    <Fragment slot="title">Minusta</Fragment>
+    <Fragment slot="description">
+      Tieto- ja viestintätekniikan insinööri, taiteen kakdidaatti, puuseppä,
+      sisustaja, baarimestari. Koodari, käsityöläinen, suunnittelija,
+      juonittelija, tuuliviiri.
+    </Fragment>
+  </Hero>
+  <Content>
+    <div>
+      <div>
+        <h2>Minusta</h2>
+        <p>
+          Olen Jonne, monipuolinen tekijä, joka on erikoistunut
+          ohjelmistokehitykseen, designiin ja käsityötaitoihin. Minulla on vahva
+          tausta näillä aloilla, ja olen sitoutunut tuottamaan korkealaatuista
+          työtä, joka ylittää asiakkaiden odotukset. Olen taitava käyttämään
+          erilaisia työkaluja ja ohjelmistoja, ja minulla on kyky ymmärtää
+          asiakkaiden tarpeita ja muuttaa ne tehokkaiksi ratkaisuiksi, jotka
+          parantavat heidän liiketoimintaansa ja vahvistavat heidän brändiään.
+        </p>
+      </div>
+      <div>
+        <span>Tähän kuva</span>
+      </div>
+    </div>
+    <div>
+      Joku tiivistelmä siitä mitä oon tehny. Aikajana tai joku "polku" -osio,
+      jossa on merkittäviä projekteja ja saavutuksia, kouluttautumista jne.
+    </div>
+    <div>FAQ</div>
+  </Content>
+</MainLayout>
