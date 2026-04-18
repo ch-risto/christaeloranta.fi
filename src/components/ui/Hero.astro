@@ -33,17 +33,25 @@ const header = headerType[type];
   <div
     class="w-full max-w-6xl justify-start bg-linear-to-r from-surface-primary from-20% to-transparent md:to-80% to-100% rounded-lg p-4 md:mt-24"
   >
-    <div class={`${header.tags}`}>
+    <div
+      class={`${header.tags} motion-safe:animate-[fade-in-up_0.5s_ease-out_both]`}
+    >
       <slot name="tags" />
     </div>
     <h1
-      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title}`}
+      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-1`}
     >
       <slot name="title" />
     </h1>
-    <p class={`font-sans-secondary uppercase ${header.description}`}>
+    <p
+      class={`font-sans-secondary uppercase ${header.description} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-2`}
+    >
       <slot name="description" />
     </p>
-    <slot name="additional-content" />
+    <div
+      class="motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-3"
+    >
+      <slot name="additional-content" />
+    </div>
   </div>
 </section>

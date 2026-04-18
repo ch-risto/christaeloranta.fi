@@ -34,8 +34,10 @@ import Button from "../components/ui/Button.astro";
     </Fragment>
   </Hero>
   <Content>
-    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
-      <div class="bg-brand p-8 rounded-2xl text-surface-primary">
+    <div
+      class="flex flex-col md:flex-row items-center justify-center gap-8 reveal-group"
+    >
+      <div class="bg-brand p-8 rounded-2xl text-surface-primary reveal">
         <h2
           class="text-2xl font-serif-secondary bold text-heading-primary mb-4"
         >
@@ -49,7 +51,7 @@ import Button from "../components/ui/Button.astro";
           liiketoimintaasi ja parantaa käyttäjäkokemusta.
         </p>
       </div>
-      <div class="p-4">
+      <div class="p-4 reveal">
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
           Design
         </h2>
@@ -65,7 +67,9 @@ import Button from "../components/ui/Button.astro";
           vahvistavat heidän brändiään.
         </p>
       </div>
-      <div class="bg-brand-highlight p-8 rounded-2xl text-surface-primary">
+      <div
+        class="bg-brand-highlight p-8 rounded-2xl text-surface-primary reveal"
+      >
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
           Käsityöt
         </h2>
@@ -81,8 +85,8 @@ import Button from "../components/ui/Button.astro";
         </p>
       </div>
     </div>
-    <div>
-      <div>
+    <div class="reveal-group">
+      <div class="reveal">
         <span>Iconi</span>
         <!-- Tää on kyl ehkä enemmän minusta osio -->
         <h2>Tarviiko olla erityisosaaja ollakseen uskottava?</h2>
@@ -97,7 +101,7 @@ import Button from "../components/ui/Button.astro";
           kanssa.
         </p>
       </div>
-      <div>
+      <div class="reveal">
         <span>Iconi</span>
         <h2>Jotain generalismin hyödyistä</h2>
         <p>
@@ -115,3 +119,24 @@ import Button from "../components/ui/Button.astro";
     <ContactForm />
   </Content>
 </MainLayout>
+
+<script>
+  // Scroll-reveal using IntersectionObserver
+  // Respects prefers-reduced-motion via CSS; the JS still adds the class so
+  // layout never breaks if CSS transitions are skipped.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.12 },
+  );
+
+  document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+    observer.observe(el);
+  });
+</script>

@@ -16,7 +16,12 @@ const {
 const isExternalLink = typeof href === "string" && /^https?:\/\//.test(href);
 
 const classes =
-  `inline-flex justify-center uppercase font-sans-secondary px-4 py-2 text-surface-primary hover:cursor-pointer ${className}`.trim();
+  `inline-flex justify-center items-center gap-1 uppercase font-sans-secondary px-4 py-2 cursor-pointer rounded-sm
+   transition-all duration-200 ease-out
+   active:scale-95
+   focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
+   motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md
+   ${className}`.trim();
 
 const variantClasses = {
   primary: "bg-brand text-surface-primary hover:bg-brand/85",
