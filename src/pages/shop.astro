@@ -1,0 +1,102 @@
+---
+// src/pages/kauppa.astro
+import Stripe from "stripe";
+import AddToCartButton from "../components/store/AddToCartButton.astro";
+import ShopLayout from "../layouts/ShopLayout.astro";
+
+const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {});
+
+// Default available quantity if not specified in Stripe metadata
+const DEFAULT_AVAILABLE = 10;
+
+function parseInventory(value?: string): number | undefined {
+  if (!value) return undefined;
+  const parsed = Number.parseInt(value, 10);
+  if (Number.isNaN(parsed)) return undefined;
+  return Math.max(0, parsed);
+}
+
+// Inventory priority: product.metadata.inventory -> product price metadata -> default
+function getInventoryFromProduct(
+  product: Stripe.Product,
+  price?: Stripe.Price,
+): number {
+  const fromProductInventory = parseInventory(product.metadata?.inventory);
+  if (typeof fromProductInventory === "number") return fromProductInventory;
+
+  const fromProductVarastosaldo = parseInventory(
+    product.metadata?.varastosaldo,
+  );
+  if (typeof fromProductVarastosaldo === "number")
+    return fromProductVarastosaldo;
+
+  const fromPriceInventory = parseInventory(price?.metadata?.inventory);
+  if (typeof fromPriceInventory === "number") return fromPriceInventory;
+
+  const fromPriceVarastosaldo = parseInventory(price?.metadata?.varastosaldo);
+  if (typeof fromPriceVarastosaldo === "number") return fromPriceVarastosaldo;
+
+  return DEFAULT_AVAILABLE;
+}
+
+// Haetaan aktiiviset tuotteet ja laajennetaan oletushinta samaan vastaukseen.
+// Tämä on puhdasta palvelinpuolen koodia, joten Secret Key on turvassa.
+let products: Stripe.Product[] = [];
+try {
+  const response = await stripe.products.list({
+    active: true,
+    expand: ["data.default_price"],
+  });
+  products = response.data;
+} catch (error) {
+  console.error("Virhe haettaessa tuotteita Stripestä:", error);
+  // Reaalimaailman sovelluksessa tässä kannattaisi asettaa virhetila
+  // ja näyttää käyttäjälle ystävällinen virheilmoitus.
+}
+---
+
+<ShopLayout title="Kauppa">
+  <h1 class="text-5xl font-serif-secondary my-8">Kaikki tuotteet</h1>
+
+  <div
+    id="shop-container"
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+  >
+    {
+      products.map((product) => {
+        const price = product.default_price as Stripe.Price;
+        const amount = price && price.unit_amount ? price.unit_amount / 100 : 0;
+        const currency = price?.currency.toUpperCase() || "€";
+        const available = getInventoryFromProduct(product, price);
+
+        return (
+          <article class="bg-surface-secondary p-5 shadow-sm hover:shadow-md transition-shadow">
+            {product.images.length > 0 ? (
+              <img
+                src={product.images[0]}
+                alt={product.name}
+                class="w-full h-48 object-cover rounded-lg mb-4 bg-surface-primary"
+              />
+            ) : (
+              <div class="w-full h-48 bg-surface-primary rounded-lg mb-4 flex items-center justify-center">
+                Ei kuvaa
+              </div>
+            )}
+
+            <h2 class="text-xl font-semibold text-brand">{product.name}</h2>
+            <p class="text-content-primary text-sm mt-2 line-clamp-3">
+              {product.description}
+            </p>
+            <p class="text-lg font-bold mt-4 text-content-primary">
+              {amount.toFixed(2)} {currency}
+            </p>
+
+            {price && (
+              <AddToCartButton priceId={price.id} inventory={available} />
+            )}
+          </article>
+        );
+      })
+    }
+  </div>
+</ShopLayout>
