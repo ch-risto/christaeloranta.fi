@@ -1,20 +1,40 @@
 ---
 interface Props {
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "image";
+  imageUrl?: string;
+  imageClass?: string;
 }
 
-const { color = "primary" } = Astro.props as Props;
+const {
+  color = "primary",
+  imageUrl,
+  imageClass = "bg-cover bg-center",
+} = Astro.props as Props;
 
 const colorClasses = {
-  primary: "bg-surface-primary text-content-primary",
-  secondary: "bg-surface-secondary text-content-secondary",
+  primary: "bg-surface-primary text-content-primary py-8 md:py-28",
+  secondary: "bg-surface-secondary text-content-secondary py-8 md:py-28",
+  image: "gap-8",
 };
 
 const bgColor = colorClasses[color];
 ---
 
-<div
-  class={`flex flex-col px-4 py-8 md:py-28 gap-8 md:gap-28 w-full ${bgColor}`}
->
-  <slot />
+<div class={`relative overflow-hidden w-full px-4 flex flex-col  ${bgColor}`}>
+  {
+    imageUrl && (
+      <div
+        class={`absolute inset-0 pointer-events-none ${imageClass}`}
+        style={`background-image: url(${imageUrl});  background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
+      />
+    )
+  }
+  {
+    imageUrl && (
+      <div class="absolute inset-0 bg-surface-primary/25 pointer-events-none" />
+    )
+  }
+  <div class="relative z-10 flex flex-col gap-8 md:gap-28">
+    <slot />
+  </div>
 </div>

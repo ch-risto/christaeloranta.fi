@@ -19,6 +19,10 @@ const { title, description = "Oletuskuvaus" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Christa Eloranta - {title}</title>
     <meta name="description" content={description} />
+    <script
+      is:inline
+      src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.turbo.js"
+    ></script>
   </head>
   <body
     class="min-h-screen flex flex-col font-sans bg-surface-primary text-content-primary"

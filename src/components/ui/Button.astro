@@ -3,7 +3,9 @@ interface Props {
   href?: string;
   type?: "button" | "submit" | "reset";
   class?: string;
-  variant?: "primary" | "secondary" | "navLink";
+  variant?: "primary" | "secondary" | "navLink" | "textLink";
+  target?: "_self" | "_blank" | "_parent" | "_top";
+  rel?: string;
 }
 
 const {
@@ -11,12 +13,17 @@ const {
   type = "button",
   class: className = "",
   variant: variantValue = "primary",
+  target,
+  rel,
 } = Astro.props;
 
 const isExternalLink = typeof href === "string" && /^https?:\/\//.test(href);
+const linkTarget = target ?? (isExternalLink ? "_blank" : undefined);
+const linkRel =
+  rel ?? (linkTarget === "_blank" ? "noopener noreferrer" : undefined);
 
 const classes =
-  `inline-flex justify-center items-center gap-1 md:text-sm uppercase font-sans-secondary px-4 py-2 cursor-pointer rounded-sm
+  `flex flex-row justify-center items-center gap-1 md:text-sm uppercase font-sans-secondary px-4 py-2 cursor-pointer rounded-sm
    transition-all duration-200 ease-out
    active:scale-95
    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
@@ -29,6 +36,8 @@ const variantClasses = {
     "bg-brand-highlight text-surface-primary hover:bg-brand-highlight/85",
   navLink:
     "text-content-primary text-sm md:text-base uppercase font-sans-secondary leading-6 tracking-tight px-2 py-1.5 sm:px-4 sm:py-2 hover:text-brand-highlight motion-safe:hover:shadow-none transition-colors duration-300",
+  textLink:
+    "text-content-primary text-sm md:text-base font-sans-secondary leading-6 tracking-tight px-0 py-0 hover:text-brand-highlight motion-safe:hover:shadow-none transition-colors duration-300",
 };
 
 // const variant = variantClasses[variantValue];
@@ -38,8 +47,8 @@ const variantClasses = {
   href ? (
     <a
       href={href}
-      target={isExternalLink ? "_blank" : undefined}
-      rel={isExternalLink ? "noopener noreferrer" : undefined}
+      target={linkTarget}
+      rel={linkRel}
       class={classes + " " + variantClasses[variantValue]}
     >
       <slot />

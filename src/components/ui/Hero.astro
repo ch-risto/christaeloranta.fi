@@ -3,9 +3,14 @@ interface HeroProps {
   title: string;
   description: string;
   imageUrl?: string;
+  imageClass?: string;
   type?: "main" | "secondary";
 }
-const { imageUrl, type = "main" } = Astro.props as HeroProps;
+const {
+  imageUrl,
+  imageClass = "bg-[length:65%]",
+  type = "main",
+} = Astro.props as HeroProps;
 
 const headerType = {
   main: {
@@ -33,8 +38,8 @@ const header = headerType[type];
       <>
         <div class="absolute inset-0 pointer-events-none" />
         <div
-          class="absolute inset-0 pointer-events-none"
-          style={`background-image: url(${imageUrl}); background-repeat: repeat; background-size: 65%; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%); opacity: 0.85;`}
+          class={`absolute inset-0 pointer-events-none ${imageClass}`}
+          style={`background-image: url(${imageUrl}); background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
         />
       </>
     )

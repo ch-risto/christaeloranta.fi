@@ -5,6 +5,8 @@ import ContactForm from "../components/form/ContactForm.astro";
 import Content from "../components/layout/Content.astro";
 import Tag from "../components/ui/Tag.astro";
 import Button from "../components/ui/Button.astro";
+
+import { Icon } from "astro-icon/components";
 ---
 
 <!-- Etusivu - / -->
@@ -35,9 +37,57 @@ import Button from "../components/ui/Button.astro";
   </Hero>
   <Content>
     <div
+      class="flex md:flex-row flex-col w-full max-w-6xl mx-auto gap-8 items-center justify-center bg-surface-secondary md:p-0 p-4"
+    >
+      <div
+        class="max-w-lg justify-center mx-auto bg-surface-primary/80 rounded-lg md:p-8 p-4 shadow-md order-2 md:order-1"
+      >
+        <h2 class="text-3xl font-serif italic mb-4 reveal">
+          Monipuolinen osaaja
+        </h2>
+        <p class="text-content-primary reveal">
+          Moikka! Olen Christa Eloranta, monipuolinen tekijä, joka nauttii
+          asioiden toteuttamisesta. Parhaimmillani olen idean ja toteutuksen
+          rajapinnassa, ratkaisemassa sitä, miten visiot tuodaan
+          konkreettisiksi, toimiviksi ja kauniiksi kokonaisuuksiksi. Uskon, että
+          monipuolisuus tekemisessä ja osaamisessa luo ainutlaatuisia,
+          innovatiivisia ja toimivia ratkaisuja, jotka erottuvat joukosta.
+        </p>
+        <div class="flex flex-col justify-start items-start mt-4">
+          <Button variant="textLink" href="/Eloranta-CV.pdf" target="_blank">
+            <Icon name="file-cv-svgrepo-com" />CV</Button
+          >
+          <Button
+            variant="textLink"
+            href="https://www.linkedin.com/in/christa-eloranta/"
+            ><Icon name="linkedin-161-svgrepo-com" />LinkedIn</Button
+          >
+          <Button
+            variant="textLink"
+            href="https://www.instagram.com/christaeloranta/"
+            ><Icon name="instagram-svgrepo-com" />Instagram</Button
+          >
+          <Button variant="textLink" href="https://github.com/ch-risto"
+            ><Icon name="github-142-svgrepo-com" />GitHub</Button
+          >
+        </div>
+      </div>
+      <div class="justify-center md:mx-auto order-1 md:order-2">
+        <img
+          src="/images/ChristaEloranta.jpg"
+          alt="Christa Eloranta, monipuolinen tekijä"
+          class="rounded-full md:max-w-120 max-w-70 aspect-square object-cover overflow-hidden object-[100%_25%] m-4 reveal shadow-md"
+        />
+      </div>
+    </div>
+    <div
       class="flex flex-col md:flex-row items-center justify-center gap-8 reveal-group"
     >
       <div class="bg-brand p-8 rounded-2xl text-surface-primary reveal">
+        <Icon
+          name="code-tech-dev-svgrepo-com"
+          class="md:h10 h-8 md:w-10 w-8 mb-4"
+        />
         <h2
           class="text-2xl font-serif-secondary bold text-heading-primary mb-4"
         >
@@ -52,6 +102,10 @@ import Button from "../components/ui/Button.astro";
         </p>
       </div>
       <div class="p-4 reveal">
+        <Icon
+          name="design-ideas-svgrepo-com"
+          class="md:h10 h-8 md:w-10 w-8 mb-4"
+        />
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
           Design
         </h2>
@@ -70,6 +124,10 @@ import Button from "../components/ui/Button.astro";
       <div
         class="bg-brand-highlight p-8 rounded-2xl text-surface-primary reveal"
       >
+        <Icon
+          name="carpentry-svgrepo-com"
+          class="md:h10 h-8 md:w-10 w-8 mb-4"
+        />
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
           Käsityöt
         </h2>
@@ -85,58 +143,8 @@ import Button from "../components/ui/Button.astro";
         </p>
       </div>
     </div>
-    <div class="reveal-group">
-      <div class="reveal">
-        <span>Iconi</span>
-        <!-- Tää on kyl ehkä enemmän minusta osio -->
-        <h2>Tarviiko olla erityisosaaja ollakseen uskottava?</h2>
-        <p>
-          Ei tarvitse. Uskon, että jokaisella on oikeus ilmaista itseään ja
-          luoda asioita, jotka heijastavat heidän intohimojaan ja kiinnostuksen
-          kohteitaan, riippumatta siitä, onko heillä muodollista koulutusta tai
-          erityisosaamista tietyllä alueella. Olen itse esimerkki siitä, että
-          voit olla monipuolinen ja luova ilman, että sinun tarvitsee olla
-          asiantuntija kaikilla aloilla. Tärkeintä on olla avoin oppimaan ja
-          kokeilemaan uusia asioita, ja olla valmis jakamaan luomuksesi muiden
-          kanssa.
-        </p>
-      </div>
-      <div class="reveal">
-        <span>Iconi</span>
-        <h2>Jotain generalismin hyödyistä</h2>
-        <p>
-          Generalismi voi tarjota laajemman näkökulman ja kyvyn yhdistää eri
-          alojen tietoa ja taitoja. Tämä voi johtaa innovatiivisiin ratkaisuihin
-          ja luoviin ideoihin, joita erikoistunut asiantuntija ei välttämättä
-          huomaisi. Generalisti voi myös sopeutua nopeasti muuttuviin
-          tilanteisiin ja oppia uusia taitoja tarpeen mukaan, mikä tekee heistä
-          joustavia ja monipuolisia tiimin jäseniä.
-        </p>
-      </div>
-    </div>
   </Content>
   <Content color="secondary">
     <ContactForm />
   </Content>
 </MainLayout>
-
-<script>
-  // Scroll-reveal using IntersectionObserver
-  // Respects prefers-reduced-motion via CSS; the JS still adds the class so
-  // layout never breaks if CSS transitions are skipped.
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      }
-    },
-    { threshold: 0.12 },
-  );
-
-  document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
-    observer.observe(el);
-  });
-</script>
