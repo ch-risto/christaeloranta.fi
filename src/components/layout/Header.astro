@@ -1,34 +1,103 @@
-<header class="bg-surface-secondary/85">
-  <nav class="max-w-6xl mx-auto flex items-center">
-    <a class="block p-2 leading-none" href="/">
-      <img
-        src="/public/logos/ch_.svg"
-        alt="Christa Eloranta"
-        class="block h-15 w-auto"
-      />
-    </a>
-    <ul class="flex gap-4 ml-auto">
-      <li>
-        <a
-          href="/"
-          class="text-content-primary hover:text-heading-primary transition-colors duration-300"
-          >Etusivu</a
+---
+import Button from "../ui/Button.astro";
+---
+
+<header
+  class="fixed top-0 left-0 w-full z-50 bg-surface-secondary/75 backdrop-blur-sm"
+>
+  <nav class="max-w-6xl mx-auto px-4 py-2">
+    <div class="flex items-center justify-between gap-3">
+      <a
+        class="block leading-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
+   motion-safe:hover:-translate-y-0.5"
+        href="/"
+      >
+        <img
+          src="/logos/ch_.svg"
+          alt="Christa Eloranta"
+          class="block h-12 sm:h-14 w-auto"
+          style="filter: brightness(0) saturate(100%) invert(13%) sepia(45%) saturate(580%) hue-rotate(115deg) brightness(97%) contrast(89%);"
+        />
+      </a>
+
+      <details class="relative md:hidden nav-menu">
+        <summary
+          class="list-none flex h-10 w-10 items-center justify-center rounded-sm text-content-primary cursor-pointer [&::-webkit-details-marker]:hidden"
+          aria-label="Avaa valikko"
         >
+          <span class="sr-only">Avaa valikko</span>
+          <span class="hamburger" aria-hidden="true">
+            <span class="hamburger-line hamburger-line-top"></span>
+            <span class="hamburger-line hamburger-line-bottom"></span>
+          </span>
+        </summary>
+        <ul
+          class="absolute right-0 mt-2 min-w-60 rounded-sm bg-surface-primary p-2 shadow-md flex flex-col gap-1"
+        >
+          <li>
+            <Button href="/" variant="navLink">Etusivu</Button>
+          </li>
+          <li>
+            <Button href="/about" variant="navLink">Minusta</Button>
+          </li>
+          <li>
+            <Button href="/contact" variant="navLink">Ota yhteyttä</Button>
+          </li>
+        </ul>
+      </details>
+
+      <ul
+        class="hidden md:flex md:flex-wrap items-center gap-3 md:ml-auto w-auto"
+      >
         <li>
-          <a
-            href="/about"
-            class="text-content-primary hover:text-heading-primary transition-colors duration-300"
-            >Minusta</a
-          >
+          <Button href="/" variant="navLink">Etusivu</Button>
         </li>
         <li>
-          <a
-            href="/contact"
-            class="text-content-primary hover:text-heading-primary transition-colors duration-300"
-            >Ota yhteyttä</a
-          >
+          <Button href="/about" variant="navLink">Minusta</Button>
         </li>
-      </li>
-    </ul>
+        <li>
+          <Button href="/contact" variant="navLink">Ota yhteyttä</Button>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
+
+<style>
+  .hamburger {
+    position: relative;
+    width: 18px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-line {
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 999px;
+    transition:
+      transform 220ms ease,
+      opacity 220ms ease;
+    transform-origin: center;
+  }
+
+  .hamburger-line-top {
+    transform: translateY(-4px);
+  }
+
+  .hamburger-line-bottom {
+    transform: translateY(4px);
+  }
+
+  .nav-menu[open] .hamburger-line-top {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  .nav-menu[open] .hamburger-line-bottom {
+    transform: translateY(0) rotate(-45deg);
+  }
+</style>

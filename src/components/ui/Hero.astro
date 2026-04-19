@@ -9,16 +9,15 @@ const { imageUrl, type = "main" } = Astro.props as HeroProps;
 
 const headerType = {
   main: {
-    height: "md:h-170 h-96",
+    container: "h-dvh justify-center",
     title: "md:text-9xl text-6xl",
-    description:
-      "text-content-tertiary leading-7 tracking-tight md:text-md text-s md:max-w-md px-2 mb-4",
+    description: "",
     tags: "flex flex-row flex-wrap tracking-wider gap-2 mb-2",
   },
   secondary: {
-    height: "md:h-80 h-64",
-    title: "md:text-5xl  text-4xl",
-    description: "md:text-xl text-lg",
+    container: "md:h-120 h-80 justify-end",
+    title: "md:text-8xl  text-4xl",
+    description: "",
     tags: "bg-brand-highlight-secondary/50",
   },
 };
@@ -27,11 +26,21 @@ const header = headerType[type];
 ---
 
 <section
-  class={`w-full grow bg-surface-secondary bg-center flex items-center justify-center ${header.height} bg-cover p-4 md:p-0`}
-  style={imageUrl ? `background-image: url(${imageUrl});` : ""}
+  class={`w-full grow bg-brand-background flex flex-col items-center ${header.container} p-4 relative`}
 >
+  {
+    imageUrl && (
+      <>
+        <div class="absolute inset-0 pointer-events-none" />
+        <div
+          class="absolute inset-0 pointer-events-none"
+          style={`background-image: url(${imageUrl}); background-repeat: repeat; background-size: 65%; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%); opacity: 0.85;`}
+        />
+      </>
+    )
+  }
   <div
-    class="w-full max-w-6xl justify-start bg-linear-to-r from-surface-primary from-20% to-transparent md:to-80% to-100% rounded-lg p-4 md:mt-24"
+    class="w-full max-w-6xl justify-start bg-surface-primary/80 md:bg-transparent md:bg-[linear-gradient(to_right,var(--color-surface-primary)_10%,transparent_70%)] rounded-lg p-4 md:py-8 relative z-10"
   >
     <div
       class={`${header.tags} motion-safe:animate-[fade-in-up_0.5s_ease-out_both]`}
@@ -44,12 +53,12 @@ const header = headerType[type];
       <slot name="title" />
     </h1>
     <p
-      class={`font-sans-secondary uppercase ${header.description} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-2`}
+      class={`font-sans-secondary uppercase text-content-tertiary tracking-tight text-sm md:text-base leading-6 md:leading-7 md:max-w-md md:px-2 ${header.description} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-2`}
     >
       <slot name="description" />
     </p>
     <div
-      class="motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-3"
+      class="mt-4 motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-3"
     >
       <slot name="additional-content" />
     </div>
