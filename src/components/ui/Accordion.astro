@@ -19,13 +19,16 @@ const { id = "accordion-flush" } = Astro.props as Props;
 <script>
   // Custom accordion handler - only one item open at a time
   document.addEventListener("click", (e) => {
-    const button = e.target.closest("[data-accordion-target]");
+    const clickTarget = e.target;
+    if (!(clickTarget instanceof Element)) return;
+
+    const button = clickTarget.closest("[data-accordion-target]");
     if (!button) return;
 
     const targetId = button.getAttribute("data-accordion-target");
     if (!targetId) return;
 
-    const targetElement = document.querySelector(targetId);
+    const targetElement = document.querySelector<HTMLElement>(targetId);
     if (!targetElement) return;
 
     const isCurrentlyHidden = targetElement.classList.contains("hidden");
@@ -38,7 +41,9 @@ const { id = "accordion-flush" } = Astro.props as Props;
 
       allButtons?.forEach((btn) => {
         const btnTargetId = btn.getAttribute("data-accordion-target");
-        const btnTarget = document.querySelector(btnTargetId);
+        if (!btnTargetId) return;
+
+        const btnTarget = document.querySelector<HTMLElement>(btnTargetId);
         if (btnTarget && btnTarget !== targetElement) {
           btnTarget.classList.add("hidden");
           btn.setAttribute("aria-expanded", "false");
