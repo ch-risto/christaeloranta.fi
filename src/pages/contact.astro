@@ -3,36 +3,58 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/ui/Hero.astro";
 import Content from "../components/layout/Content.astro";
 import ContactForm from "../components/form/ContactForm.astro";
+import Button from "../components/ui/Button.astro";
+
+import { Icon } from "astro-icon/components";
 ---
 
 <MainLayout title="Ota yhteyttä" headerColor="light">
   <Hero type="secondary">
-    <Fragment slot="title">Ota yhteyttä</Fragment>
+    <Fragment slot="title"
+      ><span class="text-brand-highlight">Juonitaan</span> jotain</Fragment
+    >
     <Fragment slot="description">
-      Tieto- ja viestintätekniikan insinööri, taiteen kakdidaatti, puuseppä,
-      sisustaja, baarimestari. Koodari, käsityöläinen, suunnittelija,
-      juonittelija, tuuliviiri.
+      Yhteistyökuviot, tilaustuotteet, ideat, sparrailu, keittiöpyyhkeet,
+      työtarjoukset, pehmolelut, suunnitelmat..
     </Fragment>
   </Hero>
 
   <Content>
-    <div class="flex flex-col md:flex-row">
-      <div>
-        <h2>Juonitaan jotain</h2>
-        <p>
-          Jos sinulla on mitään ongelmia, joihin haluat näkökulmaa, tai
-          yhteistyökuvioita, jotka kaipaavat tekijää, ota matalalla kynnyksellä
-          yhteyttä.
-        </p>
-        <p>
-          Olen avoin yhteistyölle isojen ja pienien projektien kanssa.
-          Mielelläni teen artesaanitöitä, ohjelmistokehitystä tai
-          käyttäjätutkimusta. Tai yhdistän sinut eteenpäin ihmiselle, jolta
-          voisit saada paremmin sinua palvelevaa apua.
-        </p>
-        <div>Somelinkit tähän</div>
+    <div
+      class="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-12 items-center justify-center"
+    >
+      <div
+        class="bg-brand text-surface-primary p-4 md:p-8 rounded-md shadow-md flex flex-col gap-4 w-1/2"
+      >
+        <h2 class="text-2xl font-serif-secondary mb-4">
+          Slaidata matalalla kynnyksellä <span class="text-brand-highlight"
+            >DMiin</span
+          > tai lähetä verkostoitumispyyntöä
+        </h2>
+        <div class="flex flex-col justify-start items-start mt-4 gap-4">
+          <span
+            class="inline-flex gap-4 items-center font-sans-secondary leading-6 tracking-tight"
+            ><Icon name="email-8-svgrepo-com" /> eloranta.christa@gmail.com</span
+          >
+          <Button
+            variant="textLink"
+            class="text-surface-primary normal-case! p-0! gap-4 md:text-base!"
+            href="https://www.linkedin.com/in/christa-eloranta/"
+            ><Icon name="linkedin-161-svgrepo-com" />Christa Eloranta</Button
+          >
+          <Button
+            variant="textLink"
+            class="text-surface-primary normal-case! p-0! gap-4 md:text-base!"
+            href="https://www.instagram.com/christaeloranta/"
+            ><Icon name="instagram-svgrepo-com" />christaeloranta</Button
+          >
+          <span
+            class="inline-flex gap-4 items-center font-sans-secondary leading-6 tracking-tight"
+            ><Icon name="location-pin-svgrepo-com" /> Tampere, Suomi</span
+          >
+        </div>
       </div>
-      <div>
+      <div class="w-1/2">
         <ContactForm />
       </div>
     </div>

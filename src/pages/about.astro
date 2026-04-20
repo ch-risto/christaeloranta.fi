@@ -28,16 +28,12 @@ import Tag from "../components/ui/Tag.astro";
       juonittelija, tuuliviiri.
     </Fragment>
   </Hero>
-  <Content
-    color="image"
-    imageUrl="lonkeroraportti2.svg"
-    imageClass="md:bg-[length:65%] bg-[length:100%] inset-shadow-xl inset-shadow-brand-background"
-  >
+  <Content>
     <div
       class="max-w-6xl mx-auto flex md:flex-row flex-col gap-8 bg-surface-secondary md:p-8 p-4 items-center justify-center rounded-sm"
     >
       <div class="bg-surface-primary md:p-8 p-4 shadow-md rounded-sm">
-        <h2 class="text-3xl font-serif-secondary italic mb-4">Minusta</h2>
+        <h2 class="text-3xl font-serif-secondary italic mb-4">Meitsi</h2>
         <p>
           Olen Jonne, monipuolinen tekijä, joka on erikoistunut
           ohjelmistokehitykseen, designiin ja käsityötaitoihin. Minulla on vahva
@@ -47,7 +43,7 @@ import Tag from "../components/ui/Tag.astro";
           asiakkaiden tarpeita ja muuttaa ne tehokkaiksi ratkaisuiksi, jotka
           parantavat heidän liiketoimintaansa ja vahvistavat heidän brändiään.
         </p>
-        <p>
+        <p class="pt-4">
           Taustani on yökerho- ja karaokemaailmassa, minkä ansiosta
           asiakaslähtöisyys on oletusasetus tekemisessäni, enkä hätkähdä
           erikoisia ja muuttuvia tilanteita. Tällä hetkellä toimin
@@ -56,25 +52,23 @@ import Tag from "../components/ui/Tag.astro";
           intohimojani ja osaamisiani.
         </p>
       </div>
-      <div>
-        <span>Tähän kuva</span>
+      <div class="justify-center md:mx-auto order-1 md:order-2">
+        <img
+          src="/images/omakuva.jpg"
+          alt="Christa Eloranta"
+          class="rounded-md md:max-w-120 max-w-70 aspect-square object-cover overflow-hidden object-[75%_100%] m-4 reveal shadow-md"
+        />
       </div>
     </div>
-  </Content>
-  <div class="bg-surface-primary">
-    Joku tiivistelmä siitä mitä oon tehny. Aikajana tai joku "polku" -osio,
-    jossa on merkittäviä projekteja ja saavutuksia, kouluttautumista jne.
-  </div>
-  <Content
-    color="image"
-    imageUrl="lonkeroraportti2.svg"
-    imageClass="md:bg-[length:65%] bg-[length:100%]"
-  >
+    <div class="bg-surface-primary">
+      Joku tiivistelmä siitä mitä oon tehny. Aikajana tai joku "polku" -osio,
+      jossa on merkittäviä projekteja ja saavutuksia, kouluttautumista jne.
+    </div>
     <div
       class="flex md:flex-row flex-col gap-8 max-w-6xl items-center mx-auto reveal-group mt-28"
     >
       <div
-        class="reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+        class="w-1/2 reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
       >
         <Icon
           name="productivity-ability-talent-productive-svgrepo-com"
@@ -95,7 +89,7 @@ import Tag from "../components/ui/Tag.astro";
         </p>
       </div>
       <div
-        class="reveal bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+        class="w-1/2 reveal bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
       >
         <Icon
           name="multi-ring-svgrepo-com"
@@ -115,7 +109,7 @@ import Tag from "../components/ui/Tag.astro";
       </div>
     </div>
     <div
-      class="bg-surface-secondary md:p-8 p-4 w-full max-w-6xl mx-auto mb-28 rounded-sm"
+      class="bg-surface-secondary md:p-8 p-4 w-full max-w-6xl mx-auto rounded-sm"
     >
       <Accordion>
         <AccordionItem

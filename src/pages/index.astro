@@ -22,9 +22,9 @@ import { Icon } from "astro-icon/components";
       ></Fragment
     >
     <Fragment slot="description">
-      Monipuolisuus ja laatikoiden ulkopuolella pysyminen - ja toisaalta vähän
-      jokaisessa laatikossa viihtyminen - luovat pohjan toimiville, ihmisille
-      tehdyille, ratkaisuille. Ite kun tekee, tulee mitä huvittaa tehdä.</Fragment
+      Monipuolisuus ja laatikoiden ulkopuolella viihtyminen (ja toisaalta vähän
+      jokaiseen laatikkoon sopiminen) luovat pohjan toimiville, ihmisille
+      tehdyille ratkaisuille.</Fragment
     >
     <Fragment slot="additional-content">
       <div class="flex flex-row gap-2">
@@ -37,21 +37,24 @@ import { Icon } from "astro-icon/components";
   </Hero>
   <Content>
     <div
-      class="flex md:flex-row flex-col w-full max-w-6xl mx-auto gap-8 items-center justify-center bg-surface-secondary md:p-0 p-4"
+      class="flex md:flex-row flex-col w-full max-w-6xl mx-auto gap-8 items-center justify-center bg-surface-secondary p-4"
     >
       <div
         class="max-w-lg justify-center mx-auto bg-surface-primary/80 rounded-lg md:p-8 p-4 shadow-md order-2 md:order-1"
       >
         <h2 class="text-3xl font-serif italic mb-4 reveal">
-          Monipuolinen osaaja
+          Full-stack developer, designer & maker
         </h2>
         <p class="text-content-primary reveal">
-          Moikka! Olen Christa Eloranta, monipuolinen tekijä, joka nauttii
-          asioiden toteuttamisesta. Parhaimmillani olen idean ja toteutuksen
-          rajapinnassa, ratkaisemassa sitä, miten visiot tuodaan
-          konkreettisiksi, toimiviksi ja kauniiksi kokonaisuuksiksi. Uskon, että
-          monipuolisuus tekemisessä ja osaamisessa luo ainutlaatuisia,
-          innovatiivisia ja toimivia ratkaisuja, jotka erottuvat joukosta.
+          <span class="font-serif-secondary text-2xl pr-1 text-brand-highlight"
+            >Moikka!</span
+          > Olen Christa Eloranta, monipuolinen tekijä, joka nauttii konkreettisesta
+          tekemisestä. Parhaimmillani olen idean ja tuotteen rajapinnassa, ratkaisemassa
+          sitä, miten visiot tuodaan konkreettisiksi, toimiviksi ja kauniiksi kokonaisuuksiksi.
+        </p>
+        <p class="font-serif-secondary text-xl reveal pt-4">
+          Toimivimmat ratkaisut syntyvät yhdistämällä monipuolisesti erilaisia
+          näkökulmia ja tapoja tehdä.
         </p>
         <div class="flex flex-col justify-start items-start mt-4">
           <Button variant="textLink" href="/Eloranta-CV.pdf" target="_blank">
@@ -94,11 +97,16 @@ import { Icon } from "astro-icon/components";
           Ohjelmistokehitys
         </h2>
         <p class="max-w-lg">
-          Tarjoamme räätälöityjä ohjelmistoratkaisuja, jotka on suunniteltu
-          vastaamaan asiakkaidemme ainutlaatuisia tarpeita. Olipa kyseessä
-          verkkosovellus, mobiilisovellus tai räätälöity ohjelmisto, meillä on
-          osaaminen ja kokemus toteuttaa ratkaisu, joka tehostaa
-          liiketoimintaasi ja parantaa käyttäjäkokemusta.
+          Olen tieto- ja viestintätekniikan AMK insinööri, olen toiminut nyt
+          kaksi vuotta web-kehityksen ja erilaisten integraatiototeutusten
+          parissa. Tekemisessäni yhdistyy insinöörimäinen systemaattisuus ja
+          muotoilijalähtöinen luovuus.
+        </p>
+        <p class="max-w-lg pt-4">
+          Olen työskennellyt monipuolisesti eri teknologioiden parissa, kuten
+          Python, TypeScript, React, Node.js, konttipohjaiset ympäristöt
+          (Docker) ja pilvialustat (GCP). Käytän tekoälytyökaluja luontevasti ja
+          kroonisesti uteliaana kehitän jatkuvasti osaamistani.
         </p>
       </div>
       <div class="p-4 reveal">
@@ -110,15 +118,13 @@ import { Icon } from "astro-icon/components";
           Design
         </h2>
         <p class="text-content-primary max-w-lg">
-          Taiteen kandidaatti, joka on erikoistunut luomaan visuaalisesti
-          houkuttelevia ja toimivia suunnitteluratkaisuja. Minulla on vahva
-          tausta graafisessa suunnittelussa, käyttöliittymäsuunnittelussa ja
-          brändäyksessä, ja olen sitoutunut tuottamaan korkealaatuista työtä,
-          joka ylittää asiakkaiden odotukset. Olen taitava käyttämään erilaisia
-          suunnittelutyökaluja ja ohjelmistoja, ja minulla on kyky ymmärtää
-          asiakkaiden tarpeita ja muuttaa ne tehokkaiksi
-          suunnitteluratkaisuiksi, jotka parantavat heidän liiketoimintaansa ja
-          vahvistavat heidän brändiään.
+          Olen opiskellut muotoilua Lapin yliopistossa ja sieltä karttui paitsi
+          visuaalista osaamista ja kädentaitoja, myös ymmärrystä erilaisista
+          muotoiluprosesseista ja -työkaluista. Käyttäjälähtöinen
+          ongelmanratkaisu ja käytettävyyden huomioiminen kaikessa tekemisessä
+          on minulle tärkeintä. Jos asioita: tuotteita, ratkaisuja tai
+          esityksiä, ei tehtäisi käyttäjälle, ei niitä tarvitsisi tehdä
+          lainkaan.
         </p>
       </div>
       <div
@@ -129,17 +135,28 @@ import { Icon } from "astro-icon/components";
           class="md:h10 h-8 md:w-10 w-8 mb-4"
         />
         <h2 class="text-2xl font-serif italic text-heading-primary mb-4">
-          Käsityöt
+          Tilaustyöt
         </h2>
         <p class="max-w-lg">
-          Käsityöt ovat minulle intohimo, ja nautin luovasta prosessista, joka
-          liittyy erilaisten esineiden ja taideteosten luomiseen. Minulla on
-          laaja kokemus erilaisista käsityötekniikoista, kuten puuntyöstö,
-          keramiikka ja tekstiilityöt, ja olen aina innokas oppimaan uusia
-          taitoja ja kokeilemaan uusia materiaaleja. Uskon, että käsityöt eivät
-          ole vain tapa ilmaista luovuutta, vaan myös keino luoda yhteys
-          perinteisiin ja kulttuuriperintöön, ja olen sitoutunut tuottamaan
-          korkealaatuista työtä, joka heijastaa tätä filosofiaa.
+          Käsityöt ovat minulle intohimo, joten olen päätynyt myös opiskelemaan
+          luovia aloja. Olen taiteen kandidaatti pääaineena sisustus- ja
+          tekstiilimuotoilu, olen opiskellut itseni myös hienopuusepäksi sekä
+          minulla on sisustajan osatutkinto.
+        </p>
+        <p class="max-w-lg pt-4">
+          Verkkokauppa on vielä kehitysvaiheessa, mutta tekemisiäni pääset
+          kurkkaamaan
+          <Button
+            variant="textLink"
+            class="text-surface-primary hover:text-surface-primary! inline-flex underline p-0 md:p-0"
+            href="https://www.instagram.com/christaeloranta/"
+            ><Icon name="instagram-svgrepo-com" />Instagramista</Button
+          > tai <Button
+            variant="textLink"
+            class="text-surface-primary hover:text-surface-primary! inline-flex underline p-0 md:p-0"
+            href="https://archive.christaeloranta.fi"
+            target="_blank">arkistoidulta verkkosivultani</Button
+          >.
         </p>
       </div>
     </div>
