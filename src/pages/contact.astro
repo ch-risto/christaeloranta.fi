@@ -8,10 +8,13 @@ import Button from "../components/ui/Button.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<MainLayout title="Ota yhteyttä" headerColor="light">
-  <Hero type="secondary">
+<MainLayout title="Ota yhteyttä">
+  <Hero
+    imageUrl="Palttina2.svg"
+    imageClass="md:bg-[length:15%] bg-[length:75%]"
+  >
     <Fragment slot="title"
-      ><span class="text-brand-highlight">Juonitaan</span> jotain</Fragment
+      ><span class="text-brand-highlight">Juonitaan</span><br />jotain</Fragment
     >
     <Fragment slot="description">
       Yhteistyökuviot, tilaustuotteet, ideat, sparrailu, keittiöpyyhkeet,
@@ -24,12 +27,11 @@ import { Icon } from "astro-icon/components";
       class="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-12 items-center justify-center"
     >
       <div
-        class="bg-brand text-surface-primary p-4 md:p-8 rounded-md shadow-md flex flex-col gap-4 w-1/2"
+        class="bg-brand text-surface-primary p-4 md:p-8 rounded-md shadow-md flex flex-col gap-4 md:w-1/2"
       >
         <h2 class="text-2xl font-serif-secondary mb-4">
-          Slaidata matalalla kynnyksellä <span class="text-brand-highlight"
-            >DMiin</span
-          > tai lähetä verkostoitumispyyntöä
+          <span class="text-3xl text-brand-highlight">Slaidaa</span> matalalla kynnyksellä
+          DMiin tai lähetä verkostoitumispyyntöä
         </h2>
         <div class="flex flex-col justify-start items-start mt-4 gap-4">
           <span
@@ -54,7 +56,7 @@ import { Icon } from "astro-icon/components";
           >
         </div>
       </div>
-      <div class="w-1/2">
+      <div class="w-full md:w-1/2">
         <ContactForm />
       </div>
     </div>

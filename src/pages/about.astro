@@ -20,7 +20,8 @@ import Tag from "../components/ui/Tag.astro";
       <Tag>utelias</Tag>
     </Fragment>
     <Fragment slot="title"
-      ><span class="text-brand-highlight italic">Christa</span> Eloranta</Fragment
+      ><span class="text-brand-highlight italic">Christa</span><br
+      />Eloranta</Fragment
     >
     <Fragment slot="description">
       Tieto- ja viestintätekniikan insinööri, taiteen kakdidaatti, puuseppä,
@@ -32,7 +33,7 @@ import Tag from "../components/ui/Tag.astro";
     <div
       class="max-w-6xl mx-auto flex md:flex-row flex-col gap-8 bg-surface-secondary md:p-8 p-4 items-center justify-center rounded-sm"
     >
-      <div class="bg-surface-primary md:p-8 p-4 shadow-md rounded-sm">
+      <div class="order-2 bg-surface-primary md:p-8 p-4 shadow-md rounded-sm">
         <h2 class="text-3xl font-serif-secondary italic mb-4">Meitsi</h2>
         <p>
           Olen utelias ja muutoksella käyvä tuuliviiri. En kulje väkisin
@@ -56,7 +57,7 @@ import Tag from "../components/ui/Tag.astro";
           enemmän kuin sen, mitä oman tontin rajalta näkyy.
         </p>
       </div>
-      <div class="justify-center md:mx-auto order-1 md:order-2">
+      <div class="order-1 md:order-2 justify-center md:mx-auto">
         <img
           src="/images/omakuva.jpg"
           alt="Christa Eloranta"
@@ -72,7 +73,7 @@ import Tag from "../components/ui/Tag.astro";
       class="flex md:flex-row flex-col gap-8 max-w-6xl items-center mx-auto reveal-group mt-28"
     >
       <div
-        class="w-1/2 reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+        class="md:w-1/2 reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
       >
         <Icon
           name="productivity-ability-talent-productive-svgrepo-com"
@@ -93,7 +94,7 @@ import Tag from "../components/ui/Tag.astro";
         </p>
       </div>
       <div
-        class="w-1/2 reveal bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+        class="md:w-1/2 reveal bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
       >
         <Icon
           name="multi-ring-svgrepo-com"
