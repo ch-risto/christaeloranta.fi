@@ -4,6 +4,8 @@ import Hero from "../components/ui/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
+import TimelineAccordion from "../components/ui/TimelineAccordion.astro";
+import TimelineAccordionItem from "../components/ui/TimelineAccordionItem.astro";
 
 import { Icon } from "astro-icon/components";
 import Tag from "../components/ui/Tag.astro";
@@ -65,12 +67,61 @@ import Tag from "../components/ui/Tag.astro";
         />
       </div>
     </div>
-    <div class="bg-surface-primary">
-      Joku tiivistelmä siitä mitä oon tehny. Aikajana tai joku "polku" -osio,
-      jossa on merkittäviä projekteja ja saavutuksia, kouluttautumista jne.
-    </div>
+    <TimelineAccordion heading="" intro="">
+      <TimelineAccordionItem
+        period="2022"
+        title="Ohjelmistokehitys"
+        summary="Syvennyin web-kehitykseen, TypeScriptiin ja käytännön integraatiototeutuksiin."
+        highlights={["TypeScript", "React", "Node.js"]}
+      >
+        <p>
+          Tänä vuonna olen tehnyt eniten töitä web-puolella: rakennellut
+          käyttöliittymiä, yhdistänyt järjestelmiä toisiinsa ja pitänyt huolta
+          siitä, että ratkaisut pysyvät selkeinä sekä käyttäjälle että
+          ylläpitäjälle.
+        </p>
+      </TimelineAccordionItem>
+
+      <TimelineAccordionItem
+        period="2019"
+        title="Tmi Christa Eloranta"
+        summary="Rakensin tapaa ajatella tuotteita sekä visuaalisina että toiminnallisina kokonaisuuksina."
+        highlights={["muotoilu", "puutyöt", "käyttäjälähtöisyys"]}
+      >
+        <p>
+          Muotoilu ja käsityö opettivat katsomaan kokonaisuutta: materiaalia,
+          mittakaavaa, rytmiä ja yksityiskohtia. Samaa ajattelua vien nykyään
+          myös digitaalisiin tuotteisiin.
+        </p>
+      </TimelineAccordionItem>
+
+      <TimelineAccordionItem
+        period="2015-2022"
+        title="Designer ja artesaani"
+        summary="Tieto- ja viestintätekniikan opinnot toivat rakenteen, työkalut ja teknisen selkänojan."
+        highlights={["AMK", "ohjelmistokehitys", "ongelmanratkaisu"]}
+      >
+        <p>
+          Opinnot toivat ohjelmointiin rakenteen ja työskentelyyn enemmän
+          varmuutta. Samalla vahvistui ajatus siitä, että teknisyys ja
+          visuaalisuus voivat tukea toisiaan.
+        </p>
+      </TimelineAccordionItem>
+
+      <TimelineAccordionItem
+        period="2008-2018"
+        title="Plokkarista baarimestariksi ja esihenkilöksi"
+        summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan ihmisiä ja tekemään päätöksiä paineessa."
+        highlights={["asiakaspalvelu", "paineensieto", "kommunikaatio"]}
+      >
+        <p>
+          Ravintolatyö oli hyvä koulu siihen, miten ihmiset oikeasti toimivat.
+          Se opetti joustavuutta, palveluasennetta ja tilanteiden lukemista.
+        </p>
+      </TimelineAccordionItem>
+    </TimelineAccordion>
     <div
-      class="flex md:flex-row flex-col gap-8 max-w-6xl items-center mx-auto reveal-group mt-28"
+      class="flex md:flex-row flex-col gap-8 max-w-6xl items-center mx-auto reveal-group"
     >
       <div
         class="md:w-1/2 reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
