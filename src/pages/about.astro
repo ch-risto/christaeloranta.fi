@@ -2,13 +2,12 @@
 import Content from "../components/layout/Content.astro";
 import Hero from "../components/ui/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import Accordion from "../components/ui/Accordion.astro";
-import AccordionItem from "../components/ui/AccordionItem.astro";
 import TimelineAccordion from "../components/ui/TimelineAccordion.astro";
 import TimelineAccordionItem from "../components/ui/TimelineAccordionItem.astro";
 
 import { Icon } from "astro-icon/components";
 import Tag from "../components/ui/Tag.astro";
+import TwoColumns from "../components/ui/TwoColumns.astro";
 ---
 
 <MainLayout title="Minusta">
@@ -32,10 +31,13 @@ import Tag from "../components/ui/Tag.astro";
     </Fragment>
   </Hero>
   <Content>
-    <div
-      class="max-w-6xl mx-auto flex md:flex-row flex-col gap-8 bg-surface-secondary md:p-8 p-4 items-center justify-center rounded-sm"
+    <TwoColumns
+      containerClass="bg-surface-secondary md:p-8 p-4 rounded-sm"
+      column1Class="order-2 md:order-1 bg-surface-primary md:p-8 p-4 shadow-md rounded-sm !md:w-full"
+      column2Class="order-1 md:order-2 justify-center !md:w-fit"
+      reveal
     >
-      <div class="order-2 bg-surface-primary md:p-8 p-4 shadow-md rounded-sm">
+      <Fragment slot="column1">
         <h2 class="text-3xl font-serif-secondary italic mb-4">Meitsi</h2>
         <p>
           Olen utelias ja muutoksella käyvä tuuliviiri. En kulje väkisin
@@ -58,74 +60,188 @@ import Tag from "../components/ui/Tag.astro";
           tarkoita, että tekee kaikkea huonosti; se tarkoittaa, että näkee
           enemmän kuin sen, mitä oman tontin rajalta näkyy.
         </p>
-      </div>
-      <div class="order-1 md:order-2 justify-center md:mx-auto">
+      </Fragment>
+      <Fragment slot="column2">
         <img
           src="/images/omakuva.jpg"
           alt="Christa Eloranta"
-          class="rounded-md md:max-w-120 max-w-70 aspect-square object-cover overflow-hidden object-[75%_100%] m-4 reveal shadow-md"
+          class="rounded-md md:max-w-120 mx-auto aspect-square object-cover overflow-hidden object-[75%_100%] reveal shadow-md"
         />
-      </div>
-    </div>
-    <TimelineAccordion heading="" intro="">
-      <TimelineAccordionItem
-        period="2022"
-        title="Ohjelmistokehitys"
-        summary="Syvennyin web-kehitykseen, TypeScriptiin ja käytännön integraatiototeutuksiin."
-        highlights={["TypeScript", "React", "Node.js"]}
-      >
-        <p>
-          Tänä vuonna olen tehnyt eniten töitä web-puolella: rakennellut
-          käyttöliittymiä, yhdistänyt järjestelmiä toisiinsa ja pitänyt huolta
-          siitä, että ratkaisut pysyvät selkeinä sekä käyttäjälle että
-          ylläpitäjälle.
-        </p>
-      </TimelineAccordionItem>
+      </Fragment>
+    </TwoColumns>
 
-      <TimelineAccordionItem
-        period="2019"
-        title="Tmi Christa Eloranta"
-        summary="Rakensin tapaa ajatella tuotteita sekä visuaalisina että toiminnallisina kokonaisuuksina."
-        highlights={["muotoilu", "puutyöt", "käyttäjälähtöisyys"]}
-      >
-        <p>
-          Muotoilu ja käsityö opettivat katsomaan kokonaisuutta: materiaalia,
-          mittakaavaa, rytmiä ja yksityiskohtia. Samaa ajattelua vien nykyään
-          myös digitaalisiin tuotteisiin.
-        </p>
-      </TimelineAccordionItem>
-
-      <TimelineAccordionItem
-        period="2015-2022"
-        title="Designer ja artesaani"
-        summary="Tieto- ja viestintätekniikan opinnot toivat rakenteen, työkalut ja teknisen selkänojan."
-        highlights={["AMK", "ohjelmistokehitys", "ongelmanratkaisu"]}
-      >
-        <p>
-          Opinnot toivat ohjelmointiin rakenteen ja työskentelyyn enemmän
-          varmuutta. Samalla vahvistui ajatus siitä, että teknisyys ja
-          visuaalisuus voivat tukea toisiaan.
-        </p>
-      </TimelineAccordionItem>
-
-      <TimelineAccordionItem
-        period="2008-2018"
-        title="Plokkarista baarimestariksi ja esihenkilöksi"
-        summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan ihmisiä ja tekemään päätöksiä paineessa."
-        highlights={["asiakaspalvelu", "paineensieto", "kommunikaatio"]}
-      >
-        <p>
-          Ravintolatyö oli hyvä koulu siihen, miten ihmiset oikeasti toimivat.
-          Se opetti joustavuutta, palveluasennetta ja tilanteiden lukemista.
-        </p>
-      </TimelineAccordionItem>
-    </TimelineAccordion>
     <div
-      class="flex md:flex-row flex-col gap-8 max-w-6xl items-center mx-auto reveal-group"
+      class="flex flex-col w-full max-w-4xl mx-auto gap-8 items-start justify-center"
     >
-      <div
-        class="md:w-1/2 reveal bg-brand-background text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+      <h2
+        class="text-3xl font-serif-secondary italic mt-12 ml-0 reveal max-w-2xl"
       >
+        Uniikki yhdistelmä erilaista osaamista, <span
+          class="text-brand-highlight">kykyä nähdä asiat monesta kulmasta</span
+        > sekä resilienssiä kohdata muutoksia
+      </h2>
+      <p class="mb-8 reveal font-sans-secondary">
+        Rönsyilevältä näyttävä polku kertoo kroonisesta uteliaisuudesta,
+        monipuolisuudesta, kyvystä innostua herkästi sekä uskalluksesta
+        heittäytyä.
+      </p>
+
+      <TimelineAccordion>
+        <TimelineAccordionItem
+          period="2022 - aktiivinen"
+          icon="worker-in-front-of-a-computer-monitor-svgrepo-com"
+          title="Web-kehittäjä"
+          highlights={{
+            arkkitehtuurit: "technical",
+            tuotteistaminen: "design",
+            kommunikaatio: "soft",
+          }}
+        >
+          <p>
+            summary="Rakensin tapaa ajatella tuotteita sekä visuaalisina että
+            toiminnallisina kokonaisuuksina." Muotoilu ja käsityö opettivat
+            katsomaan kokonaisuutta: materiaalia, mittakaavaa, rytmiä ja
+            yksityiskohtia. Samaa ajattelua vien nykyään myös digitaalisiin
+            tuotteisiin.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2022 - 2025"
+          icon="graduate-cap-svgrepo-com"
+          title="Tieto- ja viestintätekniikan insinööri (AMK)"
+          highlights={{
+            ohjelmointi: "technical",
+            systemaattisuus: "metaskill",
+            omaksumiskyky: "metaskill",
+          }}
+        >
+          <p>
+            Syvennyin web-kehitykseen, TypeScriptiin ja käytännön
+            integraatiototeutuksiin. Tänä vuonna olen tehnyt eniten töitä
+            web-puolella: rakennellut käyttöliittymiä, yhdistänyt järjestelmiä
+            toisiinsa ja pitänyt huolta siitä, että ratkaisut pysyvät selkeinä
+            sekä käyttäjälle että ylläpitäjälle.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2020 - 2022"
+          icon="graduate-cap-svgrepo-com"
+          title="Hienopuuseppä"
+          highlights={{
+            materiaalituntemus: "technical",
+            tarkkuus: "metaskill",
+            pitkäjänteisyys: "metaskill",
+          }}
+        >
+          <p>
+            summary="Rakensin tapaa ajatella tuotteita sekä visuaalisina että
+            toiminnallisina kokonaisuuksina." Muotoilu ja käsityö opettivat
+            katsomaan kokonaisuutta: materiaalia, mittakaavaa, rytmiä ja
+            yksityiskohtia. Samaa ajattelua vien nykyään myös digitaalisiin
+            tuotteisiin.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2019 - aktiivinen"
+          icon="productivity-ability-talent-productive-svgrepo-com"
+          title="Tmi Christa Eloranta"
+          highlights={{
+            konseptointi: "design",
+            projektinhallinta: "soft",
+            itseohjautuvuus: "metaskill",
+          }}
+        >
+          <p>
+            summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan
+            ihmisiä ja tekemään päätöksiä paineessa." Ravintolatyö oli hyvä
+            koulu siihen, miten ihmiset oikeasti toimivat. Se opetti
+            joustavuutta, palveluasennetta ja tilanteiden lukemista.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2016 - 2019"
+          icon="graduate-certificate-svgrepo-com"
+          title="Taiteen kandidaatti"
+          summary="Tieto- ja viestintätekniikan opinnot toivat rakenteen, työkalut ja teknisen selkänojan."
+          highlights={{
+            käyttäjäymmärrys: "design",
+            visuaalisuus: "design",
+            hahmottamiskyky: "metaskill",
+          }}
+        >
+          <p>
+            Opinnot toivat ohjelmointiin rakenteen ja työskentelyyn enemmän
+            varmuutta. Samalla vahvistui ajatus siitä, että teknisyys ja
+            visuaalisuus voivat tukea toisiaan.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2009 - 2019"
+          icon="cocktails-cocktail-svgrepo-com"
+          title="Ura ravintola-alalla"
+          highlights={{
+            paineensietokyky: "metaskill",
+            tiimityö: "soft",
+            asiakaskohtaaminen: "soft",
+          }}
+        >
+          <p>
+            summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan
+            ihmisiä ja tekemään päätöksiä paineessa." Ravintolatyö oli hyvä
+            koulu siihen, miten ihmiset oikeasti toimivat. Se opetti
+            joustavuutta, palveluasennetta ja tilanteiden lukemista.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2015 - 2016"
+          icon="graduate-cap-svgrepo-com"
+          title="Sisustaja"
+          highlights={{
+            tilasuunnittelu: "design",
+            toteutus: "technical",
+            tarkkuus: "metaskill",
+          }}
+        >
+          <p>
+            summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan
+            ihmisiä ja tekemään päätöksiä paineessa." Ravintolatyö oli hyvä
+            koulu siihen, miten ihmiset oikeasti toimivat. Se opetti
+            joustavuutta, palveluasennetta ja tilanteiden lukemista.
+          </p>
+        </TimelineAccordionItem>
+
+        <TimelineAccordionItem
+          period="2012 - 2013"
+          icon="graduate-cap-svgrepo-com"
+          title="Baarimestari"
+          highlights={{
+            johtaminen: "soft",
+            laadunvalvonta: "technical",
+            konseptointi: "design",
+          }}
+        >
+          <p>
+            summary="Asiakaspalvelu ja nopeat tilanteet opettivat lukemaan
+            ihmisiä ja tekemään päätöksiä paineessa." Ravintolatyö oli hyvä
+            koulu siihen, miten ihmiset oikeasti toimivat. Se opetti
+            joustavuutta, palveluasennetta ja tilanteiden lukemista.
+          </p>
+        </TimelineAccordionItem>
+      </TimelineAccordion>
+    </div>
+
+    <TwoColumns
+      column1Class="bg-brand text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+      column2Class="bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
+      reveal
+    >
+      <Fragment slot="column1">
         <Icon
           name="productivity-ability-talent-productive-svgrepo-com"
           class="md:h10 h-8 md:w-10 w-8 mb-4"
@@ -143,10 +259,8 @@ import Tag from "../components/ui/Tag.astro";
           kokeilemaan uusia asioita, ja olla valmis jakamaan luomuksesi muiden
           kanssa.
         </p>
-      </div>
-      <div
-        class="md:w-1/2 reveal bg-brand-highlight text-surface-primary rounded-md md:p-8 p-4 shadow-md"
-      >
+      </Fragment>
+      <Fragment slot="column2">
         <Icon
           name="multi-ring-svgrepo-com"
           class="md:h10 h-8 md:w-10 w-8 mb-4"
@@ -162,61 +276,7 @@ import Tag from "../components/ui/Tag.astro";
           tilanteisiin ja oppia uusia taitoja tarpeen mukaan, mikä tekee heistä
           joustavia ja monipuolisia tiimin jäseniä.
         </p>
-      </div>
-    </div>
-    <div
-      class="bg-surface-secondary md:p-8 p-4 w-full max-w-6xl mx-auto rounded-sm"
-    >
-      <Accordion>
-        <AccordionItem
-          title="Miksi kerrot olevasi tuuliviiri? Eikö se ole huono ominaisuus"
-          itemId="accordion-flush-1"
-        >
-          <p class="mb-2">
-            Itse näen tuuliviireyden ketteryytenä. Ettei turhaan käytä energiaa
-            vastatuuleen kulkemiseen ja on valmis pivotoimaan tarvittaessa.
-          </p>
-        </AccordionItem>
-        <AccordionItem
-          title="Tekeekö burnout paremmaksi ihmiseksi?"
-          itemId="accordion-flush-2"
-        >
-          <p class="mb-2">
-            Ei. Burnout oli ainakin itselle pelkästään negatiivinen kokemus. En
-            oppinut siitä mitään, mitä en olisi voinut oppia muutenkin, en
-            parannuttuani ollut parempi ihminen, enkä nyt osaa suhtautua
-            mihinkään mitenkään paremmin.
-          </p>
-          <p>
-            Burnouttiin liittyy paljon yksilökeskeistä selviytymispuhetta, mikä
-            sivuttaa kokonaan rakenteelliset ongelmat, mistä loppuunpalaminen
-            yleensä johtuu. Burnout itsessään on sairaus, mistä oppii lähes yhtä
-            paljon kun flunssasta.
-          </p>
-        </AccordionItem>
-        <AccordionItem
-          title="Miksi et ole oikeissa töissä?"
-          itemId="accordion-flush-3"
-        >
-          <p class="mb-2">
-            Riippumatta siitä mitä teen, teen ilmeisesti aina vääriä töitä.
-            Ravintola-ala ei ole "oikeita töitä" vaan joku nuorten välivaihe,
-            opiskelu ei myöskään ole oikeaa - iästä riippumatta, eikä
-            yrittäminen.
-          </p>
-          <p class="mb-2">
-            Tää taitaa kummuta omasta epävarmuudesta ja huijarisyndroomasta.
-          </p>
-          <p class="mb-2">
-            Kuitenkin oikeita töitä, mitä oon tehnyt rahaa vastaan:
-          </p>
-          <ul class="ps-5 list-disc">
-            <li>Ravintoladuunit</li>
-            <li>Remonttiduunit</li>
-            <li>Ohjelmointiduunit</li>
-          </ul>
-        </AccordionItem>
-      </Accordion>
-    </div>
+      </Fragment>
+    </TwoColumns>
   </Content>
 </MainLayout>

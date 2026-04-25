@@ -1,0 +1,29 @@
+---
+interface Props {
+  containerClass?: string;
+  column1Class?: string;
+  column2Class?: string;
+  reveal?: boolean;
+}
+const {
+  containerClass = "",
+  column1Class = "",
+  column2Class = "",
+  reveal = false,
+} = Astro.props;
+---
+
+<div
+  class={`${containerClass} ${reveal ? "reveal-group" : ""} flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-8 items-center justify-center`}
+>
+  <div
+    class={`${column1Class} ${reveal ? "reveal" : ""} flex flex-col gap-4 w-full md:w-1/2`}
+  >
+    <slot name="column1" />
+  </div>
+  <div
+    class={`${column2Class} ${reveal ? "reveal" : ""} flex flex-col gap-4 w-full md:w-1/2`}
+  >
+    <slot name="column2" />
+  </div>
+</div>

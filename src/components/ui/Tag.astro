@@ -1,5 +1,23 @@
-<span
-  class="text-sm font-sans-secondary uppercase bg-brand-highlight text-surface-primary py-1 px-2"
->
+---
+export type TagType = "base" | "soft" | "design" | "technical" | "metaskill";
+
+interface Props {
+  type?: TagType;
+}
+
+const { type } = Astro.props;
+
+const colorMap: Record<TagType, string> = {
+  base: "bg-brand-highlight text-surface-primary",
+  technical: "bg-brand-background text-surface-primary",
+  soft: "bg-brand-highlight text-surface-primary",
+  design: "bg-brand-background-highlight text-surface-primary",
+  metaskill: "bg-content-highlight text-surface-primary",
+};
+
+const colorClass = colorMap[type ?? "base"];
+---
+
+<span class={`text-sm font-sans-secondary uppercase ${colorClass} py-1 px-2`}>
   <slot />
 </span>

@@ -1,16 +1,21 @@
 ---
+import { Icon } from "astro-icon/components";
+import Tag, { type TagType } from "./Tag.astro";
+
 interface Props {
   period: string;
+  icon?: string;
   title: string;
-  summary: string;
-  highlights?: string[];
+  summary?: string;
+  highlights?: Record<string, string>;
   open?: boolean;
 }
 
 const {
   period,
+  icon = "",
   title,
-  summary,
+  summary = "",
   highlights,
   open = false,
 } = Astro.props as Props;
@@ -24,11 +29,9 @@ const {
     class="flex cursor-pointer list-none items-start gap-4 px-4 py-4 md:px-6 md:py-5"
   >
     <span
-      class="relative z-10 mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 border-brand-background bg-surface-primary transition-colors group-open:border-brand-highlight group-open:bg-brand-highlight"
+      class="relative -left-3 z-10 mt-1 flex shrink-0 items-center justify-center transition-colors group-open:text-brand-highlight bg-surface-primary py-1 rounded-full"
     >
-      <span
-        class="h-1.5 w-1.5 rounded-full bg-brand-background transition-colors group-open:bg-surface-primary"
-      ></span>
+      {icon && <Icon name={icon as string} class="h-8 w-8 " />}
     </span>
 
     <span class="min-w-0 flex-1 text-left">
@@ -48,12 +51,10 @@ const {
         {summary}
       </span>
       {
-        highlights && highlights.length > 0 && (
+        highlights && Object.keys(highlights).length > 0 && (
           <span class="mt-3 flex flex-wrap gap-2">
-            {highlights.map((highlight) => (
-              <span class="inline-flex items-center rounded-full bg-brand-background/8 px-3 py-1 text-xs uppercase tracking-[0.18em] text-brand-background">
-                {highlight}
-              </span>
+            {Object.entries(highlights).map(([skill, type]) => (
+              <Tag type={type as TagType}>{skill}</Tag>
             ))}
           </span>
         )
