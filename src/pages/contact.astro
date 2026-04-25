@@ -5,8 +5,6 @@ import Hero from "../components/ui/Hero.astro";
 import TwoColumns from "../components/ui/TwoColumns.astro";
 import ContactForm from "../components/form/ContactForm.astro";
 import Button from "../components/ui/Button.astro";
-import Accordion from "../components/ui/Accordion.astro";
-import AccordionItem from "../components/ui/AccordionItem.astro";
 
 import { Icon } from "astro-icon/components";
 ---
@@ -63,62 +61,5 @@ import { Icon } from "astro-icon/components";
         <ContactForm />
       </Fragment>
     </TwoColumns>
-
-    <div
-      class="bg-surface-secondary md:p-8 p-4 w-full max-w-6xl mx-auto rounded-sm"
-    >
-      <Accordion>
-        <AccordionItem
-          title="Miksi kerrot olevasi tuuliviiri? Eikö se ole huono ominaisuus"
-          itemId="accordion-flush-1"
-        >
-          <p class="mb-2">
-            - Miten sinuun saa parhaiten yhteyden? - Millaisille yhteistöille
-            olet avoin? Itse näen tuuliviireyden ketteryytenä. Ettei turhaan
-            käytä energiaa vastatuuleen kulkemiseen ja on valmis pivotoimaan
-            tarvittaessa.
-          </p>
-        </AccordionItem>
-        <AccordionItem
-          title="Tekeekö burnout paremmaksi ihmiseksi?"
-          itemId="accordion-flush-2"
-        >
-          <p class="mb-2">
-            Ei. Burnout oli ainakin itselle pelkästään negatiivinen kokemus. En
-            oppinut siitä mitään, mitä en olisi voinut oppia muutenkin, en
-            parannuttuani ollut parempi ihminen, enkä nyt osaa suhtautua
-            mihinkään mitenkään paremmin.
-          </p>
-          <p>
-            Burnouttiin liittyy paljon yksilökeskeistä selviytymispuhetta, mikä
-            sivuttaa kokonaan rakenteelliset ongelmat, mistä loppuunpalaminen
-            yleensä johtuu. Burnout itsessään on sairaus, mistä oppii lähes yhtä
-            paljon kun flunssasta.
-          </p>
-        </AccordionItem>
-        <AccordionItem
-          title="Miksi et ole oikeissa töissä?"
-          itemId="accordion-flush-3"
-        >
-          <p class="mb-2">
-            Riippumatta siitä mitä teen, teen ilmeisesti aina vääriä töitä.
-            Ravintola-ala ei ole "oikeita töitä" vaan joku nuorten välivaihe,
-            opiskelu ei myöskään ole oikeaa - iästä riippumatta, eikä
-            yrittäminen.
-          </p>
-          <p class="mb-2">
-            Tää taitaa kummuta omasta epävarmuudesta ja huijarisyndroomasta.
-          </p>
-          <p class="mb-2">
-            Kuitenkin oikeita töitä, mitä oon tehnyt rahaa vastaan:
-          </p>
-          <ul class="ps-5 list-disc">
-            <li>Ravintoladuunit</li>
-            <li>Remonttiduunit</li>
-            <li>Ohjelmointiduunit</li>
-          </ul>
-        </AccordionItem>
-      </Accordion>
-    </div>
   </Content>
 </MainLayout>

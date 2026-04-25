@@ -3,9 +3,10 @@ export type TagType = "base" | "soft" | "design" | "technical" | "metaskill";
 
 interface Props {
   type?: TagType;
+  additionalClass?: string;
 }
 
-const { type } = Astro.props;
+const { type, additionalClass = "" } = Astro.props;
 
 const colorMap: Record<TagType, string> = {
   base: "bg-brand-highlight text-surface-primary",
@@ -18,6 +19,8 @@ const colorMap: Record<TagType, string> = {
 const colorClass = colorMap[type ?? "base"];
 ---
 
-<span class={`text-sm font-sans-secondary uppercase ${colorClass} py-1 px-2`}>
+<span
+  class={`text-sm font-sans-secondary uppercase ${colorClass} ${additionalClass} py-1 px-2`}
+>
   <slot />
 </span>

@@ -5,6 +5,8 @@ import ContactForm from "../components/form/ContactForm.astro";
 import Content from "../components/layout/Content.astro";
 import Tag from "../components/ui/Tag.astro";
 import Button from "../components/ui/Button.astro";
+import Accordion from "../components/ui/Accordion.astro";
+import AccordionItem from "../components/ui/AccordionItem.astro";
 
 import { Icon } from "astro-icon/components";
 ---
@@ -13,9 +15,9 @@ import { Icon } from "astro-icon/components";
 <MainLayout title="Etusivu" headerColor="transparent">
   <Hero imageUrl="routa_pattern_yellow.svg" type="main">
     <Fragment slot="tags">
-      <Tag>ohjelmistokehitys</Tag>
-      <Tag>design</Tag>
-      <Tag>käsityöt</Tag>
+      <Tag additionalClass="reveal">ohjelmistokehitys</Tag>
+      <Tag additionalClass="reveal">design</Tag>
+      <Tag additionalClass="reveal">käsityöt</Tag>
     </Fragment>
     <Fragment slot="title"
       >Jonkin sortin <span class="text-brand-highlight italic">Tuuliviiri</span
@@ -24,14 +26,11 @@ import { Icon } from "astro-icon/components";
     <Fragment slot="description">
       Monipuolisuus ja laatikoiden ulkopuolella viihtyminen (ja toisaalta vähän
       jokaiseen laatikkoon sopiminen) luovat pohjan toimiville, ihmisille
-      tehdyille ratkaisuille.</Fragment
+      tehdyille ratkaisuille</Fragment
     >
     <Fragment slot="additional-content">
       <div class="flex flex-row gap-2">
         <Button variant="primary" href="#contact-form">Ota yhteyttä</Button>
-        <Button variant="secondary" href="https://archive.christaeloranta.fi">
-          Kurkkaa arkistoitu verkkosivu
-        </Button>
       </div>
     </Fragment>
   </Hero>
@@ -48,9 +47,10 @@ import { Icon } from "astro-icon/components";
         <p class="text-content-primary reveal">
           <span class="font-serif-secondary text-2xl pr-1 text-brand-highlight"
             >Moikka!</span
-          > Olen Christa Eloranta, monipuolinen tekijä, joka nauttii konkreettisesta
-          tekemisestä. Parhaimmillani olen idean ja tuotteen rajapinnassa, ratkaisemassa
-          sitä, miten visiot tuodaan konkreettisiksi, toimiviksi ja kauniiksi kokonaisuuksiksi.
+          > Olen Christa Eloranta, monipuolinen tekijä, utelias kyseenalaistaja ja
+          rajapintoja yhdistelevä generalisti. Parhaimmillani olen siltana idean ja
+          tuotteen välissä, ratkaisemassa sitä, miten visiot tuodaan konkreettisiksi,
+          toimiviksi ja kauniiksi kokonaisuuksiksi.
         </p>
         <p class="font-serif-secondary text-xl reveal pt-4">
           Toimivimmat ratkaisut syntyvät yhdistämällä monipuolisesti erilaisia
@@ -84,7 +84,7 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
     <div
-      class="flex flex-col md:flex-row items-center justify-center gap-8 reveal-group"
+      class="flex flex-col md:flex-row items-center justify-center gap-8 reveal-group max-w-6xl mx-auto w-full"
     >
       <div class="bg-brand p-8 rounded-2xl text-surface-primary reveal">
         <Icon
@@ -97,16 +97,12 @@ import { Icon } from "astro-icon/components";
           Ohjelmistokehitys
         </h2>
         <p class="max-w-lg">
-          Olen tieto- ja viestintätekniikan AMK insinööri, olen toiminut nyt
-          kaksi vuotta web-kehityksen ja erilaisten integraatiototeutusten
-          parissa. Tekemisessäni yhdistyy insinöörimäinen systemaattisuus ja
-          muotoilijalähtöinen luovuus.
-        </p>
-        <p class="max-w-lg pt-4">
-          Olen työskennellyt monipuolisesti eri teknologioiden parissa, kuten
-          Python, TypeScript, React, Node.js, konttipohjaiset ympäristöt
-          (Docker) ja pilvialustat (GCP). Käytän tekoälytyökaluja luontevasti ja
-          kroonisesti uteliaana kehitän jatkuvasti osaamistani.
+          Näen ohjelmistokehityksen kokonaisvaltaisena ongelmanratkaisuna, jossa
+          koodi on vain työkalu lopputuloksen saavuttamiseksi. Hyvä ratkaisu on
+          paitsi saavutettava ja helppokäyttöinen, myös pintaa syvemmältä
+          kestävä. Ollakseen aidosti arvokasta, koodin täytyy olla myös
+          ymmärrettävää ja ylläpidettävää. En rakenna tilapäisiä
+          purkkaviritelmiä, vaan kokonaisuuksia, jotka kestävät aikaa ja arkea.
         </p>
       </div>
       <div class="p-4 reveal">
@@ -118,13 +114,17 @@ import { Icon } from "astro-icon/components";
           Design
         </h2>
         <p class="text-content-primary max-w-lg">
-          Olen opiskellut muotoilua Lapin yliopistossa ja sieltä karttui paitsi
-          visuaalista osaamista ja kädentaitoja, myös ymmärrystä erilaisista
-          muotoiluprosesseista ja -työkaluista. Käyttäjälähtöinen
-          ongelmanratkaisu ja käytettävyyden huomioiminen kaikessa tekemisessä
-          on minulle tärkeintä. Jos asioita: tuotteita, ratkaisuja tai
-          esityksiä, ei tehtäisi käyttäjälle, ei niitä tarvitsisi tehdä
-          lainkaan.
+          Kaikki suunnittelu lähtee ihmisestä. Olipa kyseessä monimutkainen
+          ohjelmisto tai fyysinen konsepti, periaatteeni on tehdä asioita
+          käyttäjää varten. Hyvä muotoilu on aivan samanlaista ongelmanratkaisua
+          kuin insinöörityökin, työkalut ovat vain eri. Minun tehtäväni on
+          toimia siltana teknisen toteutuksen ja ihmisen välillä, ja varmistaa,
+          että käyttökokemus on looginen ja intuitiivinen.
+        </p>
+        <p class="text-content-primary max-w-lg pt-4">
+          Asiakaslähtöisyys on leivottu selkärankaani ravintola-alalla ja olen
+          myöhemmin kehittänyt sitä edelleen muotoiluopinnoissani. Tämä
+          yhdistettynä insinööriyteen on yksi suurimmista vahvuuksistani.
         </p>
       </div>
       <div
@@ -138,14 +138,16 @@ import { Icon } from "astro-icon/components";
           Tilaustyöt
         </h2>
         <p class="max-w-lg">
-          Käsityöt ovat minulle intohimo, joten olen päätynyt myös opiskelemaan
-          luovia aloja. Olen taiteen kandidaatti pääaineena sisustus- ja
-          tekstiilimuotoilu, olen opiskellut itseni myös hienopuusepäksi sekä
-          minulla on sisustajan osatutkinto.
+          Rakkaus luomiseen alkoi fyysisistä materiaaleista. Tekstiilityöt ovat
+          kulkeneet mukanani lapsesta asti, ja ne ovat opettaneet
+          konkreettisesti sen, mitä vaatii rakentaa jotain alusta loppuun omilla
+          käsillä. Tämä tinkimätön "duunarimeininki" ja visuaalinen
+          tarkkanäköisyys ovat tekemiseni selkäranka, joita olen kehittänyt ja
+          kuljetan mukanani kaikessa tekemisessäni..
         </p>
         <p class="max-w-lg pt-4">
-          Verkkokauppa on vielä kehitysvaiheessa, mutta tekemisiäni pääset
-          kurkkaamaan
+          Teen valikoiden fyysisiä tilaustöitä. Uutta verkkokauppaa odotellessa
+          voit kurkata aiempia töitäni
           <Button
             variant="textLink"
             class="text-surface-primary hover:text-surface-primary! inline-flex underline p-0 md:p-0"
@@ -155,11 +157,87 @@ import { Icon } from "astro-icon/components";
             variant="textLink"
             class="text-surface-primary hover:text-surface-primary! inline-flex underline p-0 md:p-0"
             href="https://archive.christaeloranta.fi"
-            target="_blank">arkistoidulta verkkosivultani</Button
+            target="_blank">arkistoidulta verkkosivulta</Button
           >.
         </p>
       </div>
     </div>
+    <Accordion>
+      <AccordionItem itemId="accordion-flush-1">
+        <Fragment slot="title"
+          >Mitä tarkoitat sanoessasi, että olet tuuliviiri?</Fragment
+        >
+        <Fragment slot="answer">
+          <p>
+            Tuuliviiriys on jotain, mitä minulle on sanottu paljon. Ei siksi,
+            että määrätiedottomasti pyörisin ympäriinsä, vaan koska
+            mielenkiinnonkohteeni vaihtuvat usein ja teen monenlaisia asioita,
+            usein myös samaan aikaan. Yleensä ollaan totuttu siihen, että
+            ihmisellä on yksi selkeä ammatti tai jotenkin rajatut kiinnostuksen
+            kohteet ja muu nähdään outona. "Tuuliviiriyteni" ansiosta olen
+            kerryttänyt laaja-alaista osaamista useilta eri segmenteiltä.
+          </p>
+          <p class="mt-2">
+            Tuuliviiriys tarkoittaa minulle myös kykyä reagoida muuttuviin
+            vaatimukseen ja tarvittaessa pivotoida rajustikin. Asioiden
+            puskeminen väkisin eteenpäin, koska näin on aina tehty, ei ole
+            mielestäni mielekästä, vaan mielummin etsin tavan, jolle tuuli on
+            myötäisempi.
+          </p>
+        </Fragment>
+      </AccordionItem>
+      <AccordionItem itemId="accordion-flush-4">
+        <Fragment slot="title"
+          >Ovatko sivustolla olevat kuosit sinun suunnittelemiasi?</Fragment
+        >
+        <Fragment slot="answer">
+          <p>
+            Ovat. Lapin yliopistossa opiskelin sisustus- ja tekstiilimuotoilua
+            ja opintokokonaisuuteen sisältyi useita pintasuunnitteluprojekteja.
+            Sivustolla on sekä painettavaksi, että kudottavaksi suunniteltuja
+            kuoseja, joita nyt muokattu verkkokäyttöön sopiviksi.
+          </p>
+        </Fragment>
+      </AccordionItem>
+
+      <AccordionItem itemId="accordion-flush-2">
+        <Fragment slot="title">Miten sinuun saa parhaiten yhteyden?</Fragment>
+        <Fragment slot="answer">
+          <p>
+            Yhteystietoni löytyvät <Button
+              variant="textLink"
+              href="/contact"
+              class="inline-flex py-0! px-1!"
+            >
+              yhteystietojen sivulta</Button
+            >.
+          </p>
+          <p class="mt-2">
+            Minulle voi matalalla kynnyksellä huudella Instagramissa tai
+            LinkedInissä. Myös sähköpostilla tai yhteydenottolomakkeella
+            lähetetyt viestit tulevat perille. Pyrin vastaamaan parissa
+            päivässä.
+          </p>
+        </Fragment>
+      </AccordionItem>
+      <AccordionItem itemId="accordion-flush-3">
+        <Fragment slot="title">Millaisille yhteistöille olet avoin?</Fragment>
+        <Fragment slot="answer">
+          <p>
+            Minulta voi kysellä yhteistyökuvioista liittyen oikeastaan mihin
+            vaan. Erityisesti kiinnostavat projektit, joissa pääsee yhdistämään
+            teknistä ja visuaalista osaamista, esimerkiksi erilainen
+            tuotteistukseen ja konseptointiin liittyvä tekeminen, tilaustyöt tai
+            protoilut.
+          </p>
+          <p class="mt-2">
+            Vielä jonain päivänä brändään itseni "järkevämmin" ja keskityn vain
+            yhteen asiaan, jotta myymisessä ja markkinoinnissa olisi selkeämpi
+            punainen lanka. Se päivä ei ole kuitenkaan vielä tänään.
+          </p>
+        </Fragment>
+      </AccordionItem>
+    </Accordion>
   </Content>
   <Content color="secondary">
     <ContactForm />

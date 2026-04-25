@@ -15,12 +15,40 @@
   --color-brand-highlight: #9a4526;
   --color-brand-background: #215154;
   --color-brand-background-highlight: #27727b;
-  /* #27727B*/
 
   --font-sans: "Inter", sans-serif;
   --font-sans-secondary: "Space Grotesk", sans-serif;
   --font-serif: "Newsreader", serif;
   --font-serif-secondary: "Libertinus Serif", serif;
+}
+
+@layer base {
+  :where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    summary,
+    [role="button"],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    @apply outline-none ring-2 ring-content-tertiary/80 ring-offset-2 ring-offset-surface-primary rounded-md;
+  }
+
+  /* Keep mouse users from seeing keyboard ring behavior */
+  :where(
+      a,
+      button,
+      input,
+      select,
+      textarea,
+      summary,
+      [role="button"],
+      [tabindex]:not([tabindex="-1"])
+    ):focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
 }
 
 /* ── Keyframes ─────────────────────────────────────────────────── */

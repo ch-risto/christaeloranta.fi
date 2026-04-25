@@ -41,7 +41,7 @@ const {
         <span class="font-sans-secondary">{period}</span>
       </span>
       <span
-        class="mt-1 block text-xl md:text-2xl font-serif-secondary italic text-content-secondary"
+        class="mt-1 block text-xl md:text-2xl font-serif-secondary italic text-content-secondary group-open:underline group-hover:underline"
       >
         {title}
       </span>
@@ -52,40 +52,23 @@ const {
       </span>
       {
         highlights && Object.keys(highlights).length > 0 && (
-          <span class="mt-3 flex flex-wrap gap-2">
+          <span class="mt-3 flex flex-wrap gap-2 reveal-group">
             {Object.entries(highlights).map(([skill, type]) => (
-              <Tag type={type as TagType}>{skill}</Tag>
+              <Tag additionalClass="reveal" type={type as TagType}>
+                {skill}
+              </Tag>
             ))}
           </span>
         )
       }
     </span>
-
-    <!-- <span
-            class="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-background/15 bg-surface-secondary text-brand-background transition-transform duration-200 group-open:rotate-180"
-        >
-            <svg
-                aria-hidden="true"
-                class="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M6 9L12 15L18 9"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-            </svg>
-        </span> -->
   </summary>
 
   <div
     class="border-t border-brand-background/10 px-4 pb-5 pt-0 md:px-6 md:pb-6"
   >
     <div
-      class="ml-8 md:ml-10 pt-2 text-content-primary font-sans-secondary leading-7 tracking-tight"
+      class="ml-8 md:ml-10 pt-2 text-content-tertiary font-sans-secondary leading-7 tracking-tight"
     >
       <slot />
     </div>
