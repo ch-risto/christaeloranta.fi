@@ -21,6 +21,7 @@ const {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const personSchema = getPersonSchema(canonicalUrl.toString());
+const isHomePage = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
@@ -60,6 +61,16 @@ const personSchema = getPersonSchema(canonicalUrl.toString());
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    {
+      isHomePage && (
+        <link
+          rel="preload"
+          as="image"
+          href="/images/routa_pattern.svg"
+          fetchpriority="high"
+        />
+      )
+    }
     <script
       type="application/ld+json"
       set:html={JSON.stringify(personSchema)}

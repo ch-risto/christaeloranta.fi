@@ -12,6 +12,12 @@ const {
   type = "main",
 } = Astro.props as HeroProps;
 
+const resolvedImageUrl = imageUrl
+  ? imageUrl.startsWith("/")
+    ? imageUrl
+    : `/${imageUrl}`
+  : undefined;
+
 const headerType = {
   main: {
     container: "min-h-[100svh] md:h-dvh max-h-[950px] justify-center",
@@ -34,12 +40,12 @@ const header = headerType[type];
   class={`w-full grow bg-brand-background flex flex-col items-center ${header.container} p-4 relative`}
 >
   {
-    imageUrl && (
+    resolvedImageUrl && (
       <>
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true" />
         <div
           class={`absolute inset-0 pointer-events-none ${imageClass} motion-safe:animate-[fade-in_0.55s_ease-out_both]`}
-          style={`background-image: url(${imageUrl}); background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
+          style={`background-image: url(${resolvedImageUrl}); background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
         />
       </>
     )
