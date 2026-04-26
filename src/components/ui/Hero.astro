@@ -36,7 +36,7 @@ const header = headerType[type];
   {
     imageUrl && (
       <>
-        <div class="absolute inset-0 pointer-events-none" />
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true" />
         <div
           class={`absolute inset-0 pointer-events-none ${imageClass}`}
           style={`background-image: url(${imageUrl}); background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
@@ -47,24 +47,20 @@ const header = headerType[type];
   <div
     class="w-full max-w-6xl justify-start bg-surface-primary/80 md:bg-transparent md:bg-[linear-gradient(to_right,var(--color-surface-primary)_10%,transparent_70%)] rounded-lg p-4 md:py-8 relative z-10"
   >
-    <div
-      class={`${header.tags} motion-safe:animate-[fade-in-up_0.5s_ease-out_both]`}
-    >
+    <div class={header.tags}>
       <slot name="tags" />
     </div>
     <h1
-      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-1`}
+      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title} reveal`}
     >
       <slot name="title" />
     </h1>
     <p
-      class={`font-sans-secondary uppercase text-content-tertiary tracking-tight text-sm md:text-base leading-6 md:leading-7 md:max-w-md md:px-2 ${header.description} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-2`}
+      class={`font-sans-secondary uppercase text-content-tertiary tracking-tight text-sm md:text-base leading-6 md:leading-7 md:max-w-md md:px-2 ${header.description} reveal`}
     >
       <slot name="description" />
     </p>
-    <div
-      class="mt-4 motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-3"
-    >
+    <div class="mt-4 reveal">
       <slot name="additional-content" />
     </div>
   </div>
