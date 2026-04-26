@@ -38,7 +38,7 @@ const header = headerType[type];
       <>
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true" />
         <div
-          class={`absolute inset-0 pointer-events-none ${imageClass}`}
+          class={`absolute inset-0 pointer-events-none ${imageClass} motion-safe:animate-[fade-in_0.55s_ease-out_both]`}
           style={`background-image: url(${imageUrl}); background-repeat: repeat; filter: brightness(0) saturate(100%) invert(35%) sepia(8%) saturate(3258%) hue-rotate(138deg) brightness(102%) contrast(85%);`}
         />
       </>
@@ -51,16 +51,18 @@ const header = headerType[type];
       <slot name="tags" />
     </div>
     <h1
-      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title} reveal`}
+      class={`font-serif text-heading-primary mb-2 max-w-2xl ${header.title}`}
     >
       <slot name="title" />
     </h1>
     <p
-      class={`font-sans-secondary uppercase text-content-tertiary tracking-tight text-sm md:text-base leading-6 md:leading-7 md:max-w-md md:px-2 ${header.description} reveal`}
+      class={`font-sans-secondary uppercase text-content-tertiary tracking-tight text-sm md:text-base leading-6 md:leading-7 md:max-w-md md:px-2 ${header.description} motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-2`}
     >
       <slot name="description" />
     </p>
-    <div class="mt-4 reveal">
+    <div
+      class="mt-4 motion-safe:animate-[fade-in-up_0.55s_ease-out_both] anim-delay-3"
+    >
       <slot name="additional-content" />
     </div>
   </div>
