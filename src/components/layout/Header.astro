@@ -5,8 +5,8 @@ import Button from "../ui/Button.astro";
 <header
   class="sticky md:fixed top-0 left-0 w-full z-50 bg-surface-secondary/95 md:bg-surface-secondary/75 md:backdrop-blur-sm"
 >
-  <nav class="max-w-6xl mx-auto px-4 py-2">
-    <div class="flex items-center justify-between gap-3">
+  <nav class="relative w-full py-2">
+    <div class="max-w-6xl mx-auto px-4 flex items-center justify-between gap-3">
       <a
         class="block leading-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
    motion-safe:hover:-translate-y-0.5"
@@ -20,7 +20,7 @@ import Button from "../ui/Button.astro";
         />
       </a>
 
-      <details class="relative md:hidden nav-menu">
+      <details class="md:hidden nav-menu">
         <summary
           class="list-none flex h-10 w-10 items-center justify-center rounded-sm text-content-primary cursor-pointer [&::-webkit-details-marker]:hidden"
           aria-label="Avaa valikko"
@@ -32,7 +32,7 @@ import Button from "../ui/Button.astro";
           </span>
         </summary>
         <ul
-          class="absolute right-0 mt-2 min-w-60 rounded-sm bg-surface-primary p-2 shadow-md flex flex-col gap-1"
+          class="absolute top-full right-0 w-45 rounded-b-sm bg-surface-secondary pr-4 py-2 shadow-md flex flex-col gap-1 items-end"
         >
           <li>
             <Button href="/" variant="navLink">Etusivu</Button>

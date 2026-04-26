@@ -29,7 +29,27 @@ const personSchema = getPersonSchema(canonicalUrl.toString());
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="theme-color" content="#215154" />
-    <link rel="icon" type="image/svg+xml" href="/logos/ch_.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      id="favicon-light"
+      rel="icon"
+      type="image/png"
+      href="/logos/ch_.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      id="favicon-dark"
+      rel="icon"
+      type="image/png"
+      href="/logos/ch_white.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      id="favicon-fallback"
+      rel="icon"
+      type="image/png"
+      href="/logos/ch_.png"
+    />
     <link rel="canonical" href={canonicalUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -48,6 +68,26 @@ const personSchema = getPersonSchema(canonicalUrl.toString());
       type="application/ld+json"
       set:html={JSON.stringify(personSchema)}
     />
+    <script is:inline>
+      const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const lightFavicon = document.getElementById("favicon-light");
+      const darkFavicon = document.getElementById("favicon-dark");
+      const fallbackFavicon = document.getElementById("favicon-fallback");
+
+      const syncFavicon = () => {
+        const useDark = darkModeQuery.matches;
+        const selectedHref = useDark
+          ? darkFavicon?.getAttribute("href")
+          : lightFavicon?.getAttribute("href");
+
+        if (fallbackFavicon && selectedHref) {
+          fallbackFavicon.setAttribute("href", selectedHref);
+        }
+      };
+
+      syncFavicon();
+      darkModeQuery.addEventListener("change", syncFavicon);
+    </script>
   </head>
   <body
     class="min-h-screen flex flex-col font-sans bg-surface-primary text-content-primary"
