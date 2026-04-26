@@ -4,15 +4,21 @@ import Hero from "../components/ui/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import TimelineAccordion from "../components/ui/TimelineAccordion.astro";
 import TimelineAccordionItem from "../components/ui/TimelineAccordionItem.astro";
-
-import { Icon } from "astro-icon/components";
 import Tag from "../components/ui/Tag.astro";
 import TwoColumns from "../components/ui/TwoColumns.astro";
+
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import omakuva from "../assets/images/omakuva.jpg";
 ---
 
-<MainLayout title="Minusta">
+<MainLayout
+  title="Christa Eloranta | Moniosaaja, tuuliviiri, generalisti"
+  description="Moniosaajan arvo piilee asioiden yhdistelyssä: kokonaisuuksien hahmottaminen vaatii monipuolisuutta ja laatikoiden välillä seikkailua."
+>
   <Hero
-    imageUrl="lonkeroraportti2.svg"
+    imageUrl="images/lonkeroraportti2.svg"
     imageClass="md:bg-[length:65%] bg-[length:100%]"
   >
     <Fragment slot="tags">
@@ -63,8 +69,8 @@ import TwoColumns from "../components/ui/TwoColumns.astro";
         </p>
       </Fragment>
       <Fragment slot="column2">
-        <img
-          src="/images/omakuva.jpg"
+        <Image
+          src={omakuva}
           alt="Christa Eloranta"
           class="rounded-md md:max-w-120 mx-auto aspect-square object-cover overflow-hidden object-[75%_100%] reveal shadow-md"
         />

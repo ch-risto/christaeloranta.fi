@@ -9,11 +9,18 @@ import Accordion from "../components/ui/Accordion.astro";
 import AccordionItem from "../components/ui/AccordionItem.astro";
 
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import christa from "../assets/images/ChristaEloranta.jpg";
 ---
 
 <!-- Etusivu - / -->
-<MainLayout title="Etusivu" headerColor="transparent">
-  <Hero imageUrl="routa_pattern_yellow.svg" type="main">
+<MainLayout
+  title="Christa Eloranta | Full-stack kehittäjä, designer & tekijä"
+  description="Tieto- ja viestintätekniikan insinööri, taiteen kandidaatti, puuseppä,  sisustaja, baarimestari, koodari, käsityöläinen, suunnittelija, juonittelija, generalisti"
+  headerColor="transparent"
+>
+  <Hero imageUrl="images/routa_pattern_yellow.svg" type="main">
     <Fragment slot="tags">
       <Tag additionalClass="reveal">ohjelmistokehitys</Tag>
       <Tag additionalClass="reveal">design</Tag>
@@ -76,8 +83,8 @@ import { Icon } from "astro-icon/components";
         </div>
       </div>
       <div class="justify-center md:mx-auto order-1 md:order-2">
-        <img
-          src="/images/ChristaEloranta.jpg"
+        <Image
+          src={christa}
           alt="Christa Eloranta, monipuolinen tekijä"
           class="rounded-full md:max-w-120 max-w-70 aspect-square object-cover overflow-hidden object-[100%_25%] m-4 reveal shadow-md"
         />
