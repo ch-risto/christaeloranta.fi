@@ -97,6 +97,19 @@ const isHomePage = Astro.url.pathname === "/";
       darkModeQuery.addEventListener("change", syncFavicon);
     </script>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701PQXH826"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(...args) {
+      window.dataLayer.push(args);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-701PQXH826");
+  </script>
   <body
     class="min-h-screen flex flex-col font-sans bg-surface-primary text-content-primary"
   >
