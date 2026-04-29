@@ -73,6 +73,7 @@ const isHomePage = Astro.url.pathname === "/";
       )
     }
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify(personSchema)}
     />
@@ -98,16 +99,26 @@ const isHomePage = Astro.url.pathname === "/";
     </script>
   </head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-701PQXH826"
-  ></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag(...args) {
-      window.dataLayer.push(args);
+    interface GtagWindow extends Window {
+      dataLayer: unknown[];
     }
-    gtag("js", new Date());
 
+    const gtagWindow = window as unknown as GtagWindow;
+
+    gtagWindow.dataLayer = gtagWindow.dataLayer || [];
+
+    const googleTagScript = document.createElement("script");
+    googleTagScript.async = true;
+    googleTagScript.src =
+      "https://www.googletagmanager.com/gtag/js?id=G-701PQXH826";
+    document.head.appendChild(googleTagScript);
+
+    function gtag(...args: unknown[]) {
+      gtagWindow.dataLayer.push(args);
+    }
+
+    gtag("js", new Date());
     gtag("config", "G-701PQXH826");
   </script>
   <body
