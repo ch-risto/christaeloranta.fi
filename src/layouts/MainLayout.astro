@@ -5,16 +5,15 @@ import Footer from "../components/layout/Footer.astro";
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   ogTitle?: string;
   ogDescription?: string;
   headerColor?: "transparent" | "light" | "brand";
   offsetHeader?: boolean;
-  offsetHeader?: boolean;
 }
 const {
   title,
-  description,
+  description = "Klassisen laulun valmennusta, esiintymisiä ja verkkokauppa.",
   ogTitle,
   ogDescription,
   headerColor = "light",
@@ -32,13 +31,9 @@ const {
   <main
     class={`grow w-full mx-auto flex flex-col items-center justify-start ${offsetHeader ? "pt-16 md:pt-20" : ""}`}
   >
-    <main
-      class={`grow w-full mx-auto flex flex-col items-center justify-start ${offsetHeader ? "pt-16 md:pt-20" : ""}`}
-    >
-      <slot />
-    </main>
-    <Footer />
+    <slot />
   </main>
+  <Footer />
 
   <script>
     // Scroll-reveal using IntersectionObserver
