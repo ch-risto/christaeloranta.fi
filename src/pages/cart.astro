@@ -1,0 +1,253 @@
+---
+import Stripe from "stripe";
+import ShopLayout from "../layouts/ShopLayout.astro";
+
+const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY, {});
+const DEFAULT_INVENTORY = 10;
+
+function parseInventory(value?: string): number | undefined {
+  if (!value) return undefined;
+  const parsed = Number.parseInt(value, 10);
+  if (Number.isNaN(parsed)) return undefined;
+  return Math.max(0, parsed);
+}
+
+const inventoryByPriceId: Record<string, number> = {};
+
+try {
+  const response = await stripe.products.list({
+    active: true,
+    expand: ["data.default_price"],
+  });
+
+  response.data.forEach((product) => {
+    const price = product.default_price;
+    if (!price || typeof price === "string") return;
+
+    const fromProductInventory = parseInventory(product.metadata?.inventory);
+    const fromProductVarastosaldo = parseInventory(
+      product.metadata?.varastosaldo,
+    );
+    const fromPriceInventory = parseInventory(price.metadata?.inventory);
+    const fromPriceVarastosaldo = parseInventory(price.metadata?.varastosaldo);
+
+    inventoryByPriceId[price.id] =
+      fromProductInventory ??
+      fromProductVarastosaldo ??
+      fromPriceInventory ??
+      fromPriceVarastosaldo ??
+      DEFAULT_INVENTORY;
+  });
+} catch (error) {
+  console.error("Virhe haettaessa varastosaldoja Stripestä:", error);
+}
+---
+
+<ShopLayout title="Ostoskori">
+  <section class="w-full max-w-4xl px-4 py-8 md:py-12">
+    <h1 class="text-3xl font-bold mb-6">Ostoskori</h1>
+
+    <div id="cart-empty" class="rounded-md border border-default p-6">
+      Ostoskorisi on tyhja.
+    </div>
+
+    <ul id="cart-list" class="hidden flex-col gap-3"></ul>
+  </section>
+</ShopLayout>
+
+<script define:vars={{ inventoryByPriceId, DEFAULT_INVENTORY }}>
+  const STORAGE_KEY = "cart:items";
+
+  const getMaxQuantity = (priceId) => {
+    const max = inventoryByPriceId[priceId];
+    if (typeof max !== "number" || Number.isNaN(max)) {
+      return DEFAULT_INVENTORY;
+    }
+    return Math.max(0, max);
+  };
+
+  const getCurrentItems = () => {
+    const raw = globalThis.localStorage?.getItem(STORAGE_KEY);
+    if (!raw) return {};
+
+    try {
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch {
+      return {};
+    }
+  };
+
+  const setCurrentItems = (items) => {
+    try {
+      globalThis.localStorage?.setItem(STORAGE_KEY, JSON.stringify(items));
+    } catch {
+      // Ignore write errors to keep UI responsive.
+    }
+  };
+
+  const removeCartItem = (priceId) => {
+    const current = getCurrentItems();
+    if (!(priceId in current)) return;
+    const rest = { ...current };
+    delete rest[priceId];
+    setCurrentItems(rest);
+  };
+
+  const updateCartItemQuantity = (priceId, quantity, maxQuantity) => {
+    const current = getCurrentItems();
+    if (!(priceId in current)) return;
+
+    const normalizedMax =
+      typeof maxQuantity === "number" && Number.isFinite(maxQuantity)
+        ? Math.max(0, maxQuantity)
+        : DEFAULT_INVENTORY;
+    const nextQuantity = Math.min(quantity, normalizedMax);
+
+    if (nextQuantity <= 0) {
+      removeCartItem(priceId);
+      return;
+    }
+
+    current[priceId] = {
+      priceId,
+      quantity: Math.floor(nextQuantity),
+    };
+    setCurrentItems(current);
+  };
+
+  const renderCart = () => {
+    const list = document.getElementById("cart-list");
+    const empty = document.getElementById("cart-empty");
+
+    if (
+      !(list instanceof HTMLUListElement) ||
+      !(empty instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const items = getCurrentItems();
+    const entries = Object.values(items);
+
+    list.innerHTML = "";
+
+    if (!entries.length) {
+      empty.classList.remove("hidden");
+      list.classList.add("hidden");
+      list.classList.remove("flex");
+      return;
+    }
+
+    empty.classList.add("hidden");
+    list.classList.remove("hidden");
+    list.classList.add("flex");
+
+    entries.forEach((item) => {
+      if (
+        !item ||
+        typeof item !== "object" ||
+        typeof item.priceId !== "string" ||
+        typeof item.quantity !== "number"
+      ) {
+        return;
+      }
+
+      const maxQuantity = getMaxQuantity(item.priceId);
+      const quantity = Math.min(item.quantity, maxQuantity);
+      const remaining = Math.max(0, maxQuantity - quantity);
+
+      if (quantity !== item.quantity) {
+        updateCartItemQuantity(item.priceId, quantity, maxQuantity);
+      }
+
+      const li = document.createElement("li");
+      li.className =
+        "rounded-md border border-default p-4 bg-surface-secondary";
+      li.innerHTML = `
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="text-sm md:text-base break-all">
+            <span class="font-semibold">Tuote:</span> ${item.priceId}
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 bg-brand-highlight/10 rounded-md p-2">
+              <button
+                type="button"
+                data-action="decrease"
+                data-price-id="${item.priceId}"
+                data-max-quantity="${maxQuantity}"
+                class="px-2 py-1 text-sm bg-brand-highlight text-white rounded hover:bg-brand-highlight/85 transition-colors"
+              >
+                −
+              </button>
+              <span class="min-w-8 text-center text-sm font-semibold">${quantity}</span>
+              <button
+                type="button"
+                data-action="increase"
+                data-price-id="${item.priceId}"
+                data-max-quantity="${maxQuantity}"
+                class="px-2 py-1 text-sm bg-brand-highlight text-white rounded hover:bg-brand-highlight/85 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                ${quantity >= maxQuantity ? "disabled" : ""}
+              >
+                +
+              </button>
+            </div>
+            <button
+              type="button"
+              data-action="remove"
+              data-price-id="${item.priceId}"
+              data-max-quantity="${maxQuantity}"
+              class="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+            >
+              Poista
+            </button>
+          </div>
+          <p class="text-xs mt-2 text-content-secondary">Varastossa jäljellä: ${remaining} kpl</p>
+        </div>
+      `;
+      list.appendChild(li);
+    });
+  };
+
+  // Delegated event handler for cart item controls
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+
+    const action = target.dataset.action;
+    const priceId = target.dataset.priceId;
+    if (!action || !priceId) return;
+
+    const maxQuantity = Number.parseInt(
+      target.dataset.maxQuantity ?? String(DEFAULT_INVENTORY),
+      10,
+    );
+    const items = getCurrentItems();
+
+    if (action === "increase") {
+      const quantity = items[priceId]?.quantity ?? 0;
+      updateCartItemQuantity(priceId, quantity + 1, maxQuantity);
+      renderCart();
+    } else if (action === "decrease") {
+      const quantity = items[priceId]?.quantity ?? 0;
+      updateCartItemQuantity(priceId, quantity - 1, maxQuantity);
+      renderCart();
+    } else if (action === "remove") {
+      removeCartItem(priceId);
+      renderCart();
+    }
+  });
+
+  const startCartUI = () => {
+    renderCart();
+    globalThis.addEventListener("storage", renderCart);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startCartUI, {
+      once: true,
+    });
+  } else {
+    startCartUI();
+  }
+</script>

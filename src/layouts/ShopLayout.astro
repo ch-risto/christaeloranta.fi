@@ -1,0 +1,13 @@
+---
+import MainLayout from "./MainLayout.astro";
+
+interface Props {
+  title: string;
+  headerColor?: "transparent" | "light" | "brand";
+}
+const { title, headerColor = "light" } = Astro.props as Props;
+---
+
+<MainLayout title={title} headerColor={headerColor} offsetHeader={true}>
+  <slot />
+</MainLayout>

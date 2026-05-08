@@ -10,6 +10,7 @@ interface Props {
   ogDescription?: string;
   headerColor?: "transparent" | "light" | "brand";
   offsetHeader?: boolean;
+  offsetHeader?: boolean;
 }
 const {
   title,
@@ -31,28 +32,32 @@ const {
   <main
     class={`grow w-full mx-auto flex flex-col items-center justify-start ${offsetHeader ? "pt-16 md:pt-20" : ""}`}
   >
-    <slot />
+    <main
+      class={`grow w-full mx-auto flex flex-col items-center justify-start ${offsetHeader ? "pt-16 md:pt-20" : ""}`}
+    >
+      <slot />
+    </main>
+    <Footer />
   </main>
-  <Footer />
-</BaseLayout>
 
-<script>
-  // Scroll-reveal using IntersectionObserver
-  // Respects prefers-reduced-motion via CSS; the JS still adds the class so
-  // layout never breaks if CSS transitions are skipped.
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+  <script>
+    // Scroll-reveal using IntersectionObserver
+    // Respects prefers-reduced-motion via CSS; the JS still adds the class so
+    // layout never breaks if CSS transitions are skipped.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
         }
-      }
-    },
-    { threshold: 0.12 },
-  );
+      },
+      { threshold: 0.12 },
+    );
 
-  document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
-    observer.observe(el);
-  });
-</script>
+    document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
+</BaseLayout>

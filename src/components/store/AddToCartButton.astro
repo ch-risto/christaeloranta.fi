@@ -1,0 +1,186 @@
+---
+interface Props {
+  priceId: string;
+  inventory: number;
+}
+
+const { priceId, inventory } = Astro.props as Props;
+---
+
+<div
+  data-cart-item-container
+  data-price-id={priceId}
+  data-inventory={inventory}
+>
+  <button
+    type="button"
+    data-action="add"
+    data-cart-control
+    class="w-full mt-4 bg-brand-highlight text-white py-2 px-4 rounded-md font-medium hover:bg-brand-highlight/75 hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-default"
+  >
+    Lisää ostoskoriin
+  </button>
+  <p class="text-sm mt-2 font-medium text-content-primary">
+    Varastossa: <span data-remaining>{inventory}</span> kpl
+  </p>
+  <div
+    data-quantity-controls
+    class="hidden mt-4 items-center gap-2 bg-brand-highlight/10 rounded-md p-2"
+  >
+    <button
+      type="button"
+      data-action="decrease"
+      data-cart-control
+      class="px-3 py-1 bg-brand-highlight text-white rounded hover:bg-brand-highlight/85 transition-colors"
+    >
+      −
+    </button>
+    <span data-quantity class="flex-1 text-center text-sm font-semibold">1</span
+    >
+    <button
+      type="button"
+      data-action="increase"
+      data-cart-control
+      class="px-3 py-1 bg-brand-highlight text-white rounded hover:bg-brand-highlight/85 transition-colors"
+    >
+      +
+    </button>
+    <button
+      type="button"
+      data-action="remove"
+      data-cart-control
+      class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+    >
+      ✕
+    </button>
+  </div>
+</div>
+
+<script>
+  import {
+    addCartItem,
+    removeCartItem,
+    updateCartItemQuantity,
+    getCartItemQuantity,
+    cartItems,
+  } from "../../store/cartStore";
+
+  const LISTENER_FLAG = "addToCartHandlerBound";
+
+  function getMaxInventory(container: Element): number {
+    const parsed = Number(container.getAttribute("data-inventory") ?? "0");
+    return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+  }
+
+  function updateUIForPriceId(container: Element, priceId: string) {
+    const addButton = container.querySelector<HTMLButtonElement>(
+      "button[data-action='add']",
+    );
+    const quantityControls = container.querySelector<HTMLElement>(
+      "[data-quantity-controls]",
+    );
+    const quantitySpan =
+      container.querySelector<HTMLElement>("[data-quantity]");
+    const remainingSpan =
+      container.querySelector<HTMLElement>("[data-remaining]");
+    const increaseButton = container.querySelector<HTMLButtonElement>(
+      "button[data-action='increase']",
+    );
+
+    if (
+      !addButton ||
+      !quantityControls ||
+      !quantitySpan ||
+      !remainingSpan ||
+      !increaseButton
+    ) {
+      return;
+    }
+
+    const quantity = getCartItemQuantity(priceId);
+    const maxInventory = getMaxInventory(container);
+    const remaining = Math.max(0, maxInventory - quantity);
+
+    remainingSpan.textContent = String(remaining);
+    increaseButton.disabled = quantity >= maxInventory;
+
+    if (quantity > 0) {
+      addButton.classList.add("hidden");
+      quantityControls.classList.remove("hidden");
+      quantityControls.classList.add("flex");
+      quantitySpan.textContent = String(quantity);
+    } else {
+      addButton.classList.toggle("hidden", maxInventory <= 0);
+      quantityControls.classList.add("hidden");
+      quantityControls.classList.remove("flex");
+      quantitySpan.textContent = "1";
+    }
+
+    if (maxInventory <= 0) {
+      addButton.textContent = "Loppuunmyyty";
+      addButton.disabled = true;
+    } else {
+      addButton.textContent = "Lisää ostoskoriin";
+      addButton.disabled = quantity >= maxInventory;
+    }
+  }
+
+  // Initialize all buttons on page load
+  const initializeAllButtons = () => {
+    document
+      .querySelectorAll("[data-cart-item-container]")
+      .forEach((container) => {
+        const priceId = container.getAttribute("data-price-id");
+        if (priceId) {
+          updateUIForPriceId(container, priceId);
+        }
+      });
+  };
+
+  if (document.body.dataset[LISTENER_FLAG] !== "true") {
+    document.body.dataset[LISTENER_FLAG] = "true";
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const button = target.closest("button[data-action][data-cart-control]");
+      if (!(button instanceof HTMLButtonElement)) return;
+
+      const action = button.dataset.action;
+      const container = button.closest("[data-cart-item-container]");
+      if (!container || !(container instanceof Element)) return;
+
+      const priceId = container.getAttribute("data-price-id");
+      if (!priceId) return;
+      const maxInventory = getMaxInventory(container);
+
+      if (action === "add") {
+        addCartItem(priceId, maxInventory);
+        updateUIForPriceId(container, priceId);
+      } else if (action === "increase") {
+        const quantity = getCartItemQuantity(priceId);
+        updateCartItemQuantity(priceId, quantity + 1, maxInventory);
+        updateUIForPriceId(container, priceId);
+      } else if (action === "decrease") {
+        const quantity = getCartItemQuantity(priceId);
+        updateCartItemQuantity(priceId, quantity - 1, maxInventory);
+        updateUIForPriceId(container, priceId);
+      } else if (action === "remove") {
+        removeCartItem(priceId);
+        updateUIForPriceId(container, priceId);
+      }
+    });
+
+    cartItems.listen(() => {
+      initializeAllButtons();
+    });
+  }
+
+  // Initialize buttons on page load (handles refresh)
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeAllButtons);
+  } else {
+    initializeAllButtons();
+  }
+</script>

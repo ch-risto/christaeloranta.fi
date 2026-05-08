@@ -9,7 +9,7 @@ import Button from "../ui/Button.astro";
     <div class="max-w-6xl mx-auto px-4 flex items-center justify-between gap-3">
       <a
         class="block leading-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current
-   motion-safe:hover:-translate-y-0.5"
+        motion-safe:hover:-translate-y-0.5"
         href="/"
       >
         <img
@@ -43,7 +43,21 @@ import Button from "../ui/Button.astro";
             <Button href="/about" variant="navLink">Minusta</Button>
           </li>
           <li>
+            <Button href="/shop" variant="navLink">Kauppa</Button>
+          </li>
+          <li>
             <Button href="/contact" variant="navLink">Ota yhteyttä</Button>
+          </li>
+          <li>
+            <Button href="/cart" variant="navLink">
+              ostoskori
+              <span
+                data-cart-badge
+                class="hidden min-w-5 h-5 px-1 rounded-full bg-brand-highlight text-surface-primary text-[11px] font-semibold leading-5 text-center"
+              >
+                0
+              </span>
+            </Button>
           </li>
         </ul>
       </details>
@@ -58,9 +72,49 @@ import Button from "../ui/Button.astro";
           <Button href="/about" variant="navLink">Minusta</Button>
         </li>
         <li>
+          <Button href="/shop" variant="navLink">Kauppa</Button>
+        </li>
+        <li>
           <Button href="/contact" variant="navLink">Ota yhteyttä</Button>
+        </li>
+        <li>
+          <Button href="/cart" variant="navLink">
+            Ostoskori
+            <span
+              data-cart-badge
+              class="hidden min-w-5 h-5 px-1 rounded-full bg-brand-highlight text-surface-primary text-[11px] font-semibold leading-5 text-center"
+            >
+              0
+            </span>
+          </Button>
         </li>
       </ul>
     </div>
   </nav>
 </header>
+
+<script>
+  import { cartItems } from "../../store/cartStore";
+
+  const badges = document.querySelectorAll<HTMLElement>("[data-cart-badge]");
+
+  const renderCartBadge = () => {
+    const items = cartItems.get();
+    const itemCount = Object.values(items).reduce(
+      (sum, item) => sum + item.quantity,
+      0,
+    );
+
+    badges.forEach((badge) => {
+      if (itemCount > 0) {
+        badge.textContent = String(itemCount);
+        badge.classList.remove("hidden");
+      } else {
+        badge.classList.add("hidden");
+      }
+    });
+  };
+
+  renderCartBadge();
+  cartItems.listen(renderCartBadge);
+</script>
