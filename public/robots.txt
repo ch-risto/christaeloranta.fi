@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.christaeloranta.fi/sitemap-index.xml
+# OpenAI search and user-requested browsing. Training crawlers are not granted an explicit exception.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+Sitemap: https://christaeloranta.fi/sitemap-index.xml
