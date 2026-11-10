@@ -1,0 +1,24 @@
+# Christa Eloranta
+
+> Finnish software developer, designer and maker combining technical implementation, user-centred design, and practical product development.
+
+Canonical website: https://christaeloranta.fi/
+Language: Finnish (fi)
+
+## Key pages
+- [Home](https://christaeloranta.fi/): professional introduction, software development, design and making
+- [About](https://christaeloranta.fi/about): education, professional background, entrepreneurship and approach to multidisciplinary work
+- [Contact](https://christaeloranta.fi/contact): contact information
+- [Public CV (PDF)](https://christaeloranta.fi/Eloranta-CV.pdf): downloadable résumé; check publication date before treating as current
+- [Source repository](https://github.com/ch-risto/christaeloranta.fi): public source of this website
+
+## Professional themes
+- Web and full-stack development, integrations and identity/SSO modernization
+- User-centred design, service/product concepts and visual design
+- Combining software engineering, design, craft and hands-on implementation
+
+## Machine-readable context
+- [Expanded public profile](https://christaeloranta.fi/llms-full.txt)
+- [XML sitemap](https://christaeloranta.fi/sitemap-index.xml)
+
+This file describes public website content, not private employment records. Verify current claims against the linked pages.
