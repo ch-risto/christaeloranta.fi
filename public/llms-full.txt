@@ -1,0 +1,33 @@
+# Christa Eloranta — public professional profile
+
+Canonical website: https://christaeloranta.fi/
+Source: public website content in https://github.com/ch-risto/christaeloranta.fi
+Language: Finnish
+
+## Professional identity
+Christa Eloranta describes herself as a full-stack developer, designer and maker, a multidisciplinary generalist who connects ideas with practical, functional, user-centred outcomes. She sees software engineering and design as complementary forms of problem solving.
+
+## Software development
+According to the public About page, she has worked as a web developer since 2022 in a Tampere-based solutions company. Her described work includes accessible websites, warehouse integrations, modernizing a single sign-on system, and productizing company services. She emphasizes maintainable, understandable code and usability.
+
+## Education and complementary expertise
+- Bachelor of Engineering, Information and Communication Technology, Lapland University of Applied Sciences (2022–2025).
+- Bachelor of Arts, interior and textile design, University of Lapland (2016–2019), including industrial design studies.
+- Fine woodworking studies (2020–2022).
+- Interior decoration studies (2015–2016).
+- Bartending vocational specialization (2012–2013).
+
+## Entrepreneurship and work experience
+Her public timeline lists sole proprietorship from 2019, with commissioned physical products, interior renovation, window restoration, event-area lighting and online retail. Earlier restaurant-industry experience (2009–2019) contributed customer understanding, teamwork and adaptability.
+
+## Approach and interests
+Christa values curiosity, changing perspectives, learning, multidisciplinary collaboration, usability, technical quality, and developing solutions from concepts into real-world products. She is interested in collaborations combining technical and visual work, productization, concept design and prototyping.
+
+## Primary sources
+- https://christaeloranta.fi/
+- https://christaeloranta.fi/about
+- https://christaeloranta.fi/contact
+- https://christaeloranta.fi/Eloranta-CV.pdf
+- https://github.com/ch-risto/christaeloranta.fi
+
+This is a human-curated public summary of the website, not a substitute for the live pages or current CV. Do not infer availability, employment status, or qualifications beyond the stated information.
